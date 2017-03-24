@@ -33,12 +33,74 @@ namespace FB_Kinect_Painter
         private const String APPNAME = "FB Kinect Painter 1.0 pre-alpha";
         private const String ERR_NOKINECT = "Nie znaleziono sensora Kinect. Aby kontynuować podłącz urządzenie!";
         private KinectSensorChooser sensorChooser;
+
+        private void InitKinectInteractions(KinectChangedEventArgs args)
+        {
+            bool error = false;
+            if (args.OldSensor != null)
+            {
+                try
+                {
+                    args.OldSensor.DepthStream.Range = DepthRange.Default;
+                    args.OldSensor.SkeletonStream.EnableTrackingInNearRange = false;
+                    args.OldSensor.DepthStream.Disable();
+                    args.OldSensor.SkeletonStream.Disable();
+                }
+                catch (InvalidOperationException)
+                {
+                    // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.
+                    // E.g.: sensor might be abruptly unplugged.
+                    error = true;
+                }
+            }
+
+            if (args.NewSensor != null)
+            {
+                try
+                {
+                    args.NewSensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
+                    args.NewSensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
+                    args.NewSensor.SkeletonStream.Enable();
+
+                     try
+                      {
+                          args.NewSensor.DepthStream.Range = DepthRange.Default;
+                          args.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
+                          args.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
+                      }
+                      catch (InvalidOperationException)
+                      {
+                          // Non Kinect for Windows devices do not support Near mode, so reset back to default mode.
+                          args.NewSensor.DepthStream.Range = DepthRange.Default;
+                          args.NewSensor.SkeletonStream.EnableTrackingInNearRange = false;
+                          error = true;
+                      }
+                }
+                catch (InvalidOperationException)
+                {
+                    error = true;
+                    // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.
+                    // E.g.: sensor might be abruptly unplugged.
+                }
+                if (!error)
+                    kinectRegion.KinectSensor = args.NewSensor;
+            }
+        }
+
         private void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args)
         {
             if (args.NewSensor == null)
             {
-                MessageBox.Show(ERR_NOKINECT, APPNAME, MessageBoxButton.OK, MessageBoxImage.Warning);
+                this.Hide();                
+                MessageBox.Show(ERR_NOKINECT, APPNAME, MessageBoxButton.OK, MessageBoxImage.Warning);              
+                
             }
+            else
+            {
+                this.Show();
+                InitKinectInteractions(args);
+            }
+            
         }
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
@@ -49,10 +111,16 @@ namespace FB_Kinect_Painter
             this.sensorChooser.Start();
         }
 
+        private void OnClickPressMe(object sender, RoutedEventArgs routedEventArgs)
+        {
+            MessageBox.Show("Success!");
+        }
+
         public MainWindow()
         {
             InitializeComponent();
             Loaded += OnLoaded;
+            new Window();
         }
     }
 }

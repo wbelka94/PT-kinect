@@ -6,8 +6,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FB_Kinect_Painter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
+        Title="MainWindow" Height="600" Width="800" WindowState="Maximized">
+    <Grid Background="black">
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+        <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Center" 
+        k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="300"/>
+        <k:KinectRegion Name="kinectRegion">
+            <k:KinectTileButton Label="Press me!" Click="OnClickPressMe"></k:KinectTileButton>
+        </k:KinectRegion>
+        
     </Grid>
 </Window>
