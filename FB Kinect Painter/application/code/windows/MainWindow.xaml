@@ -6,7 +6,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FB_Kinect_Painter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" WindowState="Maximized">
+        Title="FB Kinect Painter pre-alpha" Height="600" Width="800" WindowState="Maximized"
+        Icon="/application/graphics/kinect_app.ico" Background="Blue" ResizeMode="CanMinimize">
     <Grid Background="black">
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
         <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Center" 
@@ -14,6 +15,5 @@
         <k:KinectRegion Name="kinectRegion">
             <k:KinectTileButton Label="Press me!" Click="OnClickPressMe"></k:KinectTileButton>
         </k:KinectRegion>
-        
     </Grid>
 </Window>

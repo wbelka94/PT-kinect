@@ -1,0 +1,50 @@
+﻿/*************************************************************************************/
+/*                                  OUR REFERENCES                                   */
+/*************************************************************************************/
+using FB_Kinect_Painter.application.code.classes;
+using Microsoft.Kinect;
+using Microsoft.Kinect.Toolkit;
+using Microsoft.Kinect.Toolkit.Controls;
+using Microsoft.Kinect.Toolkit.Interaction;
+/*************************************************************************************/
+/*                                     DEFAULT                                       */
+/*************************************************************************************/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+/*************************************************************************************/
+namespace FB_Kinect_Painter.application.windows {
+    public partial class Intro : Window {
+        /*****************************************************************************/
+        public Intro() {
+            InitializeComponent();
+            int countKinect = KinectSensor.KinectSensors.Count;
+
+            if(countKinect <= 0) {
+                this.Show();
+                MessageBox.Show(FB_Kinect.ERR_NOKINECT, FB_Kinect.APP_NAME, MessageBoxButton.OK, MessageBoxImage.Warning);
+                this.Close();
+            } else {
+                this.Show();
+                System.Threading.Thread.Sleep(4000);
+                FB_Kinect.mw = new MainWindow();
+                this.Close();
+                FB_Kinect.mw.Show();       
+            }
+        }
+        /*****************************************************************************/
+    }
+}
+/*************************************************************************************/
+

@@ -1,17 +1,19 @@
-﻿using System;
+﻿/*************************************************************************************/
+/*                                     DEFAULT                                       */
+/*************************************************************************************/
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
-namespace FB_Kinect_Painter
-{
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
-    public partial class App : Application
-    {
+/*************************************************************************************/
+namespace FB_Kinect_Painter {
+    /*********************************************************************************/
+    public partial class App : Application {
+        
     }
+    /*********************************************************************************/
 }
+/*************************************************************************************/
