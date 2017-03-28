@@ -1,0 +1,33 @@
+﻿<Window x:Class="FB_Kinect_Painter.application.code.windows.ExitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FB_Kinect_Painter.application.code.windows"
+        mc:Ignorable="d"
+        Background="#510E78" Height="240" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <k:KinectRegion Name="kinectRegion">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Foreground="White" FontSize="35" FontWeight="Bold" FontFamily="Hedley New Bold" HorizontalAlignment="Center" VerticalAlignment="Center"> 
+                    Czy na pewno chcesz wyjść?
+                </Label>
+                <k:KinectTileButton Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto" Foreground="White" FontSize="50" FontWeight="Bold" FontFamily="Hedley New Bold" Click="OnExitWindowYesButton">
+                    TAK   
+                </k:KinectTileButton>
+                <k:KinectTileButton Grid.Row="1" Grid.Column="1" Width="Auto" Height="Auto" Foreground="White" FontSize="50" FontWeight="Bold" FontFamily="Hedley New Bold" Click="OnExitWindowNoButton">
+                    NIE
+                </k:KinectTileButton>
+            </Grid>
+        </k:KinectRegion>
+    </Grid>
+</Window>

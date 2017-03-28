@@ -6,6 +6,7 @@ using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
 using Microsoft.Kinect.Toolkit.Interaction;
 using FB_Kinect_Painter.application.windows;
+using FB_Kinect_Painter.application.code.windows;
 /*************************************************************************************/
 /*                                     DEFAULT                                       */
 /*************************************************************************************/
@@ -40,6 +41,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         public static KinectSensorChooser sensorChooser;
         public static Window mw; // główne okno aplikacji
         public static Window iw; // intro window
+        public static Window ew; // exit window
         /*****************************************************************************/
         public static void InitKinectInteractions(object sender, KinectChangedEventArgs args) {
             bool error = false;
@@ -77,7 +79,18 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             if (!error) {
                 (mw as MainWindow).kinectRegion.KinectSensor = args.NewSensor;
+
             }
+        }
+        /*****************************************************************************/
+        public static void ChangeKinectRegionExit(Window w) {
+            (w as ExitWindow).kinectRegion.KinectSensor = (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor;
+            (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor = null;
+        }
+        /*****************************************************************************/
+        public static void ChangeKinectRegionMainWindow(Window w) {
+            (mw as MainWindow).kinectRegion.KinectSensor = (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor;
+            (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor = null;
         }
         /*****************************************************************************/
         public static void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args) {

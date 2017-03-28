@@ -2,7 +2,6 @@
 /*                                  OUR REFERENCES                                   */
 /*************************************************************************************/
 using FB_Kinect_Painter.application.code.classes;
-using FB_Kinect_Painter.application.code.windows;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
@@ -25,36 +24,26 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 /*************************************************************************************/
-namespace FB_Kinect_Painter {
-    public partial class MainWindow : Window {
+namespace FB_Kinect_Painter.application.code.windows {
+    /*********************************************************************************/
+    public partial class ExitWindow : Window {
         /*****************************************************************************/
-        private void OnLoaded(object sender, RoutedEventArgs routedEventArgs) {
-            FB_Kinect.sensorChooser = new KinectSensorChooser();
-            FB_Kinect.sensorChooser.KinectChanged += FB_Kinect.SensorChooserOnKinectChanged;
-            (FB_Kinect.mw as MainWindow).sensorChooserUi.KinectSensorChooser = FB_Kinect.sensorChooser;
-            FB_Kinect.sensorChooser.Start();
-        }
-        /*****************************************************************************/
-        private void OnClickQuitButton(object sender, RoutedEventArgs routedEventArgs) {
-            FB_Kinect.ew = new ExitWindow();
-            FB_Kinect.ew.Show();
-            //FB_Kinect.mw.Close();
-        }
-        /*****************************************************************************/
-        private void OnClickLoadButton(object sender, RoutedEventArgs routedEventArgs) {
-
-        }
-        /*****************************************************************************/
-        private void OnClickSaveButton(object sender, RoutedEventArgs routedEventArgs) {
-
-        }
-        /*****************************************************************************/
-        public MainWindow() {
+        public ExitWindow() {
             InitializeComponent();
-            FB_Visual.VisualMainWindow(this);
-            Loaded += OnLoaded;
+            FB_Kinect.ChangeKinectRegionExit(this);
+        }
+        /*****************************************************************************/
+        private void OnExitWindowYesButton(object sender, RoutedEventArgs routedEventArgs) {
+            FB_Kinect.ew.Close();
+            FB_Kinect.mw.Close();
+        }
+        /*****************************************************************************/
+        private void OnExitWindowNoButton(object sender, RoutedEventArgs routedEventArgs) {
+            FB_Kinect.ew.Close();
+            FB_Kinect.ChangeKinectRegionMainWindow(FB_Kinect.mw);
         }
         /*****************************************************************************/
     }
+    /*********************************************************************************/
 }
 /*************************************************************************************/

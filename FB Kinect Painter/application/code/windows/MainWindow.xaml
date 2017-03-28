@@ -1,4 +1,5 @@
-﻿<Window x:Class="FB_Kinect_Painter.MainWindow"
+﻿<!-- Nie sugeruj się wyglądem okna, zajrzyj do application/classes/FB_Visual.cs -->
+<Window x:Class="FB_Kinect_Painter.MainWindow"
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"        
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,7 +9,6 @@
         mc:Ignorable="d"
         Title="FB Kinect Painter pre-alpha" Height="Auto" Width="Auto" WindowState="Maximized" WindowStyle="None"
         Icon="/application/graphics/kinect_app.ico">
-    
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="/application/graphics/kinect_background.png" Stretch="UniformToFill"/>
@@ -22,7 +22,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition  Name="leftBarRow0"/>
+                        <RowDefinition Name="leftBarRow0"/>
                         <RowDefinition Name="leftBarRow1"/>
                         <RowDefinition Name="leftBarRow2"/>
                         <RowDefinition Name="leftBarRow3"/>

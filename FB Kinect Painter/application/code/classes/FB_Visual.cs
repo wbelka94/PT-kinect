@@ -47,7 +47,7 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             (mw as MainWindow).adSpace.Width = 0.7 * width;
             (mw as MainWindow).adSpace.Height = 0.1 * height;
-            MainWindowAdSpace(mw);
+            // MainWindowAdSpace(mw); // ta funkcja póki co nic nie robi
 
             (mw as MainWindow).palleteColors.Width = 0.7 * width;
             (mw as MainWindow).palleteColors.Height = 0.2 * height;
@@ -103,8 +103,7 @@ namespace FB_Kinect_Painter.application.code.classes {
             (mw as MainWindow).kinectUserViever.Height = (mw as MainWindow).cameraView.Height;
         }
         /*****************************************************************************/
-        private static void MainWindowAdSpace(MainWindow mw)
-        {
+        private static void MainWindowAdSpace(MainWindow mw) {
 
         }
         /*****************************************************************************/
