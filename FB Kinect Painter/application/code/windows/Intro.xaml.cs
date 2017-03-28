@@ -31,7 +31,7 @@ namespace FB_Kinect_Painter.application.windows {
             InitializeComponent();
             int countKinect = KinectSensor.KinectSensors.Count;
             FB_Kinect.iw = this;
-
+        
             if (countKinect <= 0) {
                 FB_Kinect.iw.Show();
                 MessageBox.Show(FB_Kinect.ERR_NOKINECT_START, FB_Kinect.APP_NAME, MessageBoxButton.OK, MessageBoxImage.Error);
