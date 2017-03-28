@@ -40,6 +40,7 @@ namespace FB_Kinect_Painter.application.code.windows {
         /*****************************************************************************/
         private void OnExitWindowNoButton(object sender, RoutedEventArgs routedEventArgs) {
             FB_Kinect.ew.Close();
+            FB_Kinect.ew = null;
             FB_Kinect.ChangeKinectRegionMainWindow(FB_Kinect.mw);
         }
         /*****************************************************************************/

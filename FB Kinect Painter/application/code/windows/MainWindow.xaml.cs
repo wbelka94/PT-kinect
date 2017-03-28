@@ -36,9 +36,10 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         private void OnClickQuitButton(object sender, RoutedEventArgs routedEventArgs) {
-            FB_Kinect.ew = new ExitWindow();
+            if (FB_Kinect.ew == null) {
+                FB_Kinect.ew = new ExitWindow();
+            }
             FB_Kinect.ew.Show();
-            //FB_Kinect.mw.Close();
         }
         /*****************************************************************************/
         private void OnClickLoadButton(object sender, RoutedEventArgs routedEventArgs) {

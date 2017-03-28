@@ -41,7 +41,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         public static KinectSensorChooser sensorChooser;
         public static Window mw; // główne okno aplikacji
         public static Window iw; // intro window
-        public static Window ew; // exit window
+        public static Window ew = null; // exit window
         /*****************************************************************************/
         public static void InitKinectInteractions(object sender, KinectChangedEventArgs args) {
             bool error = false;
