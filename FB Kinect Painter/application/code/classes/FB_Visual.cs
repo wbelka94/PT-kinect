@@ -34,6 +34,7 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             (mw as MainWindow).leftBar.Width = 0.15 * width;
             (mw as MainWindow).leftBar.Height = 1 * height;
+            MainWindowLeftBar(mw);
 
             (mw as MainWindow).cameraView.Width = 0.15 * width;
             (mw as MainWindow).cameraView.Height = 0.15 * width;
@@ -58,31 +59,16 @@ namespace FB_Kinect_Painter.application.code.classes {
                                                                 (mw as MainWindow).rightBar.Width, (mw as MainWindow).palleteColors.Height);
         }
         /*****************************************************************************/
-        private static void MainWindowLeftBar(MainWindow mw, int height, int width) {
+        private static void MainWindowLeftBar(MainWindow mw) {
+            int width = (int)(mw as MainWindow).leftBar.Width - 20;                // chcemy kwadratowe przyciski ;)
+            int height = (int)(mw as MainWindow).leftBar.Width - 20;
 
-        }
-        /*****************************************************************************/
-        private static void MainWindowRightBar(MainWindow mw) {
-            (mw as MainWindow).rightBarRow0.Height = new System.Windows.GridLength((mw as MainWindow).rightBar.Width);
-            (mw as MainWindow).rightBarRow1.Height = new System.Windows.GridLength((mw as MainWindow).rightBar.Width);
-            (mw as MainWindow).rightBarRow2.Height = new System.Windows.GridLength((mw as MainWindow).rightBar.Width);
+            (mw as MainWindow).leftBarRow0.Height = new System.Windows.GridLength((mw as MainWindow).leftBar.Width);
+            (mw as MainWindow).leftBarRow1.Height = new System.Windows.GridLength((mw as MainWindow).leftBar.Width);
+            (mw as MainWindow).leftBarRow2.Height = new System.Windows.GridLength((mw as MainWindow).leftBar.Width);
+            (mw as MainWindow).leftBarRow3.Height = new System.Windows.GridLength((mw as MainWindow).leftBar.Width);
 
-            //rightBar
-            int width = (int)(mw as MainWindow).rightBar.Width - 20;                // chcemy kwadratowe przyciski ;)
-            int height = (int)(mw as MainWindow).rightBar.Width - 20;
-
-            (mw as MainWindow).quitButton.Width = width;        
-            (mw as MainWindow).quitButton.Height = height;
-
-            (mw as MainWindow).loadButton.Width = width;        
-            (mw as MainWindow).loadButton.Height = height;
-
-            (mw as MainWindow).saveButton.Width = width;        
-            (mw as MainWindow).saveButton.Height = height;
-
-            //leftBar            
-
-            (mw as MainWindow).sprayButton.Width = width;                                   
+            (mw as MainWindow).sprayButton.Width = width;
             (mw as MainWindow).sprayButton.Height = height;
 
             (mw as MainWindow).pencilButton.Width = width;
@@ -93,7 +79,24 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             (mw as MainWindow).brushButton.Width = width;
             (mw as MainWindow).brushButton.Height = height;
+        }
+        /*****************************************************************************/
+        private static void MainWindowRightBar(MainWindow mw) {
+            int width = (int)(mw as MainWindow).rightBar.Width - 20;
+            int height = (int)(mw as MainWindow).rightBar.Width - 20;
 
+            (mw as MainWindow).rightBarRow0.Height = new System.Windows.GridLength((mw as MainWindow).rightBar.Width);
+            (mw as MainWindow).rightBarRow1.Height = new System.Windows.GridLength((mw as MainWindow).rightBar.Width);
+            (mw as MainWindow).rightBarRow2.Height = new System.Windows.GridLength((mw as MainWindow).rightBar.Width);
+
+            (mw as MainWindow).quitButton.Width = width;        
+            (mw as MainWindow).quitButton.Height = height;
+
+            (mw as MainWindow).loadButton.Width = width;        
+            (mw as MainWindow).loadButton.Height = height;
+
+            (mw as MainWindow).saveButton.Width = width;        
+            (mw as MainWindow).saveButton.Height = height;
         }
         /*****************************************************************************/
         private static void MainWindowCameraView(MainWindow mw) {
