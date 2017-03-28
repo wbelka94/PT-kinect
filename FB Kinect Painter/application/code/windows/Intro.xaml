@@ -21,6 +21,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Label x:Name="label" Foreground="White" Content="Bełka, Florczak 2017" HorizontalAlignment="Left" Height="32" Margin="441,198,0,0" VerticalAlignment="Top" Width="159" FontSize="15" FontFamily="Hedley New Bold"/>
+        <Label x:Name="authors" Foreground="White" Content="Bełka, Florczak 2017" HorizontalAlignment="Left" Height="32" Margin="441,198,0,0" VerticalAlignment="Top" Width="159" FontSize="15" FontFamily="Hedley New Bold"/>
+        <Label x:Name="information" Foreground="White" Content="Inicjalizacja urządzenia Kinect..." HorizontalAlignment="Left" Height="32" Margin="0,214,0,-6" VerticalAlignment="Top" Width="197" FontSize="12" FontFamily="Hedley New Bold"/>
     </Grid>
 </Window>

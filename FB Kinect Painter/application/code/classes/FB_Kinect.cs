@@ -30,14 +30,16 @@ namespace FB_Kinect_Painter.application.code.classes {
         /*****************************************************************************/
         /*                                  ERRORS                                   */
         /*****************************************************************************/
-        public const String ERR_NOKINECT = "Nie znaleziono sensora Kinect. Aby kontynuować podłącz urządzenie!";
+        public const String ERR_NOKINECT = "Sensor Kinect został odłączony. Aby kontynuować podłącz urządzenie!";
+        public const String ERR_NOKINECT_START = "Nie znaleziono sensora Kinect. Aplikacja zostanie zamknięta!";
         /*****************************************************************************/
         /*                                    APP                                    */
         /*****************************************************************************/
         public const String APP_NAME = "FB Kinect Painter 1.0 pre-alpha";
         /*****************************************************************************/
         public static KinectSensorChooser sensorChooser;
-        public static Window mw; //główne okno aplikacji
+        public static Window mw; // główne okno aplikacji
+        public static Window iw; // intro window
         /*****************************************************************************/
         public static void InitKinectInteractions(object sender, KinectChangedEventArgs args) {
             bool error = false;
@@ -83,6 +85,7 @@ namespace FB_Kinect_Painter.application.code.classes {
                 MessageBox.Show(FB_Kinect.ERR_NOKINECT, FB_Kinect.APP_NAME, MessageBoxButton.OK, MessageBoxImage.Warning);
             } else {
                 InitKinectInteractions(sender, args);
+                iw.Close();        
             }
         }
     }

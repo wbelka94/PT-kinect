@@ -30,17 +30,16 @@ namespace FB_Kinect_Painter.application.windows {
         public Intro() {
             InitializeComponent();
             int countKinect = KinectSensor.KinectSensors.Count;
+            FB_Kinect.iw = this;
 
-            if(countKinect <= 0) {
-                this.Show();
-                MessageBox.Show(FB_Kinect.ERR_NOKINECT, FB_Kinect.APP_NAME, MessageBoxButton.OK, MessageBoxImage.Warning);
-                this.Close();
+            if (countKinect <= 0) {
+                FB_Kinect.iw.Show();
+                MessageBox.Show(FB_Kinect.ERR_NOKINECT_START, FB_Kinect.APP_NAME, MessageBoxButton.OK, MessageBoxImage.Error);
+                FB_Kinect.iw.Close();
             } else {
-                this.Show();
-                System.Threading.Thread.Sleep(4000);
                 FB_Kinect.mw = new MainWindow();
-                this.Close();
-                FB_Kinect.mw.Show();       
+                FB_Kinect.mw.Show();
+                FB_Kinect.iw.Show();
             }
         }
         /*****************************************************************************/

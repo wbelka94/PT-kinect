@@ -6,14 +6,80 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FB_Kinect_Painter"
         mc:Ignorable="d"
-        Title="FB Kinect Painter pre-alpha" Height="600" Width="800" WindowState="Maximized"
-        Icon="/application/graphics/kinect_app.ico" Background="Blue" ResizeMode="CanMinimize">
-    <Grid Background="black">
-        <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
-        <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Center" 
-        k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="300"/>
+        Title="FB Kinect Painter pre-alpha" Height="Auto" Width="Auto" WindowState="Maximized" WindowStyle="None"
+        Icon="/application/graphics/kinect_app.ico">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/application/graphics/kinect_background.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        
+        <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi"/>
         <k:KinectRegion Name="kinectRegion">
-            <k:KinectTileButton Label="Press me!" Click="OnClickPressMe"></k:KinectTileButton>
+            <Grid Name="main">
+                <Grid Name="leftBar" HorizontalAlignment="Left">
+                
+                </Grid>
+                <Grid Name="rightBar" HorizontalAlignment="Right">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Name="rightBarRow0"/>
+                        <RowDefinition Name="rightBarRow1"/>
+                        <RowDefinition Name="rightBarRow2"/>
+                    </Grid.RowDefinitions>
+                    <k:KinectTileButton Name="quitButton" Grid.Row="0" Grid.Column="0" Content="Wyjdź" Foreground="White" Click="OnClickQuitButton"/>
+                    <k:KinectTileButton Name="loadButton" Grid.Row="1" Grid.Column="0" Content="Wczytaj" Foreground="White" Click="OnClickLoadButton"/>
+                    <k:KinectTileButton Name="saveButton" Grid.Row="2" Grid.Column="0" Content="Zapisz" Foreground="White" Click="OnClickSaveButton"/>
+                </Grid>
+                <Grid Name="workSpace" Background="White">
+
+                </Grid>
+                <Grid Name="cameraView" HorizontalAlignment="Center" VerticalAlignment="Top" Background="Black">
+                    <k:KinectUserViewer Name="kinectUserViever" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                </Grid>
+                <Grid Name="palleteColors" VerticalAlignment="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Name="palleteColorsColumn0"/>
+                        <ColumnDefinition Name="palleteColorsColumn1"/>
+                        <ColumnDefinition Name="palleteColorsColumn2"/>
+                        <ColumnDefinition Name="palleteColorsColumn3"/>
+                        <ColumnDefinition Name="palleteColorsColumn4"/>
+                        <ColumnDefinition Name="palleteColorsColumn5"/>
+                        <ColumnDefinition Name="palleteColorsColumn6"/>
+                        <ColumnDefinition Name="palleteColorsColumn7"/>
+                        <ColumnDefinition Name="palleteColorsColumn8"/>
+                        <ColumnDefinition Name="palleteColorsColumn9"/>
+                        <ColumnDefinition Name="palleteColorsColumn10"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Name="palleteColorsRow0"/>
+                        <RowDefinition Name="palleteColorsRow1"/>
+                    </Grid.RowDefinitions>
+                    <k:KinectTileButton Name="blackColor" Grid.Row="0" Grid.Column="0" Background="Black" BorderThickness="4"/>
+                    <k:KinectTileButton Name="whiteColor" Grid.Row="1" Grid.Column="0" Background="White" BorderThickness="4"/>
+                    <k:KinectTileButton Name="grayColor" Grid.Row="0" Grid.Column="1" Background="Gray" BorderThickness="4"/>
+                    <k:KinectTileButton Name="darkGrayColor" Grid.Row="1" Grid.Column="1" Background="DarkGray" BorderThickness="4"/>
+                    <k:KinectTileButton Name="darkRedColor" Grid.Row="0" Grid.Column="2" Background="DarkRed" BorderThickness="4"/>
+                    <k:KinectTileButton Name="brownColor" Grid.Row="1" Grid.Column="2" Background="Brown" BorderThickness="4"/>
+                    <k:KinectTileButton Name="redColor" Grid.Row="0" Grid.Column="3" Background="Red" BorderThickness="4"/>
+                    <k:KinectTileButton Name="pinkColor" Grid.Row="1" Grid.Column="3" Background="Pink" BorderThickness="4"/>
+                    <k:KinectTileButton Name="redOrangeColor" Grid.Row="0" Grid.Column="4" Background="OrangeRed" BorderThickness="4"/>
+                    <k:KinectTileButton Name="orangeColor" Grid.Row="1" Grid.Column="4" Background="Orange" BorderThickness="4"/>
+                    <k:KinectTileButton Name="yellowColor" Grid.Row="0" Grid.Column="5" Background="Yellow" BorderThickness="4"/>
+                    <k:KinectTileButton Name="lightYellowColor" Grid.Row="1" Grid.Column="5" Background="LightYellow" BorderThickness="4"/>
+                    <k:KinectTileButton Name="greenColor" Grid.Row="0" Grid.Column="6" Background="Green" BorderThickness="4"/>
+                    <k:KinectTileButton Name="lightGreenColor" Grid.Row="1" Grid.Column="6" Background="LightGreen" BorderThickness="4"/>
+                    <k:KinectTileButton Name="blueColor" Grid.Row="0" Grid.Column="7" Background="Blue" BorderThickness="4"/>
+                    <k:KinectTileButton Name="lightBlueColor" Grid.Row="1" Grid.Column="7" Background="LightBlue" BorderThickness="4"/>
+                    <k:KinectTileButton Name="darkBlueColor" Grid.Row="0" Grid.Column="8" Background="DarkBlue" BorderThickness="4"/>
+                    <k:KinectTileButton Name="cadetBlueColor" Grid.Row="1" Grid.Column="8" Background="CadetBlue" BorderThickness="4"/>
+                    <k:KinectTileButton Name="blueVioletColor" Grid.Row="0" Grid.Column="9" Background="BlueViolet" BorderThickness="4"/>
+                    <k:KinectTileButton Name="violetColor" Grid.Row="1" Grid.Column="9" Background="Violet" BorderThickness="4"/>
+                    <k:KinectTileButton Name="yourColor1" Grid.Row="0" Grid.Column="10" Background="White" BorderThickness="4"/>
+                    <k:KinectTileButton Name="yourColor2" Grid.Row="1" Grid.Column="10" Background="White" BorderThickness="4"/>
+                </Grid>
+            </Grid>
         </k:KinectRegion>
     </Grid>
 </Window>

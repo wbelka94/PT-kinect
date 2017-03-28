@@ -78,6 +78,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="application\code\classes\FB_Kinect.cs" />
+    <Compile Include="application\code\classes\FB_Visual.cs" />
     <Compile Include="application\code\windows\Intro.xaml.cs">
       <DependentUpon>Intro.xaml</DependentUpon>
     </Compile>
@@ -123,6 +124,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="application\graphics\kinect_app.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="application\graphics\kinect_background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
