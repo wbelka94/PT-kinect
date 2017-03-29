@@ -50,6 +50,10 @@ namespace FB_Kinect_Painter {
 
         }
         /*****************************************************************************/
+        private void OnClickNewButton(object sender, RoutedEventArgs routedEventArgs) {
+
+        }
+        /*****************************************************************************/
         public MainWindow() {
             InitializeComponent();
             FB_Visual.VisualMainWindow(this);

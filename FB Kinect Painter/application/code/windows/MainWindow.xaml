@@ -17,7 +17,7 @@
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi"/>
         <k:KinectRegion Name="kinectRegion">
             <Grid Name="main">
-                <Grid Name="leftBar" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Center">
+                <Grid Name="leftBar" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
@@ -27,12 +27,12 @@
                         <RowDefinition Name="leftBarRow2"/>
                         <RowDefinition Name="leftBarRow3"/>
                     </Grid.RowDefinitions>
-                    <k:KinectTileButton Name="sprayButton" Grid.Row="0" Grid.Column="0" Content="Spray" Foreground="White" />
-                    <k:KinectTileButton Name="pencilButton" Grid.Row="1" Grid.Column="0" Content="Ołówek" Foreground="White" />
-                    <k:KinectTileButton Name="eraserButton" Grid.Row="2" Grid.Column="0" Content="Gumka" Foreground="White" />
-                    <k:KinectTileButton Name="brushButton" Grid.Row="3" Grid.Column="0" Content="Pędzel" Foreground="White" />
+                    <k:KinectTileButton Name="sprayButton" Grid.Row="0" Grid.Column="0" Content="Spray" Foreground="White"/>
+                    <k:KinectTileButton Name="pencilButton" Grid.Row="1" Grid.Column="0" Content="Ołówek" Foreground="White"/>
+                    <k:KinectTileButton Name="eraserButton" Grid.Row="2" Grid.Column="0" Content="Gumka" Foreground="White"/>
+                    <k:KinectTileButton Name="brushButton" Grid.Row="3" Grid.Column="0" Content="Pędzel" Foreground="White"/>
                 </Grid>
-                <Grid Name="rightBar" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Grid Name="rightBar" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
@@ -40,21 +40,23 @@
                         <RowDefinition Name="rightBarRow0"/>
                         <RowDefinition Name="rightBarRow1"/>
                         <RowDefinition Name="rightBarRow2"/>
-                    </Grid.RowDefinitions>                    
-                    <k:KinectTileButton Name="quitButton" Grid.Row="0" Grid.Column="0" Content="Wyjdź" Foreground="White" Click="OnClickQuitButton"/>
-                    <k:KinectTileButton Name="loadButton" Grid.Row="1" Grid.Column="0" Content="Wczytaj" Foreground="White" Click="OnClickLoadButton"/>
-                    <k:KinectTileButton Name="saveButton" Grid.Row="2" Grid.Column="0" Content="Zapisz" Foreground="White" Click="OnClickSaveButton"/>                    
+                        <RowDefinition Name="rightBarRow3"/>
+                    </Grid.RowDefinitions>
+                    <k:KinectTileButton Name="newButton" Grid.Row="0" Grid.Column="0" Content="Nowy" Foreground="White" Click="OnClickNewButton"/>
+                    <k:KinectTileButton Name="saveButton" Grid.Row="1" Grid.Column="0" Content="Zapisz" Foreground="White" Click="OnClickSaveButton"/>
+                    <k:KinectTileButton Name="loadButton" Grid.Row="2" Grid.Column="0" Content="Wczytaj" Foreground="White" Click="OnClickLoadButton"/>
+                    <k:KinectTileButton Name="quitButton" Grid.Row="3" Grid.Column="0" Content="Wyjdź" Foreground="White" Click="OnClickQuitButton"/>
                 </Grid>
                 <Grid Name="workSpace" Background="White">
 
                 </Grid>
-                <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">
                     
                 </Grid>
                 <Grid Name="cameraView" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Black">
-                    <k:KinectUserViewer Name="kinectUserViever" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                    <k:KinectUserViewer Name="kinectUserViever" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Grid>
-                <Grid Name="palleteColors" VerticalAlignment="Bottom">
+                <Grid Name="palleteColors" VerticalAlignment="Bottom" Background="Blue">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Name="palleteColorsColumn0"/>
                         <ColumnDefinition Name="palleteColorsColumn1"/>
@@ -72,7 +74,7 @@
                         <RowDefinition Name="palleteColorsRow0"/>
                         <RowDefinition Name="palleteColorsRow1"/>
                     </Grid.RowDefinitions>
-                    <k:KinectTileButton Name="blackColor" Grid.Row="0" Grid.Column="0" Background="Black" BorderThickness="4"/>
+                    <k:KinectTileButton Name="blackColor" Grid.Row="0" Grid.Column="0" Background="Black" BorderThickness="4" Margin="0 0 0 0"/>
                     <k:KinectTileButton Name="whiteColor" Grid.Row="1" Grid.Column="0" Background="White" BorderThickness="4"/>
                     <k:KinectTileButton Name="grayColor" Grid.Row="0" Grid.Column="1" Background="Gray" BorderThickness="4"/>
                     <k:KinectTileButton Name="darkGrayColor" Grid.Row="1" Grid.Column="1" Background="DarkGray" BorderThickness="4"/>

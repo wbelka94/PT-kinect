@@ -32,25 +32,27 @@ namespace FB_Kinect_Painter.application.code.classes {
             int width = GetScreenWidth();
             int height = GetScreenHeight();
 
-            (mw as MainWindow).leftBar.Width = 0.15 * width;
-            (mw as MainWindow).leftBar.Height = 1 * height;
-            MainWindowLeftBar(mw);
-
             (mw as MainWindow).cameraView.Width = 0.15 * width;
-            (mw as MainWindow).cameraView.Height = 0.15 * width;
+            (mw as MainWindow).cameraView.Height = 0.2 * height;
             MainWindowCameraView(mw);
 
+            (mw as MainWindow).leftBar.Width = 0.15 * width;
+            (mw as MainWindow).leftBar.Height = 0.9 * height;
+            (mw as MainWindow).leftBar.Margin = new Thickness(0, 0.1 * height, 0, 0);
+            MainWindowLeftBar(mw);
+
             (mw as MainWindow).rightBar.Width = 0.15 * width;
-            //(mw as MainWindow).rightBar.Height = (1 * height) - (0.15 * width);
-            (mw as MainWindow).rightBar.Margin = new Thickness(0, 0, 0, (mw as MainWindow).cameraView.Height);
+            (mw as MainWindow).rightBar.Height = (0.9 * height) - (mw as MainWindow).cameraView.Height;
+            (mw as MainWindow).rightBar.Margin = new Thickness(0, 0.1 * height, 0, 0);
             MainWindowRightBar(mw);            
 
-            (mw as MainWindow).adSpace.Width = 0.7 * width;
+            (mw as MainWindow).adSpace.Width = 1 * width;
             (mw as MainWindow).adSpace.Height = 0.1 * height;
             // MainWindowAdSpace(mw); // ta funkcja póki co nic nie robi
 
             (mw as MainWindow).palleteColors.Width = 0.7 * width;
             (mw as MainWindow).palleteColors.Height = 0.2 * height;
+            (mw as MainWindow).palleteColors.Margin = new Thickness(0, 0, 0, 0);
             MainWindowPalleteColors(mw);
 
             (mw as MainWindow).workSpace.Width = 0.7 * width;
@@ -60,13 +62,13 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
         /*****************************************************************************/
         private static void MainWindowLeftBar(MainWindow mw) {
-            int width = (int)(mw as MainWindow).leftBar.Width - 20;                // chcemy kwadratowe przyciski ;)
-            int height = (int)(mw as MainWindow).leftBar.Width - 20;
+            double width = (int)(mw as MainWindow).leftBar.Width * 0.7;                // chcemy kwadratowe przyciski ;)
+            double height = (int)(mw as MainWindow).leftBar.Width * 0.7;
 
-            (mw as MainWindow).leftBarRow0.Height = new System.Windows.GridLength((mw as MainWindow).leftBar.Width);
-            (mw as MainWindow).leftBarRow1.Height = new System.Windows.GridLength((mw as MainWindow).leftBar.Width);
-            (mw as MainWindow).leftBarRow2.Height = new System.Windows.GridLength((mw as MainWindow).leftBar.Width);
-            (mw as MainWindow).leftBarRow3.Height = new System.Windows.GridLength((mw as MainWindow).leftBar.Width);
+            (mw as MainWindow).leftBarRow0.Height = new System.Windows.GridLength(height);
+            (mw as MainWindow).leftBarRow1.Height = new System.Windows.GridLength(height);
+            (mw as MainWindow).leftBarRow2.Height = new System.Windows.GridLength(height);
+            (mw as MainWindow).leftBarRow3.Height = new System.Windows.GridLength(height);
 
             (mw as MainWindow).sprayButton.Width = width;
             (mw as MainWindow).sprayButton.Height = height;
@@ -82,12 +84,13 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
         /*****************************************************************************/
         private static void MainWindowRightBar(MainWindow mw) {
-            int width = (int)(mw as MainWindow).rightBar.Width - 20;
-            int height = (int)(mw as MainWindow).rightBar.Width - 20;
+            double width = (int)(mw as MainWindow).rightBar.Width * 0.7;
+            double height = (int)(mw as MainWindow).rightBar.Width * 0.7;
 
-            (mw as MainWindow).rightBarRow0.Height = new System.Windows.GridLength((mw as MainWindow).rightBar.Width);
-            (mw as MainWindow).rightBarRow1.Height = new System.Windows.GridLength((mw as MainWindow).rightBar.Width);
-            (mw as MainWindow).rightBarRow2.Height = new System.Windows.GridLength((mw as MainWindow).rightBar.Width);
+            (mw as MainWindow).rightBarRow0.Height = new System.Windows.GridLength(height);
+            (mw as MainWindow).rightBarRow1.Height = new System.Windows.GridLength(height);
+            (mw as MainWindow).rightBarRow2.Height = new System.Windows.GridLength(height);
+            (mw as MainWindow).rightBarRow3.Height = new System.Windows.GridLength(height);
 
             (mw as MainWindow).quitButton.Width = width;        
             (mw as MainWindow).quitButton.Height = height;
@@ -97,6 +100,9 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             (mw as MainWindow).saveButton.Width = width;        
             (mw as MainWindow).saveButton.Height = height;
+
+            (mw as MainWindow).newButton.Width = width;
+            (mw as MainWindow).newButton.Height = height;
         }
         /*****************************************************************************/
         private static void MainWindowCameraView(MainWindow mw) {

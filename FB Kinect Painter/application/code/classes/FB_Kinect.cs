@@ -79,7 +79,6 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             if (!error) {
                 (mw as MainWindow).kinectRegion.KinectSensor = args.NewSensor;
-
             }
         }
         /*****************************************************************************/
@@ -101,6 +100,7 @@ namespace FB_Kinect_Painter.application.code.classes {
                 iw.Close();        
             }
         }
+        /*****************************************************************************/
     }
     /*********************************************************************************/
 }
