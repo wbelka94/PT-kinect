@@ -39,12 +39,13 @@ namespace FB_Kinect_Painter.application.code.classes {
             (mw as MainWindow).leftBar.Width = 0.15 * width;
             (mw as MainWindow).leftBar.Height = 0.9 * height;
             (mw as MainWindow).leftBar.Margin = new Thickness(0, 0.1 * height, 0, 0);
-            MainWindowLeftBar(mw);
+            
 
             (mw as MainWindow).rightBar.Width = 0.15 * width;
             (mw as MainWindow).rightBar.Height = (0.9 * height) - (mw as MainWindow).cameraView.Height;
             (mw as MainWindow).rightBar.Margin = new Thickness(0, 0.1 * height, 0, 0);
-            MainWindowRightBar(mw);            
+            MainWindowRightBar(mw);
+            MainWindowLeftBar(mw);
 
             (mw as MainWindow).adSpace.Width = 1 * width;
             (mw as MainWindow).adSpace.Height = 0.1 * height;
@@ -62,8 +63,10 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
         /*****************************************************************************/
         private static void MainWindowLeftBar(MainWindow mw) {
-            double width = (int)(mw as MainWindow).leftBar.Width * 0.7;                // chcemy kwadratowe przyciski ;)
-            double height = (int)(mw as MainWindow).leftBar.Width * 0.7;
+            /*double width = (int)(mw as MainWindow).leftBar.Width * 0.7;                // chcemy kwadratowe przyciski ;)
+            double height = (int)(mw as MainWindow).leftBar.Width * 0.7;*/
+            double width = (int)(mw as MainWindow).rightBar.Height * 0.25;
+            double height = (int)(mw as MainWindow).rightBar.Height * 0.25;
 
             (mw as MainWindow).leftBarRow0.Height = new System.Windows.GridLength(height);
             (mw as MainWindow).leftBarRow1.Height = new System.Windows.GridLength(height);
@@ -84,8 +87,8 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
         /*****************************************************************************/
         private static void MainWindowRightBar(MainWindow mw) {
-            double width = (int)(mw as MainWindow).rightBar.Width * 0.7;
-            double height = (int)(mw as MainWindow).rightBar.Width * 0.7;
+            double width = (int)(mw as MainWindow).rightBar.Height * 0.25;
+            double height = (int)(mw as MainWindow).rightBar.Height * 0.25;
 
             (mw as MainWindow).rightBarRow0.Height = new System.Windows.GridLength(height);
             (mw as MainWindow).rightBarRow1.Height = new System.Windows.GridLength(height);
@@ -117,7 +120,7 @@ namespace FB_Kinect_Painter.application.code.classes {
             (mw as MainWindow).palleteColorsRow0.Height = new System.Windows.GridLength((mw as MainWindow).palleteColors.Height / 2);
             (mw as MainWindow).palleteColorsRow1.Height = new System.Windows.GridLength((mw as MainWindow).palleteColors.Height / 2);
 
-            (mw as MainWindow).palleteColorsColumn0.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11); // bo 11 kolumn :p
+        /*    (mw as MainWindow).palleteColorsColumn0.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11); // bo 11 kolumn :p
             (mw as MainWindow).palleteColorsColumn1.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11);
             (mw as MainWindow).palleteColorsColumn2.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11);
             (mw as MainWindow).palleteColorsColumn3.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11);
@@ -127,75 +130,75 @@ namespace FB_Kinect_Painter.application.code.classes {
             (mw as MainWindow).palleteColorsColumn7.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11);
             (mw as MainWindow).palleteColorsColumn8.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11);
             (mw as MainWindow).palleteColorsColumn9.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11);
-            (mw as MainWindow).palleteColorsColumn10.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11);
+            (mw as MainWindow).palleteColorsColumn10.Width = new System.Windows.GridLength((mw as MainWindow).palleteColors.Width / 11);*/
 
-            (mw as MainWindow).blackColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).blackColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).blackColor.Height = (mw as MainWindow).blackColor.Width;
 
-            (mw as MainWindow).whiteColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).whiteColor.Width = (mw as MainWindow).palleteColors.Height / 2; ;
             (mw as MainWindow).whiteColor.Height = (mw as MainWindow).whiteColor.Width;
 
-            (mw as MainWindow).grayColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).grayColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).grayColor.Height = (mw as MainWindow).grayColor.Width;
 
-            (mw as MainWindow).darkGrayColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).darkGrayColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).darkGrayColor.Height = (mw as MainWindow).darkGrayColor.Width;
 
-            (mw as MainWindow).darkRedColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).darkRedColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).darkRedColor.Height = (mw as MainWindow).darkRedColor.Width;
 
-            (mw as MainWindow).brownColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).brownColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).brownColor.Height = (mw as MainWindow).brownColor.Width;
 
-            (mw as MainWindow).redColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).redColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).redColor.Height = (mw as MainWindow).redColor.Width;
 
-            (mw as MainWindow).redColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).redColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).redColor.Height = (mw as MainWindow).redColor.Width;
 
-            (mw as MainWindow).pinkColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).pinkColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).pinkColor.Height = (mw as MainWindow).pinkColor.Width;
 
-            (mw as MainWindow).redOrangeColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).redOrangeColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).redOrangeColor.Height = (mw as MainWindow).redOrangeColor.Width;
 
-            (mw as MainWindow).orangeColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).orangeColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).orangeColor.Height = (mw as MainWindow).orangeColor.Width;
 
-            (mw as MainWindow).yellowColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).yellowColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).yellowColor.Height = (mw as MainWindow).yellowColor.Width;
 
-            (mw as MainWindow).lightYellowColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).lightYellowColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).lightYellowColor.Height = (mw as MainWindow).lightYellowColor.Width;
 
-            (mw as MainWindow).greenColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).greenColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).greenColor.Height = (mw as MainWindow).greenColor.Width;
 
-            (mw as MainWindow).lightGreenColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).lightGreenColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).lightGreenColor.Height = (mw as MainWindow).lightGreenColor.Width;
 
-            (mw as MainWindow).blueColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).blueColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).blueColor.Height = (mw as MainWindow).blueColor.Width;
 
-            (mw as MainWindow).lightBlueColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).lightBlueColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).lightBlueColor.Height = (mw as MainWindow).lightBlueColor.Width;
 
-            (mw as MainWindow).darkBlueColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).darkBlueColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).darkBlueColor.Height = (mw as MainWindow).darkBlueColor.Width;
 
-            (mw as MainWindow).cadetBlueColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).cadetBlueColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).cadetBlueColor.Height = (mw as MainWindow).cadetBlueColor.Width;
 
-            (mw as MainWindow).blueVioletColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).blueVioletColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).blueVioletColor.Height = (mw as MainWindow).blueVioletColor.Width;
 
-            (mw as MainWindow).violetColor.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).violetColor.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).violetColor.Height = (mw as MainWindow).violetColor.Width;
 
-            (mw as MainWindow).yourColor1.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).yourColor1.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).yourColor1.Height = (mw as MainWindow).yourColor1.Width;
 
-            (mw as MainWindow).yourColor2.Width = (mw as MainWindow).palleteColors.Width / 11;
+            (mw as MainWindow).yourColor2.Width = (mw as MainWindow).palleteColors.Height / 2;
             (mw as MainWindow).yourColor2.Height = (mw as MainWindow).yourColor2.Width;
         }
         /*****************************************************************************/
