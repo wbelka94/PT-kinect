@@ -21,10 +21,10 @@
                 <Label Grid.Row="0" Grid.ColumnSpan="2" Foreground="White" FontSize="35" FontWeight="Bold" FontFamily="Hedley New Bold" HorizontalAlignment="Center" VerticalAlignment="Center"> 
                     Czy na pewno chcesz wyjść?
                 </Label>
-                <k:KinectTileButton Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto" Foreground="White" FontSize="50" FontWeight="Bold" FontFamily="Hedley New Bold" Click="OnExitWindowYesButton">
+                <k:KinectTileButton Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto" Margin="20" Foreground="White" FontSize="50" FontWeight="Bold" FontFamily="Hedley New Bold" Click="OnExitWindowYesButton">
                     TAK   
                 </k:KinectTileButton>
-                <k:KinectTileButton Grid.Row="1" Grid.Column="1" Width="Auto" Height="Auto" Foreground="White" FontSize="50" FontWeight="Bold" FontFamily="Hedley New Bold" Click="OnExitWindowNoButton">
+                <k:KinectTileButton Grid.Row="1" Grid.Column="1" Width="Auto" Height="Auto" Margin="20" Foreground="White" FontSize="50" FontWeight="Bold" FontFamily="Hedley New Bold" Click="OnExitWindowNoButton">
                     NIE
                 </k:KinectTileButton>
             </Grid>

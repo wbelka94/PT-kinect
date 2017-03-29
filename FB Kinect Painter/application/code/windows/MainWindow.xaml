@@ -17,7 +17,7 @@
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi"/>
         <k:KinectRegion Name="kinectRegion">
             <Grid Name="main">
-                <Grid Name="leftBar" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Grid Name="leftBar" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
