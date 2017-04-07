@@ -51,7 +51,7 @@
 
                 </Grid>
                 <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    
+                    <WebBrowser Name="wbSample" ScrollViewer.CanContentScroll="False"></WebBrowser>
                 </Grid>
                 <Grid Name="cameraView" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Black">
                     <k:KinectUserViewer Name="kinectUserViever" VerticalAlignment="Center" HorizontalAlignment="Center"/>

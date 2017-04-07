@@ -47,9 +47,9 @@ namespace FB_Kinect_Painter.application.code.classes {
             MainWindowRightBar(mw);
             MainWindowLeftBar(mw);
 
-            (mw as MainWindow).adSpace.Width = 1 * width;
+            (mw as MainWindow).adSpace.Width = 1 * width - (mw as MainWindow).rightBar.Width - (mw as MainWindow).leftBar.Width;
             (mw as MainWindow).adSpace.Height = 0.1 * height;
-            // MainWindowAdSpace(mw); // ta funkcja póki co nic nie robi
+            MainWindowAdSpace(mw); 
 
             (mw as MainWindow).palleteColors.Width = 0.7 * width;
             (mw as MainWindow).palleteColors.Height = 0.2 * height;
@@ -84,6 +84,7 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             (mw as MainWindow).brushButton.Width = width;
             (mw as MainWindow).brushButton.Height = height;
+            
         }
         /*****************************************************************************/
         private static void MainWindowRightBar(MainWindow mw) {
@@ -113,7 +114,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
         /*****************************************************************************/
         private static void MainWindowAdSpace(MainWindow mw) {
-
+            mw.wbSample.Navigate("http://w3.testpit.pl");
         }
         /*****************************************************************************/
         private static void MainWindowPalleteColors(MainWindow mw) {
