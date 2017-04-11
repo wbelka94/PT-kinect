@@ -72,6 +72,7 @@ namespace FB_Kinect_Painter.application.code.classes {
             (mw as MainWindow).leftBarRow1.Height = new System.Windows.GridLength(height);
             (mw as MainWindow).leftBarRow2.Height = new System.Windows.GridLength(height);
             (mw as MainWindow).leftBarRow3.Height = new System.Windows.GridLength(height);
+            (mw as MainWindow).leftBarRow4.Height = new System.Windows.GridLength(height);
 
             (mw as MainWindow).sprayButton.Width = width;
             (mw as MainWindow).sprayButton.Height = height;
@@ -84,7 +85,10 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             (mw as MainWindow).brushButton.Width = width;
             (mw as MainWindow).brushButton.Height = height;
-            
+
+            (mw as MainWindow).selectButton.Width = width;
+            (mw as MainWindow).selectButton.Height = height;
+
         }
         /*****************************************************************************/
         private static void MainWindowRightBar(MainWindow mw) {

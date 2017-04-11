@@ -72,6 +72,11 @@ namespace FB_Kinect_Painter {
             INK.EditingMode = InkCanvasEditingMode.Ink;
         }
         /*****************************************************************************/
+        private void OnClickSelectButton(object sender, RoutedEventArgs routedEventArgs)
+        {
+            INK.EditingMode = InkCanvasEditingMode.Select;
+        }
+        /*****************************************************************************/
 
         public MainWindow() {
             InitializeComponent();
