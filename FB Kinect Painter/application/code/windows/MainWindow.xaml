@@ -49,9 +49,12 @@
                     <k:KinectTileButton Name="loadButton" Grid.Row="2" Grid.Column="0" Content="Wczytaj" Foreground="White" Click="OnClickLoadButton"/>
                     <k:KinectTileButton Name="quitButton" Grid.Row="3" Grid.Column="0" Content="Wyjdź" Foreground="White" Click="OnClickQuitButton"/>
                 </Grid>
+                
                 <Grid Name="workSpace" Background="White">
+                    
                     <InkCanvas Name="INK">
                     </InkCanvas>
+                    <Label x:Name="TMPlabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </Grid>
                 <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">
                     <WebBrowser Name="wbSample" LoadCompleted="wb_LoadCompleted">
@@ -78,28 +81,28 @@
                         <RowDefinition Name="palleteColorsRow0"/>
                         <RowDefinition Name="palleteColorsRow1"/>
                     </Grid.RowDefinitions>
-                    <k:KinectTileButton Name="blackColor" Grid.Row="0" Grid.Column="0" Background="Black" BorderThickness="4" Margin="0 0 0 0"/>
-                    <k:KinectTileButton Name="whiteColor" Grid.Row="1" Grid.Column="0" Background="White" BorderThickness="4"/>
-                    <k:KinectTileButton Name="grayColor" Grid.Row="0" Grid.Column="1" Background="Gray" BorderThickness="4"/>
-                    <k:KinectTileButton Name="darkGrayColor" Grid.Row="1" Grid.Column="1" Background="DarkGray" BorderThickness="4"/>
-                    <k:KinectTileButton Name="darkRedColor" Grid.Row="0" Grid.Column="2" Background="DarkRed" BorderThickness="4"/>
-                    <k:KinectTileButton Name="brownColor" Grid.Row="1" Grid.Column="2" Background="Brown" BorderThickness="4"/>
-                    <k:KinectTileButton Name="redColor" Grid.Row="0" Grid.Column="3" Background="Red" BorderThickness="4"/>
-                    <k:KinectTileButton Name="pinkColor" Grid.Row="1" Grid.Column="3" Background="Pink" BorderThickness="4"/>
-                    <k:KinectTileButton Name="redOrangeColor" Grid.Row="0" Grid.Column="4" Background="OrangeRed" BorderThickness="4"/>
-                    <k:KinectTileButton Name="orangeColor" Grid.Row="1" Grid.Column="4" Background="Orange" BorderThickness="4"/>
-                    <k:KinectTileButton Name="yellowColor" Grid.Row="0" Grid.Column="5" Background="Yellow" BorderThickness="4"/>
-                    <k:KinectTileButton Name="lightYellowColor" Grid.Row="1" Grid.Column="5" Background="LightYellow" BorderThickness="4"/>
-                    <k:KinectTileButton Name="greenColor" Grid.Row="0" Grid.Column="6" Background="Green" BorderThickness="4"/>
-                    <k:KinectTileButton Name="lightGreenColor" Grid.Row="1" Grid.Column="6" Background="LightGreen" BorderThickness="4"/>
-                    <k:KinectTileButton Name="blueColor" Grid.Row="0" Grid.Column="7" Background="Blue" BorderThickness="4"/>
-                    <k:KinectTileButton Name="lightBlueColor" Grid.Row="1" Grid.Column="7" Background="LightBlue" BorderThickness="4"/>
-                    <k:KinectTileButton Name="darkBlueColor" Grid.Row="0" Grid.Column="8" Background="DarkBlue" BorderThickness="4"/>
-                    <k:KinectTileButton Name="cadetBlueColor" Grid.Row="1" Grid.Column="8" Background="CadetBlue" BorderThickness="4"/>
-                    <k:KinectTileButton Name="blueVioletColor" Grid.Row="0" Grid.Column="9" Background="BlueViolet" BorderThickness="4"/>
-                    <k:KinectTileButton Name="violetColor" Grid.Row="1" Grid.Column="9" Background="Violet" BorderThickness="4"/>
-                    <k:KinectTileButton Name="yourColor1" Grid.Row="0" Grid.Column="10" Background="White" BorderThickness="4"/>
-                    <k:KinectTileButton Name="yourColor2" Grid.Row="1" Grid.Column="10" Background="White" BorderThickness="4"/>
+                    <k:KinectTileButton Name="blackColor" Click="changeColor" Grid.Row="0" Grid.Column="0" Background="Black" BorderThickness="4" Margin="0 0 0 0"/>
+                    <k:KinectTileButton Name="whiteColor" Click="changeColor" Grid.Row="1" Grid.Column="0" Background="White" BorderThickness="4"/>
+                    <k:KinectTileButton Name="grayColor" Click="changeColor" Grid.Row="0" Grid.Column="1" Background="Gray" BorderThickness="4"/>
+                    <k:KinectTileButton Name="darkGrayColor" Click="changeColor" Grid.Row="1" Grid.Column="1" Background="DarkGray" BorderThickness="4"/>
+                    <k:KinectTileButton Name="darkRedColor" Click="changeColor" Grid.Row="0" Grid.Column="2" Background="DarkRed" BorderThickness="4"/>
+                    <k:KinectTileButton Name="brownColor" Click="changeColor" Grid.Row="1" Grid.Column="2" Background="Brown" BorderThickness="4"/>
+                    <k:KinectTileButton Name="redColor" Click="changeColor" Grid.Row="0" Grid.Column="3" Background="Red" BorderThickness="4"/>
+                    <k:KinectTileButton Name="pinkColor" Click="changeColor" Grid.Row="1" Grid.Column="3" Background="Pink" BorderThickness="4"/>
+                    <k:KinectTileButton Name="redOrangeColor" Click="changeColor" Grid.Row="0" Grid.Column="4" Background="OrangeRed" BorderThickness="4"/>
+                    <k:KinectTileButton Name="orangeColor" Click="changeColor" Grid.Row="1" Grid.Column="4" Background="Orange" BorderThickness="4"/>
+                    <k:KinectTileButton Name="yellowColor" Click="changeColor" Grid.Row="0" Grid.Column="5" Background="Yellow" BorderThickness="4"/>
+                    <k:KinectTileButton Name="lightYellowColor" Click="changeColor" Grid.Row="1" Grid.Column="5" Background="LightYellow" BorderThickness="4"/>
+                    <k:KinectTileButton Name="greenColor" Click="changeColor" Grid.Row="0" Grid.Column="6" Background="Green" BorderThickness="4"/>
+                    <k:KinectTileButton Name="lightGreenColor" Click="changeColor" Grid.Row="1" Grid.Column="6" Background="LightGreen" BorderThickness="4"/>
+                    <k:KinectTileButton Name="blueColor" Click="changeColor" Grid.Row="0" Grid.Column="7" Background="Blue" BorderThickness="4"/>
+                    <k:KinectTileButton Name="lightBlueColor" Click="changeColor" Grid.Row="1" Grid.Column="7" Background="LightBlue" BorderThickness="4"/>
+                    <k:KinectTileButton Name="darkBlueColor" Click="changeColor" Grid.Row="0" Grid.Column="8" Background="DarkBlue" BorderThickness="4"/>
+                    <k:KinectTileButton Name="cadetBlueColor" Click="changeColor" Grid.Row="1" Grid.Column="8" Background="CadetBlue" BorderThickness="4"/>
+                    <k:KinectTileButton Name="blueVioletColor" Click="changeColor" Grid.Row="0" Grid.Column="9" Background="BlueViolet" BorderThickness="4"/>
+                    <k:KinectTileButton Name="violetColor" Click="changeColor" Grid.Row="1" Grid.Column="9" Background="Violet" BorderThickness="4"/>
+                    <k:KinectTileButton Name="yourColor1" Click="changeColor" Grid.Row="0" Grid.Column="10" Background="White" BorderThickness="4"/>
+                    <k:KinectTileButton Name="yourColor2" Click="changeColor" Grid.Row="1" Grid.Column="10" Background="White" BorderThickness="4"/>
                 </Grid>
             </Grid>
         </k:KinectRegion>

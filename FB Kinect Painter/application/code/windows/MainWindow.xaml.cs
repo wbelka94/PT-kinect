@@ -77,11 +77,22 @@ namespace FB_Kinect_Painter {
             INK.EditingMode = InkCanvasEditingMode.Select;
         }
         /*****************************************************************************/
+        private void changeColor(object sender, RoutedEventArgs routedEventArgs)
+        {
+            String color = ((KinectTileButton)sender).Background.ToString();
+            INK.DefaultDrawingAttributes.Color = (Color)ColorConverter.ConvertFromString(color);
+        }
+        /*****************************************************************************/
 
         public MainWindow() {
             InitializeComponent();
             FB_Visual.VisualMainWindow(this);
             Loaded += OnLoaded;
+        }
+
+        private void blackColor_Click(object sender, RoutedEventArgs e)
+        {
+
         }
         /*****************************************************************************/
     }
