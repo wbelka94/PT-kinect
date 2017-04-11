@@ -67,6 +67,12 @@ namespace FB_Kinect_Painter {
             INK.EditingMode = InkCanvasEditingMode.EraseByPoint;
         }
         /*****************************************************************************/
+        private void OnClickPencilButton(object sender, RoutedEventArgs routedEventArgs)
+        {
+            INK.EditingMode = InkCanvasEditingMode.Ink;
+        }
+        /*****************************************************************************/
+
         public MainWindow() {
             InitializeComponent();
             FB_Visual.VisualMainWindow(this);
