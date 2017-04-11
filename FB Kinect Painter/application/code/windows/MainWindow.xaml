@@ -29,7 +29,7 @@
                     </Grid.RowDefinitions>
                     <k:KinectTileButton Name="sprayButton" Grid.Row="0" Grid.Column="0" Content="Spray" Foreground="White"/>
                     <k:KinectTileButton Name="pencilButton" Grid.Row="1" Grid.Column="0" Content="Ołówek" Foreground="White"/>
-                    <k:KinectTileButton Name="eraserButton" Grid.Row="2" Grid.Column="0" Content="Gumka" Foreground="White"/>
+                    <k:KinectTileButton Name="eraserButton" Click="OnClickEraserButton" Grid.Row="2" Grid.Column="0" Content="Gumka" Foreground="White"/>
                     <k:KinectTileButton Name="brushButton" Grid.Row="3" Grid.Column="0" Content="Pędzel" Foreground="White"/>
                 </Grid>
                 <Grid Name="rightBar" HorizontalAlignment="Right" VerticalAlignment="Top">
@@ -48,10 +48,16 @@
                     <k:KinectTileButton Name="quitButton" Grid.Row="3" Grid.Column="0" Content="Wyjdź" Foreground="White" Click="OnClickQuitButton"/>
                 </Grid>
                 <Grid Name="workSpace" Background="White">
-
+                    <InkCanvas Name="INK">
+                        <InkCanvas.DefaultDrawingAttributes >
+                            <DrawingAttributes
+         Color = "Green" Width = "6" />
+                        </InkCanvas.DefaultDrawingAttributes>
+                    </InkCanvas>
                 </Grid>
                 <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <WebBrowser Name="wbSample" ScrollViewer.CanContentScroll="False"></WebBrowser>
+                    <WebBrowser Name="wbSample" LoadCompleted="wb_LoadCompleted">
+                    </WebBrowser>
                 </Grid>
                 <Grid Name="cameraView" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Black">
                     <k:KinectUserViewer Name="kinectUserViever" VerticalAlignment="Center" HorizontalAlignment="Center"/>

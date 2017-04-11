@@ -24,6 +24,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Ink;
+
 /*************************************************************************************/
 namespace FB_Kinect_Painter {
     public partial class MainWindow : Window {
@@ -33,6 +35,11 @@ namespace FB_Kinect_Painter {
             FB_Kinect.sensorChooser.KinectChanged += FB_Kinect.SensorChooserOnKinectChanged;
             (FB_Kinect.mw as MainWindow).sensorChooserUi.KinectSensorChooser = FB_Kinect.sensorChooser;
             FB_Kinect.sensorChooser.Start();
+        }
+        private void wb_LoadCompleted(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+            mshtml.IHTMLDocument2 dom = (mshtml.IHTMLDocument2)wbSample.Document;
+            dom.body.style.overflow = "hidden";
         }
         /*****************************************************************************/
         private void OnClickQuitButton(object sender, RoutedEventArgs routedEventArgs) {
@@ -52,6 +59,11 @@ namespace FB_Kinect_Painter {
         /*****************************************************************************/
         private void OnClickNewButton(object sender, RoutedEventArgs routedEventArgs) {
 
+        }
+        /*****************************************************************************/
+        private void OnClickEraserButton(object sender, RoutedEventArgs routedEventArgs)
+        {
+            INK.EraserShape = new EllipseStylusShape(5, 5);
         }
         /*****************************************************************************/
         public MainWindow() {
