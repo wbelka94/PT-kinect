@@ -25,6 +25,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Ink;
+using System.Windows.Controls;
 
 /*************************************************************************************/
 namespace FB_Kinect_Painter {
@@ -63,7 +64,7 @@ namespace FB_Kinect_Painter {
         /*****************************************************************************/
         private void OnClickEraserButton(object sender, RoutedEventArgs routedEventArgs)
         {
-            INK.EraserShape = new EllipseStylusShape(5, 5);
+            INK.EditingMode = InkCanvasEditingMode.EraseByPoint;
         }
         /*****************************************************************************/
         public MainWindow() {
