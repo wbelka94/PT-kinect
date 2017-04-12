@@ -110,6 +110,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="application\code\classes\AutoClosingMessageBox.cs" />
     <Compile Include="application\code\classes\FB_Kinect.cs" />
     <Compile Include="application\code\classes\FB_Visual.cs" />
     <Compile Include="application\code\windows\ExitWindow.xaml.cs">

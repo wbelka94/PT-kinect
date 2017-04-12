@@ -3,6 +3,7 @@
 /*************************************************************************************/
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,36 @@ using System.Windows.Shapes;
 namespace FB_Kinect_Painter.application.code.classes {
     /*********************************************************************************/
     class FB_Visual {
+        /*****************************************************************************/
+        public static void CreateSaveBitmap(InkCanvas canvas)
+        {
+            RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
+             (int)canvas.ActualWidth, (int)canvas.ActualHeight,
+             96d, 96d, PixelFormats.Pbgra32);
+            // needed otherwise the image output is black
+            canvas.Measure(new Size((int)canvas.ActualWidth, (int)canvas.ActualHeight));
+            canvas.Arrange(new Rect(new Size((int)canvas.ActualWidth, (int)canvas.ActualHeight)));
+
+            renderBitmap.Render(canvas);
+
+            //JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+            PngBitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
+
+            String filename = "C:/Users/Wojtek/Desktop/FB_Kinect_Painter/FB_Kinect_Painter.bmp";            
+            int i = 1;            
+            while (File.Exists(filename)){
+                filename = "C:/Users/Wojtek/Desktop/FB_Kinect_Painter/FB_Kinect_Painter_" + i + ".bmp";
+                i++;
+            }           
+
+            using (FileStream file = File.Create(filename))
+            {
+                encoder.Save(file);
+            }
+            AutoClosingMessageBox.Show("Zapisano do pliku: " + filename, "Caption", 2000);
+
+        }
         /*****************************************************************************/
         private static int GetScreenHeight() {
             return (int)System.Windows.SystemParameters.PrimaryScreenHeight; 
@@ -118,7 +149,8 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
         /*****************************************************************************/
         private static void MainWindowAdSpace(MainWindow mw) {
-            mw.wbSample.Navigate("http://w3.testpit.pl");
+            //mw.wbSample.Navigate("http://iamwojtas.pl");
+            mw.wbSample.NavigateToString("<H1>To jest reklama</H1>");
         }
         /*****************************************************************************/
         private static void MainWindowPalleteColors(MainWindow mw) {

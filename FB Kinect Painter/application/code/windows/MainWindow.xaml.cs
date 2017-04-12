@@ -54,8 +54,9 @@ namespace FB_Kinect_Painter {
 
         }
         /*****************************************************************************/
-        private void OnClickSaveButton(object sender, RoutedEventArgs routedEventArgs) {
-
+        private void OnClickSaveButton(object sender, RoutedEventArgs routedEventArgs) {            
+            FB_Visual.CreateSaveBitmap(INK);
+            
         }
         /*****************************************************************************/
         private void OnClickNewButton(object sender, RoutedEventArgs routedEventArgs) {
