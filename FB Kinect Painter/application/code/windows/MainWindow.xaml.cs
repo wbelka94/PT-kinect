@@ -56,8 +56,6 @@ namespace FB_Kinect_Painter {
         /*****************************************************************************/
         private void OnClickSaveButton(object sender, RoutedEventArgs routedEventArgs) {            
             FB_Visual.CreateSaveBitmap(INK, "C:/Users/Wojtek/Desktop/FB_Kinect_Painter");
-
-
         }
         /*****************************************************************************/
         private void OnClickNewButton(object sender, RoutedEventArgs routedEventArgs) {
@@ -72,12 +70,21 @@ namespace FB_Kinect_Painter {
         private void OnClickPencilButton(object sender, RoutedEventArgs routedEventArgs)
         {
             INK.EditingMode = InkCanvasEditingMode.Ink;
+            INK.DefaultDrawingAttributes.Width = 1;
+            INK.DefaultDrawingAttributes.Height = 1;
         }
         /*****************************************************************************/
         private void OnClickSelectButton(object sender, RoutedEventArgs routedEventArgs)
         {
             INK.EditingMode = InkCanvasEditingMode.Select;
+        }        
+        /*****************************************************************************/
+        private void OnClickBrushButton(object sender, RoutedEventArgs routedEventArgs)
+        {
+            INK.EditingMode = InkCanvasEditingMode.Ink;
+            INK.DefaultDrawingAttributes.Width = 6;
         }
+
         /*****************************************************************************/
         private void changeColor(object sender, RoutedEventArgs routedEventArgs)
         {
