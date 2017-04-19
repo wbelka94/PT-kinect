@@ -51,9 +51,14 @@
                 </Grid>
                 
                 <Grid Name="workSpace" Background="White">
+
                     
-                    <InkCanvas Name="INK">
-                    </InkCanvas>
+                        <InkCanvas Name="INK">
+
+                        </InkCanvas>
+                    
+                    
+                    
                     <Label x:Name="TMPlabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </Grid>
                 <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">                    

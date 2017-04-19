@@ -24,6 +24,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
 /*************************************************************************************/
 namespace FB_Kinect_Painter.application.code.classes {
     /*********************************************************************************/
@@ -62,6 +63,7 @@ namespace FB_Kinect_Painter.application.code.classes {
                     args.NewSensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
                     args.NewSensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
                     args.NewSensor.SkeletonStream.Enable();
+                    args.NewSensor.SkeletonFrameReady += FramesReady;
 
                     try {
                         args.NewSensor.DepthStream.Range = DepthRange.Default;
@@ -101,6 +103,47 @@ namespace FB_Kinect_Painter.application.code.classes {
             }
         }
         /*****************************************************************************/
+        private static void FramesReady(object sender, SkeletonFrameReadyEventArgs e) {
+            SkeletonFrame SFrame = e.OpenSkeletonFrame();
+            if (SFrame == null)
+                return;
+            Skeleton[] Skeletons = new Skeleton[SFrame.SkeletonArrayLength];
+            SFrame.CopySkeletonDataTo(Skeletons);
+
+            foreach (Skeleton S in Skeletons) {
+                if (S.TrackingState == SkeletonTrackingState.Tracked) {
+                                           
+                        GetJoint(JointType.HandRight, S);
+                        
+                    
+                }
+            }
+        }
+        /*****************************************************************************/
+        private static System.Windows.Point GetJoint(JointType j, Skeleton S) {
+            SkeletonPoint Sloc = S.Joints[j].Position;
+            DepthImagePoint Cloc = sensorChooser.Kinect.MapSkeletonPointToDepth(Sloc, DepthImageFormat.Resolution640x480Fps30);
+            System.Windows.Point point = Mouse.GetPosition(mw);
+            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)(Cloc.X * 2.134375),(int)(Cloc.Y*1.6));
+            (mw as MainWindow).TMPlabel.Content = "X: " + Cloc.X + " Y: " + Cloc.Y+" Mouse X: "+point.X+" Y: "+point.Y;
+            mouse_event(MOUSEEVENTF_LEFTDOWN, (int)Cloc.X, (int)Cloc.Y, 0, 0);
+
+            return new System.Windows.Point(Cloc.X, Cloc.Y);
+        }
+        /*****************************************************************************/
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
+
+        public const int MOUSEEVENTF_LEFTDOWN = 0x02;
+        public const int MOUSEEVENTF_LEFTUP = 0x04;
+
+        /*public static Point GetMousePositionWindowsForms() {
+            Point point;
+            System.Threading.Thread.Sleep(2000);
+            point = Mouse.GetPosition(mw);
+            (mw as MainWindow).Content = "X: " + point.X + "Y: " + point.Y;
+            return new Point(point.X, point.Y);
+        }*/
     }
     /*********************************************************************************/
 }
