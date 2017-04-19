@@ -150,7 +150,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         /*****************************************************************************/
         private static void MainWindowAdSpace(MainWindow mw) {
             //mw.wbSample.Navigate("http://iamwojtas.pl");
-            mw.wbSample.NavigateToString("<H1>To jest reklama</H1>");
+            mw.wbSample.NavigateToString("<H1>Reklama</H1>");
         }
         /*****************************************************************************/
         private static void MainWindowPalleteColors(MainWindow mw) {

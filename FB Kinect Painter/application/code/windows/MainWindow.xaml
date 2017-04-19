@@ -56,7 +56,7 @@
                     </InkCanvas>
                     <Label x:Name="TMPlabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </Grid>
-                <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">                    
                     <WebBrowser Name="wbSample" Width="728" Height="90" HorizontalAlignment="Center" VerticalAlignment="Center" LoadCompleted="wb_LoadCompleted">
                     </WebBrowser>
                 </Grid>
