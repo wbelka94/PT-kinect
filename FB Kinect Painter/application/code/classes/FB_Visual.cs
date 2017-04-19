@@ -21,7 +21,7 @@ namespace FB_Kinect_Painter.application.code.classes {
     /*********************************************************************************/
     class FB_Visual {
         /*****************************************************************************/
-        public static void CreateSaveBitmap(InkCanvas canvas)
+        public static void CreateSaveBitmap(InkCanvas canvas, String path)
         {
             RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
              (int)canvas.ActualWidth, (int)canvas.ActualHeight,
@@ -36,10 +36,10 @@ namespace FB_Kinect_Painter.application.code.classes {
             PngBitmapEncoder encoder = new PngBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
 
-            String filename = "C:/Users/Wojtek/Desktop/FB_Kinect_Painter/FB_Kinect_Painter.bmp";            
+            String filename = path + "/FB_Kinect_Painter.bmp";            
             int i = 1;            
             while (File.Exists(filename)){
-                filename = "C:/Users/Wojtek/Desktop/FB_Kinect_Painter/FB_Kinect_Painter_" + i + ".bmp";
+                filename = path + "/FB_Kinect_Painter_" + i + ".bmp";
                 i++;
             }           
 
@@ -150,7 +150,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         /*****************************************************************************/
         private static void MainWindowAdSpace(MainWindow mw) {
             //mw.wbSample.Navigate("http://iamwojtas.pl");
-            mw.wbSample.NavigateToString("<H1>To jest reklama</H1>");
+            mw.wbSample.NavigateToString("<H1>Reklama</H1>");
         }
         /*****************************************************************************/
         private static void MainWindowPalleteColors(MainWindow mw) {

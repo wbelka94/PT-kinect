@@ -31,7 +31,7 @@
                     <k:KinectTileButton Name="sprayButton" Grid.Row="0" Grid.Column="0" Content="Spray" Foreground="White"/>
                     <k:KinectTileButton Name="pencilButton" Click="OnClickPencilButton" Grid.Row="1" Grid.Column="0" Content="Ołówek" Foreground="White"/>
                     <k:KinectTileButton Name="eraserButton" Click="OnClickEraserButton" Grid.Row="2" Grid.Column="0" Content="Gumka" Foreground="White"/>
-                    <k:KinectTileButton Name="brushButton" Grid.Row="3" Grid.Column="0" Content="Pędzel" Foreground="White"/>
+                    <k:KinectTileButton Name="brushButton" Click="OnClickBrushButton" Grid.Row="3" Grid.Column="0" Content="Pędzel" Foreground="White"/>
                     <k:KinectTileButton Name="selectButton" Click="OnClickSelectButton" Grid.Row="4" Grid.Column="0" Content="Zaznacz" Foreground="White"/>
                 </Grid>
                 <Grid Name="rightBar" HorizontalAlignment="Right" VerticalAlignment="Top">
@@ -56,7 +56,7 @@
                     </InkCanvas>
                     <Label x:Name="TMPlabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </Grid>
-                <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">                    
                     <WebBrowser Name="wbSample" Width="728" Height="90" HorizontalAlignment="Center" VerticalAlignment="Center" LoadCompleted="wb_LoadCompleted">
                     </WebBrowser>
                 </Grid>
