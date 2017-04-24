@@ -21,8 +21,10 @@ namespace FB_Kinect_Painter.application.code.classes {
     /*********************************************************************************/
     class FB_Visual {
         /*****************************************************************************/
-        public static void CreateSaveBitmap(InkCanvas canvas, String path)
-        {
+        public static double proportionHeight;
+        public static double proportionWidth;
+        /*****************************************************************************/
+        public static void CreateSaveBitmap(InkCanvas canvas, String path) {
             RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
              (int)canvas.ActualWidth, (int)canvas.ActualHeight,
              96d, 96d, PixelFormats.Pbgra32);
@@ -43,12 +45,10 @@ namespace FB_Kinect_Painter.application.code.classes {
                 i++;
             }           
 
-            using (FileStream file = File.Create(filename))
-            {
+            using (FileStream file = File.Create(filename)) {
                 encoder.Save(file);
             }
             AutoClosingMessageBox.Show("Zapisano do pliku: " + filename, "Caption", 2000);
-
         }
         /*****************************************************************************/
         private static int GetScreenHeight() {
@@ -62,6 +62,9 @@ namespace FB_Kinect_Painter.application.code.classes {
         public static void VisualMainWindow(MainWindow mw) {
             int width = GetScreenWidth();
             int height = GetScreenHeight();
+
+            FB_Visual.proportionHeight = height / 480;
+            FB_Visual.proportionWidth = width / 640;
 
             (mw as MainWindow).cameraView.Width = 0.15 * width;
             (mw as MainWindow).cameraView.Height = 0.2 * height;

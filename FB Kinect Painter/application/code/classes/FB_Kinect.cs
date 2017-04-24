@@ -30,8 +30,10 @@ namespace FB_Kinect_Painter.application.code.classes {
     /*********************************************************************************/
     public static class FB_Kinect {
         /*****************************************************************************/
-        /*                                  ERRORS                                   */
+        /*                                 CONSTANTS                                 */
         /*****************************************************************************/
+        public const int MOUSEEVENTF_LEFTDOWN = 0x02;
+        public const int MOUSEEVENTF_LEFTUP = 0x04;
         public const String ERR_NOKINECT = "Sensor Kinect został odłączony. Aby kontynuować podłącz urządzenie!";
         public const String ERR_NOKINECT_START = "Nie znaleziono sensora Kinect. Aplikacja zostanie zamknięta!";
         /*****************************************************************************/
@@ -61,7 +63,7 @@ namespace FB_Kinect_Painter.application.code.classes {
             if (args.NewSensor != null) {
                 try {
                     args.NewSensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
-                    args.NewSensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
+                    //args.NewSensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
                     args.NewSensor.SkeletonStream.Enable();
                     args.NewSensor.SkeletonFrameReady += FramesReady;
 
@@ -114,7 +116,7 @@ namespace FB_Kinect_Painter.application.code.classes {
                 if (S.TrackingState == SkeletonTrackingState.Tracked) {
                                            
                         GetJoint(JointType.HandRight, S);
-                        
+                    Skeletons = null;
                     
                 }
             }
@@ -122,10 +124,11 @@ namespace FB_Kinect_Painter.application.code.classes {
         /*****************************************************************************/
         private static System.Windows.Point GetJoint(JointType j, Skeleton S) {
             SkeletonPoint Sloc = S.Joints[j].Position;
-            DepthImagePoint Cloc = sensorChooser.Kinect.MapSkeletonPointToDepth(Sloc, DepthImageFormat.Resolution640x480Fps30);
+            DepthImagePoint Cloc = sensorChooser.Kinect.CoordinateMapper.MapSkeletonPointToDepthPoint(Sloc, DepthImageFormat.Resolution640x480Fps30);
             System.Windows.Point point = Mouse.GetPosition(mw);
-            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)(Cloc.X * 2.134375),(int)(Cloc.Y*1.6));
-            (mw as MainWindow).TMPlabel.Content = "X: " + Cloc.X + " Y: " + Cloc.Y+" Mouse X: "+point.X+" Y: "+point.Y;
+            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)(Cloc.X * FB_Visual.proportionWidth),
+                                                                            (int)(Cloc.Y * FB_Visual.proportionHeight));
+            (mw as MainWindow).TMPlabel.Content = "X: " + Cloc.X + " Y: " + Cloc.Y + " Mouse X: " + point.X + " Y: " + point.Y;
             mouse_event(MOUSEEVENTF_LEFTDOWN, (int)Cloc.X, (int)Cloc.Y, 0, 0);
 
             return new System.Windows.Point(Cloc.X, Cloc.Y);
@@ -134,9 +137,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
 
-        public const int MOUSEEVENTF_LEFTDOWN = 0x02;
-        public const int MOUSEEVENTF_LEFTUP = 0x04;
-
+        
         /*public static Point GetMousePositionWindowsForms() {
             Point point;
             System.Threading.Thread.Sleep(2000);
