@@ -129,9 +129,9 @@ namespace FB_Kinect_Painter.application.code.classes {
             System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)(Cloc.X * FB_Visual.proportionWidth),
                                                                             (int)(Cloc.Y * FB_Visual.proportionHeight));
             (mw as MainWindow).TMPlabel.Content = "X: " + Cloc.X + " Y: " + Cloc.Y + " Mouse X: " + point.X + " Y: " + point.Y;
-            mouse_event(MOUSEEVENTF_LEFTDOWN, (int)Cloc.X, (int)Cloc.Y, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTDOWN, (int)(Cloc.X * FB_Visual.proportionWidth), (int)(Cloc.Y * FB_Visual.proportionHeight), 0, 0);
 
-            return new System.Windows.Point(Cloc.X, Cloc.Y);
+            return new System.Windows.Point((int)(Cloc.X * FB_Visual.proportionWidth), (int)(Cloc.Y * FB_Visual.proportionHeight));
         }
         /*****************************************************************************/
         [System.Runtime.InteropServices.DllImport("user32.dll")]
