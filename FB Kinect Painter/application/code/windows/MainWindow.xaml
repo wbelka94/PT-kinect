@@ -16,7 +16,9 @@
         
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi"/>
         <k:KinectRegion Name="kinectRegion">
+            
             <Grid Name="main">
+                
                 <Grid Name="leftBar" HorizontalAlignment="Left" Height="Auto" VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -54,12 +56,11 @@
 
                     
                         <InkCanvas Name="INK">
-
                         </InkCanvas>
                     
                     
                     
-                    <Label x:Name="TMPlabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label x:Name="TMPlabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" Foreground="Green"/>
                 </Grid>
                 <Grid Name="adSpace" HorizontalAlignment="Center" VerticalAlignment="Top">                    
                     <WebBrowser Name="wbSample" Width="728" Height="90" HorizontalAlignment="Center" VerticalAlignment="Center" LoadCompleted="wb_LoadCompleted">

@@ -55,6 +55,7 @@ namespace FB_Kinect_Painter.application.code.classes {
                     args.OldSensor.SkeletonStream.EnableTrackingInNearRange = false;
                     args.OldSensor.DepthStream.Disable();
                     args.OldSensor.SkeletonStream.Disable();
+                    
                 } catch (InvalidOperationException) {
                     error = true;
                 }
@@ -64,13 +65,27 @@ namespace FB_Kinect_Painter.application.code.classes {
                 try {
                     args.NewSensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
                     //args.NewSensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
-                    args.NewSensor.SkeletonStream.Enable();
+
+                    //smoothing
+                    TransformSmoothParameters smoothingParam = new TransformSmoothParameters();
+                    {
+                        smoothingParam.Smoothing = 0.7f;
+                        smoothingParam.Correction = 0.3f;
+                        smoothingParam.Prediction = 1.0f;
+                        smoothingParam.JitterRadius = 1.0f;
+                        smoothingParam.MaxDeviationRadius = 1.0f;
+                    };
+                                      
+
+                    //args.NewSensor.SkeletonStream.Enable();
                     args.NewSensor.SkeletonFrameReady += FramesReady;
+
+                    args.NewSensor.SkeletonStream.Enable(smoothingParam);
 
                     try {
                         args.NewSensor.DepthStream.Range = DepthRange.Default;
                         args.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
-                        args.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
+                        args.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
                     } catch (InvalidOperationException) {
                         args.NewSensor.DepthStream.Range = DepthRange.Default;
                         args.NewSensor.SkeletonStream.EnableTrackingInNearRange = false;
@@ -89,6 +104,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         public static void ChangeKinectRegionExit(Window w) {
             (w as ExitWindow).kinectRegion.KinectSensor = (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor;
             (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor = null;
+            
         }
         /*****************************************************************************/
         public static void ChangeKinectRegionMainWindow(Window w) {
@@ -101,6 +117,7 @@ namespace FB_Kinect_Painter.application.code.classes {
                 MessageBox.Show(FB_Kinect.ERR_NOKINECT, FB_Kinect.APP_NAME, MessageBoxButton.OK, MessageBoxImage.Warning);
             } else {
                 InitKinectInteractions(sender, args);
+                
                 iw.Close();        
             }
         }
@@ -113,38 +130,31 @@ namespace FB_Kinect_Painter.application.code.classes {
             SFrame.CopySkeletonDataTo(Skeletons);
 
             foreach (Skeleton S in Skeletons) {
-                if (S.TrackingState == SkeletonTrackingState.Tracked) {
-                                           
-                        GetJoint(JointType.HandRight, S);
-                    Skeletons = null;
-                    
+                if (S.TrackingState == SkeletonTrackingState.Tracked) {                                           
+                    CurosrUpdate(S);
+                    Skeletons = null;                    
                 }
             }
         }
         /*****************************************************************************/
-        private static System.Windows.Point GetJoint(JointType j, Skeleton S) {
-            SkeletonPoint Sloc = S.Joints[j].Position;
-            DepthImagePoint Cloc = sensorChooser.Kinect.CoordinateMapper.MapSkeletonPointToDepthPoint(Sloc, DepthImageFormat.Resolution640x480Fps30);
+       
+        private static void CurosrUpdate(Skeleton S) {
+            SkeletonPoint Sloc = S.Joints[JointType.HandRight].Position;
+            DepthImagePoint Cloc = sensorChooser.Kinect.CoordinateMapper.MapSkeletonPointToDepthPoint(Sloc,DepthImageFormat.Resolution640x480Fps30);
             System.Windows.Point point = Mouse.GetPosition(mw);
-            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)(Cloc.X * FB_Visual.proportionWidth),
-                                                                            (int)(Cloc.Y * FB_Visual.proportionHeight));
-            (mw as MainWindow).TMPlabel.Content = "X: " + Cloc.X + " Y: " + Cloc.Y + " Mouse X: " + point.X + " Y: " + point.Y;
-            mouse_event(MOUSEEVENTF_LEFTDOWN, (int)(Cloc.X * FB_Visual.proportionWidth), (int)(Cloc.Y * FB_Visual.proportionHeight), 0, 0);
-
-            return new System.Windows.Point((int)(Cloc.X * FB_Visual.proportionWidth), (int)(Cloc.Y * FB_Visual.proportionHeight));
+            
+            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)((0.5+Sloc.X) * FB_Visual.GetScreenWidth()),
+                                                                            (int)((0.5+(-1*Sloc.Y)) * FB_Visual.GetScreenHeight()+200));                
+            (mw as MainWindow).TMPlabel.Content = Sloc.X+ "x"+ Sloc.Y;
+            if (S.Joints[JointType.HandLeft].Position.Y > S.Joints[JointType.ElbowLeft].Position.Y) {
+                mouse_event(MOUSEEVENTF_LEFTDOWN, (int)point.X, (int)point.Y, 0, 0);
+            } else {
+                mouse_event(MOUSEEVENTF_LEFTUP, (int)point.X, (int)point.Y, 0, 0);
+            }                                    
         }
         /*****************************************************************************/
         [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
-
-        
-        /*public static Point GetMousePositionWindowsForms() {
-            Point point;
-            System.Threading.Thread.Sleep(2000);
-            point = Mouse.GetPosition(mw);
-            (mw as MainWindow).Content = "X: " + point.X + "Y: " + point.Y;
-            return new Point(point.X, point.Y);
-        }*/
+        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);       
     }
     /*********************************************************************************/
 }

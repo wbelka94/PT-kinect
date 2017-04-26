@@ -51,11 +51,11 @@ namespace FB_Kinect_Painter.application.code.classes {
             AutoClosingMessageBox.Show("Zapisano do pliku: " + filename, "Caption", 2000);
         }
         /*****************************************************************************/
-        private static int GetScreenHeight() {
+        public static int GetScreenHeight() {
             return (int)System.Windows.SystemParameters.PrimaryScreenHeight; 
         }
         /*****************************************************************************/
-        private static int GetScreenWidth() {
+        public static int GetScreenWidth() {
             return (int)System.Windows.SystemParameters.PrimaryScreenWidth;
         }
         /*****************************************************************************/

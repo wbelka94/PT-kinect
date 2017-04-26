@@ -26,6 +26,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Ink;
 using System.Windows.Controls;
+using System.IO;
 
 /*************************************************************************************/
 namespace FB_Kinect_Painter {
@@ -51,7 +52,9 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         private void OnClickLoadButton(object sender, RoutedEventArgs routedEventArgs) {
-
+            var fs = new FileStream("C:/Users/Wojtek/Desktop/FB_Kinect_Painter/FB_Kinect_Painter_13.bmp",
+                FileMode.Open, FileAccess.Read);
+            StrokeCollection strokes = new StrokeCollection(fs);
         }
         /*****************************************************************************/
         private void OnClickSaveButton(object sender, RoutedEventArgs routedEventArgs) {            
@@ -59,11 +62,11 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         private void OnClickNewButton(object sender, RoutedEventArgs routedEventArgs) {
-
+            INK.Strokes.Clear();            
         }
         /*****************************************************************************/
         private void OnClickEraserButton(object sender, RoutedEventArgs routedEventArgs)
-        {
+        {           
             INK.EditingMode = InkCanvasEditingMode.EraseByPoint;
         }
         /*****************************************************************************/
