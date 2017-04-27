@@ -23,6 +23,13 @@ namespace FB_Kinect_Painter.application.code.classes {
         /*****************************************************************************/
         public static double proportionHeight;
         public static double proportionWidth;
+        public static Cursor kinectCursor;
+        /*****************************************************************************/
+        static void InitCursor(MainWindow mw) {
+            var fs = new FileStream("C:/Users/Wojtek/Desktop/kinectCursor_right.cur", FileMode.Open, FileAccess.Read);
+            kinectCursor = new Cursor(fs);
+            (mw as MainWindow).kinectRegion.Cursor = kinectCursor;            
+        }
         /*****************************************************************************/
         public static void CreateSaveBitmap(InkCanvas canvas, String path) {
             RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
@@ -60,6 +67,8 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
         /*****************************************************************************/
         public static void VisualMainWindow(MainWindow mw) {
+            InitCursor(mw);
+
             int width = GetScreenWidth();
             int height = GetScreenHeight();
 

@@ -15,7 +15,7 @@
         </Grid.Background>
         
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi"/>
-        <k:KinectRegion Name="kinectRegion">
+
             
             <Grid Name="main">
                 
@@ -53,12 +53,8 @@
                 </Grid>
                 
                 <Grid Name="workSpace" Background="White">
-
-                    
-                        <InkCanvas Name="INK">
-                        </InkCanvas>
-                    
-                    
+                        <InkCanvas Name="INK" UseCustomCursor="True">
+                        </InkCanvas>                  
                     
                     <Label x:Name="TMPlabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" Foreground="Green"/>
                 </Grid>
@@ -67,7 +63,9 @@
                     </WebBrowser>
                 </Grid>
                 <Grid Name="cameraView" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="Black">
-                    <k:KinectUserViewer Name="kinectUserViever" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    <k:KinectRegion Name="kinectRegion">
+                        <k:KinectUserViewer Name="kinectUserViever" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </k:KinectRegion>
                 </Grid>
                 <Grid Name="palleteColors" VerticalAlignment="Bottom" Background="Blue">
                     <Grid.ColumnDefinitions>
@@ -111,6 +109,5 @@
                     <k:KinectTileButton Name="yourColor2" Click="changeColor" Grid.Row="1" Grid.Column="10" Background="White" BorderThickness="4"/>
                 </Grid>
             </Grid>
-        </k:KinectRegion>
     </Grid>
 </Window>

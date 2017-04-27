@@ -98,18 +98,19 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             if (!error) {
                 (mw as MainWindow).kinectRegion.KinectSensor = args.NewSensor;
+                (mw as MainWindow).kinectRegion.IsCursorVisible = false;
             }
         }
         /*****************************************************************************/
         public static void ChangeKinectRegionExit(Window w) {
-            (w as ExitWindow).kinectRegion.KinectSensor = (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor;
-            (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor = null;
+            //(w as ExitWindow).kinectRegion.KinectSensor = (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor;
+           // (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor = null;
             
         }
         /*****************************************************************************/
         public static void ChangeKinectRegionMainWindow(Window w) {
-            (mw as MainWindow).kinectRegion.KinectSensor = (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor;
-            (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor = null;
+           // (mw as MainWindow).kinectRegion.KinectSensor = (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor;
+           // (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor = null;
         }
         /*****************************************************************************/
         public static void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args) {

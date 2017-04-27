@@ -52,8 +52,7 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         private void OnClickLoadButton(object sender, RoutedEventArgs routedEventArgs) {
-            var fs = new FileStream("C:/Users/Wojtek/Desktop/FB_Kinect_Painter/FB_Kinect_Painter_13.bmp",
-                FileMode.Open, FileAccess.Read);
+            var fs = new FileStream("C:/Users/Wojtek/Desktop/FB_Kinect_Painter/FB_Kinect_Painter_13.bmp", FileMode.Open, FileAccess.Read);
             StrokeCollection strokes = new StrokeCollection(fs);
         }
         /*****************************************************************************/
@@ -102,10 +101,7 @@ namespace FB_Kinect_Painter {
             Loaded += OnLoaded;
         }
 
-        private void blackColor_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
         /*****************************************************************************/
     }
 }
