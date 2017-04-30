@@ -169,6 +169,16 @@
   <ItemGroup>
     <Resource Include="application\graphics\kinect_background.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="application\graphics\buttonIcons\001-file-2.png" />
+    <Resource Include="application\graphics\buttonIcons\002-eraser.png" />
+    <Resource Include="application\graphics\buttonIcons\003-paint-brush.png" />
+    <Resource Include="application\graphics\buttonIcons\004-scissors.png" />
+    <Resource Include="application\graphics\buttonIcons\005-pencil.png" />
+    <Resource Include="application\graphics\buttonIcons\006-file.png" />
+    <Resource Include="application\graphics\buttonIcons\007-file-1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
