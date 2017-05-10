@@ -30,9 +30,7 @@
                         <RowDefinition Name="leftBarRow3"/>
                         <RowDefinition Name="leftBarRow4"/>
                     </Grid.RowDefinitions>
-                    <k:KinectTileButton Name="sprayButton" Grid.Row="0" Grid.Column="0" Content="Spray" Foreground="White">
-
-                    </k:KinectTileButton>
+                     <k:KinectTileButton Name="sprayButton" Click="OnClickSprayButton" Grid.Row="0" Grid.Column="0" Content="Spray" Foreground="White" />
                     <k:KinectTileButton Name="pencilButton" Click="OnClickPencilButton" Grid.Row="1" Grid.Column="0" Content="Ołówek" Foreground="White"/>
                     <k:KinectTileButton Name="eraserButton" Click="OnClickEraserButton" Grid.Row="2" Grid.Column="0" Content="Gumka" Foreground="White"/>
                     <k:KinectTileButton Name="brushButton" Click="OnClickBrushButton" Grid.Row="3" Grid.Column="0" Content="Pędzel" Foreground="White"/>
@@ -56,6 +54,7 @@
                 
                 <Grid Name="workSpace" Background="White">
                         <InkCanvas Name="INK" UseCustomCursor="True">
+                         
                         </InkCanvas>                  
                     
                     <Label x:Name="TMPlabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="40" Foreground="Green"/>

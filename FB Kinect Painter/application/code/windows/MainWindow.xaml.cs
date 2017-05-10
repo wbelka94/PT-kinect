@@ -3,29 +3,15 @@
 /*************************************************************************************/
 using FB_Kinect_Painter.application.code.classes;
 using FB_Kinect_Painter.application.code.windows;
-using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
-using Microsoft.Kinect.Toolkit.Interaction;
 /*************************************************************************************/
 /*                                     DEFAULT                                       */
 /*************************************************************************************/
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Ink;
-using System.Windows.Controls;
 using System.IO;
 
 /*************************************************************************************/
@@ -52,53 +38,59 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         private void OnClickLoadButton(object sender, RoutedEventArgs routedEventArgs) {
-            var fs = new FileStream("C:/Users/Wojtek/Desktop/FB_Kinect_Painter/FB_Kinect_Painter_13.bmp", FileMode.Open, FileAccess.Read);
+            var fs = new FileStream("saved_pictures/FB_Kinect_Painter_6.bmp.fbkp", FileMode.Open, FileAccess.Read);
             StrokeCollection strokes = new StrokeCollection(fs);
+            INK.Strokes = strokes;
         }
         /*****************************************************************************/
-        private void OnClickSaveButton(object sender, RoutedEventArgs routedEventArgs) {            
-            FB_Visual.CreateSaveBitmap(INK, "C:/Users/Wojtek/Desktop/FB_Kinect_Painter");
+        private void OnClickSaveButton(object sender, RoutedEventArgs routedEventArgs) {
+            workSheet.Save();
         }
         /*****************************************************************************/
         private void OnClickNewButton(object sender, RoutedEventArgs routedEventArgs) {
-            INK.Strokes.Clear();            
+            DecisionWindow dw = new DecisionWindow("Czy napewno chcesz porzucić zmiany?", workSheet.Clear);          
+             //workSheet.Clear();            
         }
         /*****************************************************************************/
         private void OnClickEraserButton(object sender, RoutedEventArgs routedEventArgs)
-        {           
-            INK.EditingMode = InkCanvasEditingMode.EraseByPoint;
+        {
+            workSheet.SetPaintingTool("Eraser");
         }
         /*****************************************************************************/
         private void OnClickPencilButton(object sender, RoutedEventArgs routedEventArgs)
         {
-            INK.EditingMode = InkCanvasEditingMode.Ink;
-            INK.DefaultDrawingAttributes.Width = 1;
-            INK.DefaultDrawingAttributes.Height = 1;
+            workSheet.SetPaintingTool("Pencil");
         }
         /*****************************************************************************/
         private void OnClickSelectButton(object sender, RoutedEventArgs routedEventArgs)
         {
-            INK.EditingMode = InkCanvasEditingMode.Select;
+            workSheet.SetPaintingTool("Select");
         }        
         /*****************************************************************************/
         private void OnClickBrushButton(object sender, RoutedEventArgs routedEventArgs)
         {
-            INK.EditingMode = InkCanvasEditingMode.Ink;
-            INK.DefaultDrawingAttributes.Width = 6;
+            workSheet.SetPaintingTool("Brush");
         }
-
+        /*****************************************************************************/
+        private void OnClickSprayButton(object sender, RoutedEventArgs routedEventArgs) {
+            workSheet.SetPaintingTool("Spray");
+        }
         /*****************************************************************************/
         private void changeColor(object sender, RoutedEventArgs routedEventArgs)
         {
             String color = ((KinectTileButton)sender).Background.ToString();
-            INK.DefaultDrawingAttributes.Color = (Color)ColorConverter.ConvertFromString(color);
+            workSheet.SetToolColor(color);
         }
         /*****************************************************************************/
+
+        public WorkSheet workSheet;
 
         public MainWindow() {
             InitializeComponent();
             FB_Visual.VisualMainWindow(this);
             Loaded += OnLoaded;
+            workSheet = new WorkSheet(INK);
+            
         }
 
         

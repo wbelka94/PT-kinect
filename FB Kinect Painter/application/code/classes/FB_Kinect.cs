@@ -25,6 +25,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
+using Coding4Fun.Kinect.Wpf;
 /*************************************************************************************/
 namespace FB_Kinect_Painter.application.code.classes {
     /*********************************************************************************/
@@ -75,7 +76,15 @@ namespace FB_Kinect_Painter.application.code.classes {
                         smoothingParam.JitterRadius = 1.0f;
                         smoothingParam.MaxDeviationRadius = 1.0f;
                     };
-                                      
+                    /*TransformSmoothParameters smoothingParam = new TransformSmoothParameters();
+                    {
+                        smoothingParam.Smoothing = 0.75f;
+                        smoothingParam.Correction = 0.0f;
+                        smoothingParam.Prediction = 0.0f;
+                        smoothingParam.JitterRadius = 0.05f;
+                        smoothingParam.MaxDeviationRadius = 0.04f;
+                    };*/
+
 
                     //args.NewSensor.SkeletonStream.Enable();
                     args.NewSensor.SkeletonFrameReady += FramesReady;
@@ -142,20 +151,39 @@ namespace FB_Kinect_Painter.application.code.classes {
         private static void CurosrUpdate(Skeleton S) {
             SkeletonPoint Sloc = S.Joints[JointType.HandRight].Position;
             DepthImagePoint Cloc = sensorChooser.Kinect.CoordinateMapper.MapSkeletonPointToDepthPoint(Sloc,DepthImageFormat.Resolution640x480Fps30);
-            System.Windows.Point point = Mouse.GetPosition(mw);
+            System.Windows.Point point = Mouse.GetPosition(mw);          
             
-            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)((0.5+Sloc.X) * FB_Visual.GetScreenWidth()),
-                                                                            (int)((0.5+(-1*Sloc.Y)) * FB_Visual.GetScreenHeight()+200));                
+            /*System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)((0.5+Sloc.X) * FB_Visual.GetScreenWidth()),
+                                                                            (int)((0.5+(-1*Sloc.Y)) * FB_Visual.GetScreenHeight()+200));*/
+           
+            /*coding4fun
+             var scaledJoint = S.Joints[JointType.HandRight].ScaleTo(FB_Visual.GetScreenWidth(), FB_Visual.GetScreenHeight(), .99f, .5f);
+             System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)scaledJoint.Position.X,
+                                                                            (int)scaledJoint.Position.Y);*/
+
             (mw as MainWindow).TMPlabel.Content = Sloc.X+ "x"+ Sloc.Y;
             if (S.Joints[JointType.HandLeft].Position.Y > S.Joints[JointType.ElbowLeft].Position.Y) {
-                mouse_event(MOUSEEVENTF_LEFTDOWN, (int)point.X, (int)point.Y, 0, 0);
+                (mw as MainWindow).workSheet.activePaintingTool.Paint(Sloc.X, Sloc.Y);
+                
+                //mouse_event(MOUSEEVENTF_LEFTDOWN, (int)point.X, (int)point.Y, 0, 0);
             } else {
-                mouse_event(MOUSEEVENTF_LEFTUP, (int)point.X, (int)point.Y, 0, 0);
+                //mouse_event(MOUSEEVENTF_LEFTUP, (int)point.X, (int)point.Y, 0, 0);
+                SetMousePosition(Sloc.X, Sloc.Y, false);
             }                                    
         }
         /*****************************************************************************/
         [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);       
+        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);     
+        
+        static public void SetMousePosition(double x, double y, bool lb_pressed) {
+            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)((0.5 + x) * FB_Visual.GetScreenWidth()),
+                                                                            (int)((0.5 + (-1 * y)) * FB_Visual.GetScreenHeight() + 200));
+            if (lb_pressed) {
+                mouse_event(MOUSEEVENTF_LEFTDOWN, (int)x, (int)y, 0, 0);
+            } else {
+                mouse_event(MOUSEEVENTF_LEFTUP, (int)x, (int)y, 0, 0);
+            }
+        }  
     }
     /*********************************************************************************/
 }

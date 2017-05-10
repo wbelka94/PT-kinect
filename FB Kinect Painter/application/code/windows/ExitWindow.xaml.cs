@@ -29,6 +29,7 @@ namespace FB_Kinect_Painter.application.code.windows {
     public partial class ExitWindow : Window {
         /*****************************************************************************/
         public ExitWindow() {
+            Topmost = true;
             InitializeComponent();
             FB_Kinect.ChangeKinectRegionExit(this);
         }

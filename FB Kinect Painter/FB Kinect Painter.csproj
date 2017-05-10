@@ -35,6 +35,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Coding4Fun.Kinect.Wpf, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Coding4Fun.Kinect.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Core.Ink, Version=1.0.5657.24798, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Core.Ink.0.1.128\lib\net45\Core.Ink.dll</HintPath>
       <Private>True</Private>
@@ -97,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="application\code\windows\DecisionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="application\code\windows\ExitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,6 +124,13 @@
     <Compile Include="application\code\classes\AutoClosingMessageBox.cs" />
     <Compile Include="application\code\classes\FB_Kinect.cs" />
     <Compile Include="application\code\classes\FB_Visual.cs" />
+    <Compile Include="application\code\classes\Painting_Tool.cs" />
+    <Compile Include="application\code\classes\Spray.cs" />
+    <Compile Include="application\code\classes\User.cs" />
+    <Compile Include="application\code\classes\WorkSheet.cs" />
+    <Compile Include="application\code\windows\DecisionWindow.xaml.cs">
+      <DependentUpon>DecisionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="application\code\windows\ExitWindow.xaml.cs">
       <DependentUpon>ExitWindow.xaml</DependentUpon>
     </Compile>

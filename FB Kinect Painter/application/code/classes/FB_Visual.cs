@@ -31,7 +31,7 @@ namespace FB_Kinect_Painter.application.code.classes {
             (mw as MainWindow).kinectRegion.Cursor = kinectCursor;            
         }
         /*****************************************************************************/
-        public static void CreateSaveBitmap(InkCanvas canvas, String path) {
+      /*  public static void CreateSaveBitmap(InkCanvas canvas, String path) {
             RenderTargetBitmap renderBitmap = new RenderTargetBitmap(
              (int)canvas.ActualWidth, (int)canvas.ActualHeight,
              96d, 96d, PixelFormats.Pbgra32);
@@ -56,7 +56,7 @@ namespace FB_Kinect_Painter.application.code.classes {
                 encoder.Save(file);
             }
             AutoClosingMessageBox.Show("Zapisano do pliku: " + filename, "Caption", 2000);
-        }
+        }*/
         /*****************************************************************************/
         public static int GetScreenHeight() {
             return (int)System.Windows.SystemParameters.PrimaryScreenHeight; 
