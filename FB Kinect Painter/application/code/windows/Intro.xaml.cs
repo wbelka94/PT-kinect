@@ -2,6 +2,7 @@
 /*                                  OUR REFERENCES                                   */
 /*************************************************************************************/
 using FB_Kinect_Painter.application.code.classes;
+using FB_Kinect_Painter.application.code.windows;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
@@ -41,6 +42,8 @@ namespace FB_Kinect_Painter.application.windows {
                 FB_Kinect.mw.Show();
                 FB_Kinect.iw.Show();
             //}
+            /*ChoseFileWindow chfw = new ChoseFileWindow();
+            chfw.Show();*/
         }
         /*****************************************************************************/
     }

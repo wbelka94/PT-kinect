@@ -101,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="application\code\windows\ChoseFileWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="application\code\windows\DecisionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -128,6 +132,9 @@
     <Compile Include="application\code\classes\Spray.cs" />
     <Compile Include="application\code\classes\User.cs" />
     <Compile Include="application\code\classes\WorkSheet.cs" />
+    <Compile Include="application\code\windows\ChoseFileWindow.xaml.cs">
+      <DependentUpon>ChoseFileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="application\code\windows\DecisionWindow.xaml.cs">
       <DependentUpon>DecisionWindow.xaml</DependentUpon>
     </Compile>

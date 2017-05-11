@@ -1,0 +1,30 @@
+﻿<Window x:Class="FB_Kinect_Painter.application.code.windows.ChoseFileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FB_Kinect_Painter.application.code.windows"
+        mc:Ignorable="d"
+        Background="#510E78" Height="480" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    
+    <Grid >
+        <Grid>
+            <Label Name="title" Foreground="White" FontSize="35" FontWeight="Bold" FontFamily="Hedley New Bold" HorizontalAlignment="Center" VerticalAlignment="Top">
+                Wybierz plik
+            </Label>
+        </Grid>
+        <Grid Name="main" VerticalAlignment="Bottom" Height="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />            
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+        </Grid>
+    </Grid>
+</Window>

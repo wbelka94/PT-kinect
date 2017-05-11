@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:FB_Kinect_Painter.application.windows"
         mc:Ignorable="d"
         Background="#510E78" Height="240" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid>
+    <Grid>        
         <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" Visibility="Hidden"/>
         <Label x:Name="title" Foreground="White"  Content="FB Kinect Painter" HorizontalAlignment="Center" VerticalAlignment="Center" Height="80" Width="416" FontSize="50" FontWeight="Bold" FontFamily="Hedley New Bold" Margin="92,110,92,50"/>
         <Image x:Name="kinect_ico" HorizontalAlignment="Center" Height="100" Margin="178,10,178,130" VerticalAlignment="Center" Width="246" Source="/application/graphics/kinect_ico.png" Visibility="Visible"/>

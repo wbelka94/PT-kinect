@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Kinect.Toolkit.Controls;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Ink;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -71,18 +73,20 @@ namespace FB_Kinect_Painter.application.code.classes {
             AutoClosingMessageBox.Show("Zapisano do pliku: " + fileName, "Caption", 2000);
         }
 
-        public void ReadFormFile() {
-
+        public void ReadFormFile(object Sender, RoutedEventArgs routedEventArgs) {
+            fileName = ((KinectTileButton)Sender).Content.ToString();
+            var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+            StrokeCollection strokes = new StrokeCollection(fs);
+            INK.Strokes = strokes;
         }
 
-        public void Clear(object Sender, RoutedEventArgs routedEventArgs) {
-            //zapytacz czy napewno
+        public void Clear(object Sender, RoutedEventArgs routedEventArgs) {            
             INK.Strokes.Clear();
         }
 
-        public void New() {
-            //zapytanie czy zapisac
+        public void New(object Sender, RoutedEventArgs routedEventArgs) {
             INK.Strokes.Clear();
+            fileName = "";
         }
 
         public void SetPaintingTool(String toolName) {
