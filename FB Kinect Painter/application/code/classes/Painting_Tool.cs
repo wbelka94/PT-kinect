@@ -21,9 +21,15 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
 
         public void SetActive() {
+            
             this.INK.EditingMode = this.editingMode;
-            this.INK.DefaultDrawingAttributes.Width = this.Size;
-            this.INK.DefaultDrawingAttributes.Height = this.Size;
+            if (name.Equals("Spray")) {
+                this.INK.DefaultDrawingAttributes.Width = 1;
+                this.INK.DefaultDrawingAttributes.Height = 1;
+            } else {
+                this.INK.DefaultDrawingAttributes.Width = this.Size;
+                this.INK.DefaultDrawingAttributes.Height = this.Size;
+            }
         }
 
         public void SetSize(int value) {
@@ -36,7 +42,19 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
                 
         public virtual void Paint(double x, double y) {
-            FB_Kinect.SetMousePosition(x, y, true);
+            if (!name.Equals("Spray")) {
+                FB_Kinect.SetMousePosition(x, y, true);
+            } else {
+                Random rnd = new Random();
+                double nx, ny;
+                for (int i = 0; i < 3; i++) {
+                    nx = x + rnd.Next(0, Size);
+                    ny = y + rnd.Next(0, Size);
+                    FB_Kinect.SetMousePosition(nx, ny, true);
+                    FB_Kinect.SetMousePosition(nx+1, ny+1, true);
+                    FB_Kinect.SetMousePosition(nx, ny, false);
+                }
+            }
             
         }
 

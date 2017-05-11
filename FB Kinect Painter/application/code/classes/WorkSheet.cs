@@ -28,7 +28,7 @@ namespace FB_Kinect_Painter.application.code.classes {
                 { new Painting_Tool(INK, InkCanvasEditingMode.Ink, "Brush", "Brush", 6),
                     new Painting_Tool(INK, InkCanvasEditingMode.InkAndGesture, "Pencil", "Pencil", 1),
                     new Painting_Tool(INK, InkCanvasEditingMode.EraseByPoint, "Eraser", "Eraser", 6),
-                    new Spray(INK, InkCanvasEditingMode.Ink, "Spray", "Spray", 3),
+                    new Spray(INK, InkCanvasEditingMode.Ink, "Spray", "Spray", 20),
                     new Painting_Tool(INK, InkCanvasEditingMode.Select, "Select", "Select", 20),
                 };
 

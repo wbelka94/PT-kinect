@@ -151,24 +151,27 @@ namespace FB_Kinect_Painter.application.code.classes {
         private static void CurosrUpdate(Skeleton S) {
             SkeletonPoint Sloc = S.Joints[JointType.HandRight].Position;
             DepthImagePoint Cloc = sensorChooser.Kinect.CoordinateMapper.MapSkeletonPointToDepthPoint(Sloc,DepthImageFormat.Resolution640x480Fps30);
-            System.Windows.Point point = Mouse.GetPosition(mw);          
-            
+
+
             /*System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)((0.5+Sloc.X) * FB_Visual.GetScreenWidth()),
                                                                             (int)((0.5+(-1*Sloc.Y)) * FB_Visual.GetScreenHeight()+200));*/
-           
+
             /*coding4fun
              var scaledJoint = S.Joints[JointType.HandRight].ScaleTo(FB_Visual.GetScreenWidth(), FB_Visual.GetScreenHeight(), .99f, .5f);
              System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)scaledJoint.Position.X,
                                                                             (int)scaledJoint.Position.Y);*/
+            System.Windows.Point point = new System.Windows.Point();
+            point.X = (0.5 + Sloc.X) * FB_Visual.GetScreenWidth();
+            point.Y = (0.5 + (-1 * Sloc.Y)) * FB_Visual.GetScreenHeight() + 200;
 
             (mw as MainWindow).TMPlabel.Content = Sloc.X+ "x"+ Sloc.Y;
             if (S.Joints[JointType.HandLeft].Position.Y > S.Joints[JointType.ElbowLeft].Position.Y) {
-                (mw as MainWindow).workSheet.activePaintingTool.Paint(Sloc.X, Sloc.Y);
+                (mw as MainWindow).workSheet.activePaintingTool.Paint(point.X, point.Y);
                 
                 //mouse_event(MOUSEEVENTF_LEFTDOWN, (int)point.X, (int)point.Y, 0, 0);
             } else {
                 //mouse_event(MOUSEEVENTF_LEFTUP, (int)point.X, (int)point.Y, 0, 0);
-                SetMousePosition(Sloc.X, Sloc.Y, false);
+                SetMousePosition(point.X, point.Y, false);
             }                                    
         }
         /*****************************************************************************/
@@ -176,8 +179,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);     
         
         static public void SetMousePosition(double x, double y, bool lb_pressed) {
-            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)((0.5 + x) * FB_Visual.GetScreenWidth()),
-                                                                            (int)((0.5 + (-1 * y)) * FB_Visual.GetScreenHeight() + 200));
+            System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)x, (int)y);
             if (lb_pressed) {
                 mouse_event(MOUSEEVENTF_LEFTDOWN, (int)x, (int)y, 0, 0);
             } else {
