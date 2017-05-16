@@ -128,6 +128,8 @@ namespace FB_Kinect_Painter {
 
             this.workSpace.Width = workSpaceSize[0];
             this.workSpace.Height = workSpaceSize[1];
+            this.INK.Width = workSpaceSize[0] - 2 * (0.02 * FB_Application.screenHeight);
+            this.INK.Height = workSpaceSize[1] - 0.02 * FB_Application.screenHeight;
             this.INK.Margin = new Thickness(0.02 * FB_Application.screenHeight, 0.02 * FB_Application.screenHeight, 
                                                   0.02 * FB_Application.screenHeight, 0);
 
