@@ -79,6 +79,7 @@ namespace FB_Kinect_Painter.application.code.classes {
             var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StrokeCollection strokes = new StrokeCollection(fs);
             INK.Strokes = strokes;
+            fileName = fileName.Substring(0, fileName.Length - 5);
         }
 
         public void Clear(object Sender, RoutedEventArgs routedEventArgs) {
