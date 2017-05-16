@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -24,31 +25,38 @@ namespace AdDuplex
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    /// 
+    public class Ad {
+
+    }
+
     public sealed partial class MainPage : Page
     {
+
         public MainPage()
         {
             this.InitializeComponent();
+            //reklama();
         }
 
-        async void onClickButton(object sender, RoutedEventArgs e) {
+        void onClickButton(object sender, RoutedEventArgs e) {
+            
+        }
+
+        async void reklama() {
             AdDuplex.InterstitialAd interstitialAd = new AdDuplex.InterstitialAd("206243");
             await interstitialAd.ShowAdAsync();
             interstitialAd.AdClosed += Close;
         }
 
-        void Close(object sender, InterstitialAdLoadedEventArgs e) {
-            //CoreApplication.Exit();
-        }
-
-        async void LaunchWpfApp_Click(object sender, RoutedEventArgs e) {
+        async void Close(object sender, InterstitialAdLoadedEventArgs e) {
             var launchUri = new Uri("fbkp:");
             var success = await Launcher.LaunchUriAsync(launchUri);
-            if (success) {
-                tb.Text = ":)";
-            } else {
-                tb.Text = ":(";
-            }
+            CoreApplication.Exit();
+        }
+
+        void LaunchWpfApp_Click(object sender, RoutedEventArgs e) {
+            reklama();            
         }
 
         private void tb_SelectionChanged(object sender, RoutedEventArgs e) {

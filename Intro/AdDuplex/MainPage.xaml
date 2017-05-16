@@ -14,13 +14,19 @@
 
         <Grid Background="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button Content="AD" Click="onClickButton" HorizontalAlignment="Center" Grid.Row="0" Width="150"/>
-            <Button Content="paint" Click="LaunchWpfApp_Click" HorizontalAlignment="Center" Grid.Row="1" Width="150" />
-            <TextBlock Name="tb" Text="abc" SelectionChanged="tb_SelectionChanged" Margin="10,240,296,341" />
+            <Button Content="Uruchom" Click="onClickButton" HorizontalAlignment="Center" Grid.Row="0" Width="300" Height="75"/>
+            <Button Content="O aplikacji" Click="LaunchWpfApp_Click" HorizontalAlignment="Center" Grid.Row="1" Width="300" Height="75" />
+            <Button Content="Wymagania" Click="LaunchWpfApp_Click" HorizontalAlignment="Center" Grid.Row="2" Width="300" Height="75"/>
+            <Button Content="Ustawienia" Click="LaunchWpfApp_Click" HorizontalAlignment="Center" Grid.Row="3" Width="300" Height="75"/>
+            <Button Content="Wyjdź" Click="LaunchWpfApp_Click" HorizontalAlignment="Center" Grid.Row="4" Width="300" Height="75"/>
+            
         </Grid>
         <Grid Background="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <adduplex:AdControl Width="500" Height="500" AdUnitId="205883" AppKey="e5a449ba-ddc8-489a-9307-fa53c0b02d0b" />
