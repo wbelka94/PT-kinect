@@ -36,11 +36,10 @@ namespace AdDuplex
         public MainPage()
         {
             this.InitializeComponent();
-            //reklama();
         }
 
-        void onClickButton(object sender, RoutedEventArgs e) {
-            
+        void onClickRunButton(object sender, RoutedEventArgs e) {
+            reklama();
         }
 
         async void reklama() {
@@ -55,12 +54,20 @@ namespace AdDuplex
             CoreApplication.Exit();
         }
 
-        void LaunchWpfApp_Click(object sender, RoutedEventArgs e) {
-            reklama();            
+        void onCLickCloseButton(object sender, RoutedEventArgs e) {
+            CoreApplication.Exit();
         }
 
-        private void tb_SelectionChanged(object sender, RoutedEventArgs e) {
+        void onCLickAboutButton(object sender, RoutedEventArgs e) {
+            this.Frame.Navigate(typeof(AboutPage), null);
+        }
 
+        void onCLickRequirementsButton(object sender, RoutedEventArgs e) {
+            this.Frame.Navigate(typeof(RequirementsPage), null);
+        }
+
+        void onCLickSettingsButton(object sender, RoutedEventArgs e) {
+            this.Frame.Navigate(typeof(SettingsPage), null);
         }
     }
 }

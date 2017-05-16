@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="AdDuplex.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AdDuplex"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:adduplex="using:AdDuplex">
+
+    <Grid>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Height="600">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Button Content="Powrót" Click="onClickBackButton" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0"/>
+            <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">Settings Page</TextBlock>
+        </Grid>
+        <Grid Background="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <adduplex:AdControl Width="500" Height="500" AdUnitId="205883" AppKey="e5a449ba-ddc8-489a-9307-fa53c0b02d0b" />
+        </Grid>
+    </Grid>
+</Page>
