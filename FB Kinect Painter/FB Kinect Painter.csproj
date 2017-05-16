@@ -101,6 +101,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="application\data\windows\ChoseFileWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="application\data\windows\DecisionWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -126,6 +130,9 @@
     <Compile Include="application\data\classes\Spray.cs" />
     <Compile Include="application\data\classes\User.cs" />
     <Compile Include="application\data\classes\WorkSheet.cs" />
+    <Compile Include="application\data\windows\ChoseFileWindow.xaml.cs">
+      <DependentUpon>ChoseFileWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="application\data\windows\DecisionWindow.xaml.cs" />
     <Compile Include="application\data\windows\ExitWindow.xaml.cs" />
     <Compile Include="application\data\windows\Intro.xaml.cs" />
