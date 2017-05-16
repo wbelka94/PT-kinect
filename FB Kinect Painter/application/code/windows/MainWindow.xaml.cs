@@ -49,7 +49,7 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         private void OnClickNewButton(object sender, RoutedEventArgs routedEventArgs) {
-            DecisionWindow dw = new DecisionWindow("Czy napewno chcesz porzucić zmiany?", workSheet.New);          
+            DecisionWindow dw = new DecisionWindow("Jesteś pewien?", workSheet.New);          
              //workSheet.Clear();            
         }
         /*****************************************************************************/

@@ -44,13 +44,13 @@ namespace FB_Kinect_Painter.application.code.windows {
                 Grid.SetColumn(fb, c);
 
                 //miniaturki
-                BitmapImage bimg = new BitmapImage();
+               /* BitmapImage bimg = new BitmapImage();
                 bimg.BeginInit();
                 string uri = file.Substring(0, file.Length - 5);
                 bimg.UriSource = new Uri("C:\\Users\\Wojtek\\Documents\\Visual Studio 2015\\Projects\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + uri);
                 bimg.EndInit();
                 Image img = new Image();
-                img.Source = bimg;
+                img.Source = bimg;*/
 
                 main.Children.Add(fb);
                 c++;
