@@ -272,9 +272,10 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         private void OnClickLoadButton(object sender, RoutedEventArgs routedEventArgs) {
-            var fs = new FileStream("saved_pictures/FB_Kinect_Painter_6.bmp.fbkp", FileMode.Open, FileAccess.Read);
+            Window w = new ChoseFileWindow(workSheet.ReadFormFile);
+            /*var fs = new FileStream("saved_pictures/FB_Kinect_Painter_6.bmp.fbkp", FileMode.Open, FileAccess.Read);
             StrokeCollection strokes = new StrokeCollection(fs);
-            INK.Strokes = strokes;
+            INK.Strokes = strokes;*/
         }
         /*****************************************************************************/
         private void OnClickSaveButton(object sender, RoutedEventArgs routedEventArgs) {
@@ -282,7 +283,7 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         private void OnClickNewButton(object sender, RoutedEventArgs routedEventArgs) {
-            DecisionWindow dw = new DecisionWindow("Czy napewno chcesz porzucić zmiany?", workSheet.Clear);
+            DecisionWindow dw = new DecisionWindow("Jesteś pewien?", workSheet.New);
             //workSheet.Clear();            
         }
         /*****************************************************************************/
@@ -311,6 +312,8 @@ namespace FB_Kinect_Painter {
             workSheet.SetToolColor(color);
         }
         /*****************************************************************************/
+
+        
 
         public MainWindow() {
             InitializeComponent();

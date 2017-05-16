@@ -80,7 +80,7 @@ namespace FB_Kinect_Painter.application.data.classes {
             INK.Strokes.Clear();
         }
 
-        public void New() {
+        public void New(object Sender, RoutedEventArgs routedEventArgs) {
             //zapytanie czy zapisac
             INK.Strokes.Clear();
         }
