@@ -35,10 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Coding4Fun.Kinect.Wpf, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Coding4Fun.Kinect.Wpf.dll</HintPath>
-    </Reference>
     <Reference Include="Core.Ink, Version=1.0.5657.24798, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Core.Ink.0.1.128\lib\net45\Core.Ink.dll</HintPath>
       <Private>True</Private>
@@ -101,55 +97,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="application\code\windows\ChoseFileWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="application\code\windows\DecisionWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="application\code\windows\ExitWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="application\code\windows\Intro.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="application\code\windows\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="application\code\classes\AutoClosingMessageBox.cs" />
-    <Compile Include="application\code\classes\FB_Kinect.cs" />
-    <Compile Include="application\code\classes\FB_Visual.cs" />
-    <Compile Include="application\code\classes\Painting_Tool.cs" />
-    <Compile Include="application\code\classes\Spray.cs" />
-    <Compile Include="application\code\classes\User.cs" />
-    <Compile Include="application\code\classes\WorkSheet.cs" />
-    <Compile Include="application\code\windows\ChoseFileWindow.xaml.cs">
-      <DependentUpon>ChoseFileWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="application\code\windows\DecisionWindow.xaml.cs">
-      <DependentUpon>DecisionWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="application\code\windows\ExitWindow.xaml.cs">
-      <DependentUpon>ExitWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="application\code\windows\Intro.xaml.cs">
-      <DependentUpon>Intro.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="application\code\windows\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="application\data\windows\DecisionWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="application\data\windows\ExitWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="application\data\windows\Intro.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="application\data\windows\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="application\data\classes\AutoClosingMessageBox.cs" />
+    <Compile Include="application\data\classes\FB_Application.cs" />
+    <Compile Include="application\data\classes\FB_Kinect.cs" />
+    <Compile Include="application\data\classes\Painting_Tool.cs" />
+    <Compile Include="application\data\classes\Spray.cs" />
+    <Compile Include="application\data\classes\User.cs" />
+    <Compile Include="application\data\classes\WorkSheet.cs" />
+    <Compile Include="application\data\windows\DecisionWindow.xaml.cs" />
+    <Compile Include="application\data\windows\ExitWindow.xaml.cs" />
+    <Compile Include="application\data\windows\Intro.xaml.cs" />
+    <Compile Include="application\data\windows\MainWindow.xaml.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -167,6 +147,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="application\graphics\buttons\license\license.pdf" />
+    <Resource Include="application\graphics\fonts\Capture_it.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -189,17 +171,18 @@
     <Resource Include="application\graphics\kinect_app.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="application\graphics\kinect_background.png" />
+    <Resource Include="application\graphics\buttons\brushIcon.png" />
+    <Resource Include="application\graphics\buttons\eraserIcon.png" />
+    <Resource Include="application\graphics\buttons\exitIcon.png" />
+    <Resource Include="application\graphics\buttons\loadIcon.png" />
+    <Resource Include="application\graphics\buttons\newIcon.png" />
+    <Resource Include="application\graphics\buttons\pencilIcon.png" />
+    <Resource Include="application\graphics\buttons\saveIcon.png" />
+    <Resource Include="application\graphics\buttons\selectIcon.png" />
+    <Resource Include="application\graphics\buttons\sprayIcon.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="application\graphics\buttonIcons\001-file-2.png" />
-    <Resource Include="application\graphics\buttonIcons\002-eraser.png" />
-    <Resource Include="application\graphics\buttonIcons\003-paint-brush.png" />
-    <Resource Include="application\graphics\buttonIcons\004-scissors.png" />
-    <Resource Include="application\graphics\buttonIcons\005-pencil.png" />
-    <Resource Include="application\graphics\buttonIcons\006-file.png" />
-    <Resource Include="application\graphics\buttonIcons\007-file-1.png" />
+    <Resource Include="application\graphics\fonts\license\license1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

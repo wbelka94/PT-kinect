@@ -5,26 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace FB_Kinect_Painter.application.code.classes
-{
-    public class AutoClosingMessageBox
-    {
+namespace FB_Kinect_Painter.application.data.classes {
+    public class AutoClosingMessageBox {
         System.Threading.Timer _timeoutTimer;
         string _caption;
-        AutoClosingMessageBox(string text, string caption, int timeout)
-        {
+        AutoClosingMessageBox(string text, string caption, int timeout) {
             _caption = caption;
             _timeoutTimer = new System.Threading.Timer(OnTimerElapsed,
                 null, timeout, System.Threading.Timeout.Infinite);
             using (_timeoutTimer)
                 MessageBox.Show(text, caption);
         }
-        public static void Show(string text, string caption, int timeout)
-        {
+        public static void Show(string text, string caption, int timeout) {
             new AutoClosingMessageBox(text, caption, timeout);
         }
-        void OnTimerElapsed(object state)
-        {
+        void OnTimerElapsed(object state) {
             IntPtr mbWnd = FindWindow("#32770", _caption); // lpClassName is #32770 for MessageBox
             if (mbWnd != IntPtr.Zero)
                 SendMessage(mbWnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);

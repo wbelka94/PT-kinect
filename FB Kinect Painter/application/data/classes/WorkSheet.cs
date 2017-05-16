@@ -1,5 +1,4 @@
-﻿using Microsoft.Kinect.Toolkit.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,11 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Ink;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
-namespace FB_Kinect_Painter.application.code.classes {
+namespace FB_Kinect_Painter.application.data.classes {
     public class WorkSheet {
         private Painting_Tool[] tools;
         private string fileName;
@@ -23,7 +21,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         public WorkSheet(InkCanvas INK) {
             this.INK = INK;
             path = "saved_pictures";
-            fileName =  "";
+            fileName = "";
 
             /*************************************init painting tools***********************************/
             tools = new Painting_Tool[5]
@@ -66,31 +64,29 @@ namespace FB_Kinect_Painter.application.code.classes {
             using (FileStream file = File.Create(fileName)) {
                 encoder.Save(file);
             }
-            using (FileStream file = File.Create(fileName+".fbkp")) {
+            using (FileStream file = File.Create(fileName + ".fbkp")) {
                 INK.Strokes.Save(file);
             }
 
             AutoClosingMessageBox.Show("Zapisano do pliku: " + fileName, "Caption", 2000);
         }
 
-        public void ReadFormFile(object Sender, RoutedEventArgs routedEventArgs) {
-            fileName = ((KinectTileButton)Sender).Content.ToString();
-            var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            StrokeCollection strokes = new StrokeCollection(fs);
-            INK.Strokes = strokes;
+        public void ReadFormFile() {
+
         }
 
-        public void Clear(object Sender, RoutedEventArgs routedEventArgs) {            
+        public void Clear(object Sender, RoutedEventArgs routedEventArgs) {
+            //zapytacz czy napewno
             INK.Strokes.Clear();
         }
 
-        public void New(object Sender, RoutedEventArgs routedEventArgs) {
+        public void New() {
+            //zapytanie czy zapisac
             INK.Strokes.Clear();
-            fileName = "";
         }
 
         public void SetPaintingTool(String toolName) {
-            foreach(Painting_Tool tool in tools) {
+            foreach (Painting_Tool tool in tools) {
                 if (tool.GetName() == toolName) {
                     activePaintingTool = tool;
                     activePaintingTool.SetActive();

@@ -1,7 +1,7 @@
 ﻿/*************************************************************************************/
 /*                                  OUR REFERENCES                                   */
 /*************************************************************************************/
-using FB_Kinect_Painter.application.code.classes;
+using FB_Kinect_Painter.application.data.classes;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
@@ -31,7 +31,7 @@ namespace FB_Kinect_Painter.application.code.windows {
         public ExitWindow() {
             Topmost = true;
             InitializeComponent();
-            FB_Kinect.ChangeKinectRegionExit(this);
+            //FB_Application.ChangeKinectRegionExit(this);
         }
         /*****************************************************************************/
         private void OnExitWindowYesButton(object sender, RoutedEventArgs routedEventArgs) {

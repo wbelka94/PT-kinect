@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace FB_Kinect_Painter.application.code.classes {
+namespace FB_Kinect_Painter.application.data.classes {
     class Spray : Painting_Tool {
         public Spray(InkCanvas INK, InkCanvasEditingMode editingMode, string name, string cursor, int defaultSize) : base(INK, editingMode, name, cursor, defaultSize) {
         }

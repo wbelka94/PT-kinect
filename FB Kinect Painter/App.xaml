@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:FB_Kinect_Painter"      
-             StartupUri="application/code/windows/Intro.xaml">
+             StartupUri="application/data/windows/Intro.xaml">
     <Application.Resources>
-         
+        <Style x:Key="FBFont">
+            <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/application/graphics/fonts/#Capture it"/>
+        </Style> 
     </Application.Resources>
 </Application>

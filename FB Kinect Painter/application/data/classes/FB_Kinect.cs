@@ -5,14 +5,13 @@ using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
 using Microsoft.Kinect.Toolkit.Interaction;
-using FB_Kinect_Painter.application.windows;
-using FB_Kinect_Painter.application.code.windows;
 /*************************************************************************************/
 /*                                     DEFAULT                                       */
 /*************************************************************************************/
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,9 +24,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Drawing;
-using Coding4Fun.Kinect.Wpf;
 /*************************************************************************************/
-namespace FB_Kinect_Painter.application.code.classes {
+namespace FB_Kinect_Painter.application.data.classes {
     /*********************************************************************************/
     public static class FB_Kinect {
         /*****************************************************************************/
@@ -56,7 +54,7 @@ namespace FB_Kinect_Painter.application.code.classes {
                     args.OldSensor.SkeletonStream.EnableTrackingInNearRange = false;
                     args.OldSensor.DepthStream.Disable();
                     args.OldSensor.SkeletonStream.Disable();
-                    
+
                 } catch (InvalidOperationException) {
                     error = true;
                 }
@@ -106,20 +104,20 @@ namespace FB_Kinect_Painter.application.code.classes {
             }
 
             if (!error) {
-                (mw as MainWindow).kinectRegion.KinectSensor = args.NewSensor;
-                (mw as MainWindow).kinectRegion.IsCursorVisible = false;
+                FB_Application.mw.kinectRegion.KinectSensor = args.NewSensor;
+                FB_Application.mw.kinectRegion.IsCursorVisible = false;
             }
         }
         /*****************************************************************************/
         public static void ChangeKinectRegionExit(Window w) {
             //(w as ExitWindow).kinectRegion.KinectSensor = (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor;
-           // (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor = null;
-            
+            // (FB_Kinect.mw as MainWindow).kinectRegion.KinectSensor = null;
+
         }
         /*****************************************************************************/
         public static void ChangeKinectRegionMainWindow(Window w) {
-           // (mw as MainWindow).kinectRegion.KinectSensor = (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor;
-           // (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor = null;
+            // (mw as MainWindow).kinectRegion.KinectSensor = (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor;
+            // (FB_Kinect.ew as ExitWindow).kinectRegion.KinectSensor = null;
         }
         /*****************************************************************************/
         public static void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs args) {
@@ -127,8 +125,8 @@ namespace FB_Kinect_Painter.application.code.classes {
                 MessageBox.Show(FB_Kinect.ERR_NOKINECT, FB_Kinect.APP_NAME, MessageBoxButton.OK, MessageBoxImage.Warning);
             } else {
                 InitKinectInteractions(sender, args);
-                
-                iw.Close();        
+
+                iw.Close();
             }
         }
         /*****************************************************************************/
@@ -140,17 +138,17 @@ namespace FB_Kinect_Painter.application.code.classes {
             SFrame.CopySkeletonDataTo(Skeletons);
 
             foreach (Skeleton S in Skeletons) {
-                if (S.TrackingState == SkeletonTrackingState.Tracked) {                                           
+                if (S.TrackingState == SkeletonTrackingState.Tracked) {
                     CurosrUpdate(S);
-                    Skeletons = null;                    
+                    Skeletons = null;
                 }
             }
         }
         /*****************************************************************************/
-       
+
         private static void CurosrUpdate(Skeleton S) {
             SkeletonPoint Sloc = S.Joints[JointType.HandRight].Position;
-            DepthImagePoint Cloc = sensorChooser.Kinect.CoordinateMapper.MapSkeletonPointToDepthPoint(Sloc,DepthImageFormat.Resolution640x480Fps30);
+            DepthImagePoint Cloc = sensorChooser.Kinect.CoordinateMapper.MapSkeletonPointToDepthPoint(Sloc, DepthImageFormat.Resolution640x480Fps30);
 
 
             /*System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)((0.5+Sloc.X) * FB_Visual.GetScreenWidth()),
@@ -161,23 +159,22 @@ namespace FB_Kinect_Painter.application.code.classes {
              System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)scaledJoint.Position.X,
                                                                             (int)scaledJoint.Position.Y);*/
             System.Windows.Point point = new System.Windows.Point();
-            point.X = (0.5 + Sloc.X) * FB_Visual.GetScreenWidth();
-            point.Y = (0.5 + (-1 * Sloc.Y)) * FB_Visual.GetScreenHeight() + 200;
+            point.X = (0.5 + Sloc.X) * FB_Application.GetScreenWidth();
+            point.Y = (0.5 + (-1 * Sloc.Y)) * FB_Application.GetScreenHeight() + 200;
 
-            (mw as MainWindow).TMPlabel.Content = Sloc.X+ "x"+ Sloc.Y;
             if (S.Joints[JointType.HandLeft].Position.Y > S.Joints[JointType.ElbowLeft].Position.Y) {
-                (mw as MainWindow).workSheet.activePaintingTool.Paint(point.X, point.Y);
-                
+                FB_Application.mw.workSheet.activePaintingTool.Paint(point.X, point.Y);
+
                 //mouse_event(MOUSEEVENTF_LEFTDOWN, (int)point.X, (int)point.Y, 0, 0);
             } else {
                 //mouse_event(MOUSEEVENTF_LEFTUP, (int)point.X, (int)point.Y, 0, 0);
                 SetMousePosition(point.X, point.Y, false);
-            }                                    
+            }
         }
         /*****************************************************************************/
         [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);     
-        
+        public static extern void mouse_event(int dwFlags, int dx, int dy, int cButtons, int dwExtraInfo);
+
         static public void SetMousePosition(double x, double y, bool lb_pressed) {
             System.Windows.Forms.Cursor.Position = new System.Drawing.Point((int)x, (int)y);
             if (lb_pressed) {
@@ -185,7 +182,7 @@ namespace FB_Kinect_Painter.application.code.classes {
             } else {
                 mouse_event(MOUSEEVENTF_LEFTUP, (int)x, (int)y, 0, 0);
             }
-        }  
+        }
     }
     /*********************************************************************************/
 }

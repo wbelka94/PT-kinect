@@ -1,0 +1,382 @@
+﻿<Window x:Class="FB_Kinect_Painter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FB_Kinect_Painter"
+        mc:Ignorable="d"
+        Title="FB Kinect Painter" WindowState="Maximized" WindowStyle="None">
+    <Grid Name="mainWindow" Background="#2D2D30">
+        <!--****************************************************************************-->
+        <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi"/>
+        <Grid Name="header" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Name="headerText" Style="{StaticResource FBFont}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                FB Kinect Painter
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Grid>
+        <!--****************************************************************************-->
+        <Grid Name="leftSide" HorizontalAlignment="Left">
+            <!--************************************************************************-->
+            <Grid Name="leftBar" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Name="leftBarText" Style="{StaticResource FBFont}" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    Narzędzia
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <k:KinectTileButton Name="sprayButton" Click="OnClickSprayButton" Grid.Row="1" Grid.Column="0" Foreground="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                    <StackPanel>
+                        <Image Name="sprayButtonIcon" Source="/application/graphics/buttons/sprayIcon.png"/>
+                        <TextBlock Name="sprayButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Spray</TextBlock>
+                    </StackPanel>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="pencilButton" Click="OnClickPencilButton" Grid.Row="1" Grid.Column="1" Foreground="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                    <StackPanel>
+                        <Image Name="pencilButtonIcon" Source="/application/graphics/buttons/pencilIcon.png"/>
+                        <TextBlock Name="pencilButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Ołówek</TextBlock>
+                    </StackPanel>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="eraserButton" Click="OnClickEraserButton" Grid.Row="2" Grid.Column="0" Foreground="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                    <StackPanel>
+                        <Image Name="eraserButtonIcon" Source="/application/graphics/buttons/eraserIcon.png"/>
+                        <TextBlock Name="eraserButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Gumka</TextBlock>
+                    </StackPanel>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="brushButton" Click="OnClickBrushButton" Grid.Row="2" Grid.Column="1" Foreground="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                    <StackPanel>
+                        <Image Name="brushButtonIcon" Style="{StaticResource FBFont}" Source="/application/graphics/buttons/brushIcon.png"/>
+                        <TextBlock Name="brushButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Pędzel</TextBlock>
+                    </StackPanel>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="selectButton" Click="OnClickSelectButton" Grid.Row="3" Grid.Column="0" Foreground="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                    <StackPanel>
+                        <Image Name="selectButtonIcon" Source="/application/graphics/buttons/selectIcon.png"/>
+                        <TextBlock Name="selectButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Zaznacz</TextBlock>
+                    </StackPanel>
+                </k:KinectTileButton>
+            </Grid>
+            <!--************************************************************************-->
+            <Grid Name="toolOption">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Name="toolOptionText" Style="{StaticResource FBFont}" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        Rozmiar narzędzia
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock Name="thicknessValue" Style="{StaticResource FBFont}" Text="1" Grid.ColumnSpan="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <k:KinectTileButton Name="moreThicknessButton" Grid.Row="2" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" IsEnabled="True">
+                    +
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="lessThicknessButton" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="True">
+                    -
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+            </Grid>
+            <!--************************************************************************-->
+            <Grid Name="activeTools" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Name="activeToolsText" Style="{StaticResource FBFont}" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        Aktywne narzędzia
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                
+                <k:KinectTileButton Name="activeTool" Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" IsEnabled="False">
+                    +
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="activeColor" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="False">
+                    -
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                
+            </Grid>
+            <!--************************************************************************-->
+        </Grid>
+        <!--****************************************************************************-->
+        <Grid Name="rightSide" HorizontalAlignment="Right">
+            <!--************************************************************************-->
+            <Grid Name="rightBar" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Name="rightBarText" Style="{StaticResource FBFont}" Grid.ColumnSpan="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                    Opcje
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <k:KinectTileButton Name="newButton" Click="OnClickNewButton" Grid.Row="1" Grid.Column="0" Foreground="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                    <StackPanel>
+                        <Image Name="newButtonIcon" Source="/application/graphics/buttons/newIcon.png"/>
+                        <TextBlock Name="newButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Nowy</TextBlock>
+                    </StackPanel>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="saveButton" Click="OnClickSaveButton" Grid.Row="2" Grid.Column="0" Foreground="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                    <StackPanel>
+                        <Image Name="saveButtonIcon" Source="/application/graphics/buttons/saveIcon.png"/>
+                        <TextBlock Name="saveButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Zapisz</TextBlock>
+                    </StackPanel>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="loadButton" Click="OnClickLoadButton" Grid.Row="3" Grid.Column="0" Foreground="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                    <StackPanel>
+                        <Image Name="loadButtonIcon" Source="/application/graphics/buttons/loadIcon.png"/>
+                        <TextBlock Name="loadButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Wczytaj</TextBlock>
+                    </StackPanel>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="quitButton" Click="OnClickQuitButton" Grid.Row="4" Grid.Column="0" Foreground="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                    <StackPanel>
+                        <Image Name="quitButtonIcon" Source="/application/graphics/buttons/exitIcon.png"/>
+                        <TextBlock Name="quitButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Wyjdź</TextBlock>
+                    </StackPanel>
+                </k:KinectTileButton>
+            </Grid>
+            <!--************************************************************************-->
+            <Grid Name="cameraView" VerticalAlignment="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Name="cameraViewText" Style="{StaticResource FBFont}" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        Użytkownik
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <k:KinectRegion Name="kinectRegion" Grid.Row="1" Grid.RowSpan="2">
+                    <k:KinectUserViewer Name="kinectUserViever" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </k:KinectRegion>
+            </Grid>
+            <!--************************************************************************-->
+        </Grid>
+        <!--****************************************************************************-->
+        <Grid Name="center">
+            <!--************************************************************************-->
+            <Grid Name="workSpace" VerticalAlignment="Top">
+                <InkCanvas Name="INK">
+                    <InkCanvas.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" ShadowDepth="5" BlurRadius="6"/>
+                    </InkCanvas.Effect>
+                </InkCanvas>
+            </Grid>
+            <!--************************************************************************-->
+            <Grid Name="palleteColors" VerticalAlignment="Bottom">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <k:KinectTileButton Name="blackColor" Click="changeColor" Grid.Row="0" Grid.Column="0" Background="Black">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="whiteColor" Click="changeColor" Grid.Row="1" Grid.Column="0" Background="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="grayColor" Click="changeColor" Grid.Row="0" Grid.Column="1" Background="Gray">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="darkGrayColor" Click="changeColor" Grid.Row="1" Grid.Column="1" Background="DarkGray">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="darkRedColor" Click="changeColor" Grid.Row="0" Grid.Column="2" Background="DarkRed">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="brownColor" Click="changeColor" Grid.Row="1" Grid.Column="2" Background="Brown">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="redColor" Click="changeColor" Grid.Row="0" Grid.Column="3" Background="Red">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="pinkColor" Click="changeColor" Grid.Row="1" Grid.Column="3" Background="Pink">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="redOrangeColor" Click="changeColor" Grid.Row="0" Grid.Column="4" Background="OrangeRed">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="orangeColor" Click="changeColor" Grid.Row="1" Grid.Column="4" Background="Orange">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="yellowColor" Click="changeColor" Grid.Row="0" Grid.Column="5" Background="Yellow">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="lightYellowColor" Click="changeColor" Grid.Row="1" Grid.Column="5" Background="LightYellow">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="greenColor" Click="changeColor" Grid.Row="0" Grid.Column="6" Background="Green">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="lightGreenColor" Click="changeColor" Grid.Row="1" Grid.Column="6" Background="LightGreen">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="blueColor" Click="changeColor" Grid.Row="0" Grid.Column="7" Background="Blue">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="lightBlueColor" Click="changeColor" Grid.Row="1" Grid.Column="7" Background="LightBlue">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="darkBlueColor" Click="changeColor" Grid.Row="0" Grid.Column="8" Background="DarkBlue">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="cadetBlueColor" Click="changeColor" Grid.Row="1" Grid.Column="8" Background="CadetBlue">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="blueVioletColor" Click="changeColor" Grid.Row="0" Grid.Column="9" Background="BlueViolet">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="violetColor" Click="changeColor" Grid.Row="1" Grid.Column="9" Background="Violet">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="yourColor1" Click="changeColor" Grid.Row="0" Grid.Column="10" Background="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+                <k:KinectTileButton Name="yourColor2" Click="changeColor" Grid.Row="1" Grid.Column="10" Background="White">
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
+                </k:KinectTileButton>
+            </Grid>
+            <!--************************************************************************-->
+        </Grid>
+        <!--****************************************************************************-->
+        <Grid Name="footer" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <TextBlock Name="footerText" FontFamily="Arial" HorizontalAlignment="Center" VerticalAlignment="Center">
+                © 2017 FB Team. Wszystkie prawa zastrzeżone.
+            </TextBlock>
+        </Grid>
+        <!--****************************************************************************-->
+    </Grid>
+</Window>

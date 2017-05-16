@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace FB_Kinect_Painter.application.code.classes {
+namespace FB_Kinect_Painter.application.data.classes {
     public class Painting_Tool {
         private String name;
         private InkCanvas INK;
@@ -17,11 +17,11 @@ namespace FB_Kinect_Painter.application.code.classes {
             this.INK = INK;
             this.editingMode = editingMode;
             this.Size = defaultSize;
-            
+
         }
 
         public void SetActive() {
-            
+
             this.INK.EditingMode = this.editingMode;
             if (name.Equals("Spray")) {
                 this.INK.DefaultDrawingAttributes.Width = 1;
@@ -40,7 +40,7 @@ namespace FB_Kinect_Painter.application.code.classes {
         public String GetName() {
             return name;
         }
-                
+
         public virtual void Paint(double x, double y) {
             if (!name.Equals("Spray")) {
                 FB_Kinect.SetMousePosition(x, y, true);
@@ -51,14 +51,14 @@ namespace FB_Kinect_Painter.application.code.classes {
                     nx = x + rnd.Next(0, Size);
                     ny = y + rnd.Next(0, Size);
                     FB_Kinect.SetMousePosition(nx, ny, true);
-                    FB_Kinect.SetMousePosition(nx+1, ny+1, true);
+                    FB_Kinect.SetMousePosition(nx + 1, ny + 1, true);
                     FB_Kinect.SetMousePosition(nx, ny, false);
                 }
             }
-            
+
         }
 
-       
+
         public const int MOUSEEVENTF_LEFTDOWN = 0x02;
         public const int MOUSEEVENTF_LEFTUP = 0x04;
         [System.Runtime.InteropServices.DllImport("user32.dll")]
