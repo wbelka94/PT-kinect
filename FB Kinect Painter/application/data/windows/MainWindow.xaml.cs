@@ -311,10 +311,20 @@ namespace FB_Kinect_Painter {
         private void changeColor(object sender, RoutedEventArgs routedEventArgs) {
             String color = ((KinectTileButton)sender).Background.ToString();
             workSheet.SetToolColor(color);
+            activeColor.Background = ((KinectTileButton)sender).Background;
         }
         /*****************************************************************************/
-
+        private void OnClickLessThicknessButton(object sender, RoutedEventArgs routedEventArgs) {
+            thicknessValue.Text = workSheet.activePaintingTool.DecrementSize().ToString();
+        }
+        /*****************************************************************************/
+        private void OnClickMoreThicknessButton(object sender, RoutedEventArgs routedEventArgs) {
+            thicknessValue.Text = workSheet.activePaintingTool.IncrementSize().ToString();
+        }
+        /*****************************************************************************/
         
+
+
 
         public MainWindow() {
             InitializeComponent();

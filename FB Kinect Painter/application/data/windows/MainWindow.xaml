@@ -107,13 +107,13 @@
                         <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
                     </TextBlock.Effect>
                 </TextBlock>
-                <k:KinectTileButton Name="moreThicknessButton" Grid.Row="2" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" IsEnabled="True">
+                <k:KinectTileButton Click="OnClickMoreThicknessButton" Name="moreThicknessButton" Grid.Row="2" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" IsEnabled="True">
                     +
                     <k:KinectTileButton.Effect>
                         <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
                     </k:KinectTileButton.Effect>
                 </k:KinectTileButton>
-                <k:KinectTileButton Name="lessThicknessButton" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="True">
+                <k:KinectTileButton Click="OnClickLessThicknessButton" Name="lessThicknessButton" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="True">
                     -
                     <k:KinectTileButton.Effect>
                         <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
@@ -145,8 +145,7 @@
                         <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
                     </k:KinectTileButton.Effect>
                 </k:KinectTileButton>
-                <k:KinectTileButton Name="activeColor" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="False">
-                    -
+                <k:KinectTileButton Name="activeColor" Background="Brown" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="False">
                     <k:KinectTileButton.Effect>
                         <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
                     </k:KinectTileButton.Effect>

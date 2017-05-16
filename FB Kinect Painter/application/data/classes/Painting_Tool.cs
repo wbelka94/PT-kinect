@@ -37,6 +37,22 @@ namespace FB_Kinect_Painter.application.data.classes {
             SetActive();
         }
 
+        public int DecrementSize() {
+            if(Size == 1) {
+                return Size;
+            }
+            Size--;            
+            SetActive();
+            return Size;
+        }
+
+        public int IncrementSize() {
+            Size++;
+            SetActive();
+            return Size;
+        }
+
+
         public String GetName() {
             return name;
         }
