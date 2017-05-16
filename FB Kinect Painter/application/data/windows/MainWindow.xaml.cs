@@ -25,6 +25,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Ink;
+using FB_Kinect_Painter.application.code.classes;
 
 namespace FB_Kinect_Painter {
     public partial class MainWindow : Window {
