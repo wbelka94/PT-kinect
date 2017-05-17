@@ -292,22 +292,27 @@ namespace FB_Kinect_Painter {
         /*****************************************************************************/
         private void OnClickEraserButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Eraser");
+            thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
         }
         /*****************************************************************************/
         private void OnClickPencilButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Pencil");
+            thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
         }
         /*****************************************************************************/
         private void OnClickSelectButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Select");
+            thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
         }
         /*****************************************************************************/
         private void OnClickBrushButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Brush");
+            thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
         }
         /*****************************************************************************/
         private void OnClickSprayButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Spray");
+            thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
         }
         /*****************************************************************************/
         private void changeColor(object sender, RoutedEventArgs routedEventArgs) {

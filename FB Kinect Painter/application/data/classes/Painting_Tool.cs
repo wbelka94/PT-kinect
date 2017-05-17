@@ -38,7 +38,7 @@ namespace FB_Kinect_Painter.application.data.classes {
         }
 
         public int DecrementSize() {
-            if(Size == 1) {
+            if(Size == 1 || name.Equals("Pencil")) {
                 return Size;
             }
             Size--;            
@@ -47,6 +47,8 @@ namespace FB_Kinect_Painter.application.data.classes {
         }
 
         public int IncrementSize() {
+            if (name.Equals("Pencil"))
+                return Size;
             Size++;
             SetActive();
             return Size;
@@ -55,6 +57,10 @@ namespace FB_Kinect_Painter.application.data.classes {
 
         public String GetName() {
             return name;
+        }
+
+        public int GetSize() {
+            return Size;
         }
 
         public virtual void Paint(double x, double y) {
