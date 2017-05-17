@@ -23,7 +23,7 @@ namespace FB_Kinect_Painter.application.code.classes {
 
         public WorkSheet(InkCanvas INK) {
             this.INK = INK;
-            path = "saved_pictures";
+            path = "C:/Users/Wojtek/Documents/Visual Studio 2015/Projects/PT-kinect/FB Kinect Painter/bin/Debug/saved_pictures";
             fileName = "";
 
             /*************************************init painting tools***********************************/
