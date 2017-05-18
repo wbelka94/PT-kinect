@@ -147,7 +147,7 @@ namespace FB_Kinect_Painter.application.data.classes {
         /*****************************************************************************/
 
         private static void CurosrUpdate(Skeleton S) {
-            SkeletonPoint Sloc = S.Joints[JointType.HandRight].Position;
+            SkeletonPoint Sloc = S.Joints[User.firstHand].Position;
             DepthImagePoint Cloc = sensorChooser.Kinect.CoordinateMapper.MapSkeletonPointToDepthPoint(Sloc, DepthImageFormat.Resolution640x480Fps30);
 
 
@@ -162,7 +162,7 @@ namespace FB_Kinect_Painter.application.data.classes {
             point.X = (0.5 + Sloc.X) * FB_Application.GetScreenWidth();
             point.Y = (0.5 + (-1 * Sloc.Y)) * FB_Application.GetScreenHeight() + 200;
 
-            if (S.Joints[JointType.HandLeft].Position.Y > S.Joints[JointType.ElbowLeft].Position.Y) {
+            if (S.Joints[User.secondHand].Position.Y > S.Joints[User.secondElbow].Position.Y) {
                 FB_Application.mw.workSheet.activePaintingTool.Paint(point.X, point.Y);
 
                 //mouse_event(MOUSEEVENTF_LEFTDOWN, (int)point.X, (int)point.Y, 0, 0);

@@ -17,7 +17,6 @@ namespace FB_Kinect_Painter.application.data.classes {
             this.INK = INK;
             this.editingMode = editingMode;
             this.Size = defaultSize;
-
         }
 
         public void SetActive() {
