@@ -338,7 +338,8 @@ namespace FB_Kinect_Painter {
             VisualMainWindow();
             Loaded += OnLoaded;
             workSheet = new WorkSheet(INK);
-            User.SetJoints("right");
+            Settings.LoadSettings();
+            User.SetJoints(Settings.primaryHeand);
             FB_Application.mw = this;
         }
     }

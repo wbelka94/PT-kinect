@@ -127,6 +127,7 @@
     <Compile Include="application\data\classes\FB_Application.cs" />
     <Compile Include="application\data\classes\FB_Kinect.cs" />
     <Compile Include="application\data\classes\Painting_Tool.cs" />
+    <Compile Include="application\data\classes\Settings.cs" />
     <Compile Include="application\data\classes\Spray.cs" />
     <Compile Include="application\data\classes\User.cs" />
     <Compile Include="application\data\classes\WorkSheet.cs" />
