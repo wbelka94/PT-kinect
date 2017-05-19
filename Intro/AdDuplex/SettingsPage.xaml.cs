@@ -22,10 +22,35 @@ namespace AdDuplex {
     public sealed partial class SettingsPage : Page {
         public SettingsPage() {
             this.InitializeComponent();
+            var _enumval = Enum.GetValues(typeof(HandComboBoxValues)).Cast<HandComboBoxValues>();
+            HandChooser.ItemsSource = _enumval.ToList();
+            HandChooser.SelectedIndex = 1;
         }
 
         void onClickBackButton(object sender, RoutedEventArgs e) {
             this.Frame.Navigate(typeof(MainPage), null);
+        }
+
+        async void onClickSaveButton(object sender, RoutedEventArgs e) {
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("settings.conf", Windows.Storage.CreationCollisionOption.OpenIfExists);
+            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, HandChooser.SelectedValue.ToString()+"\n"
+                                                                    + tb.Text+"\n");
+            tb.Text = sampleFile.Path.ToString();
+        }
+
+        async void onClickBrowseButton(object sender, RoutedEventArgs e) {
+            var picker = new Windows.Storage.Pickers.FolderPicker();
+            picker.ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail;
+            picker.FileTypeFilter.Add("*");
+            Windows.Storage.StorageFolder storageFolder = await picker.PickSingleFolderAsync();
+
+            tb.Text = storageFolder.Path.ToString();
+        }
+
+        public enum HandComboBoxValues {
+            Lewa,
+            Prawa
         }
     }
 }

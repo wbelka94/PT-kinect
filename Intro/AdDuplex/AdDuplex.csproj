@@ -105,6 +105,7 @@
     <Compile Include="RequirementsPage.xaml.cs">
       <DependentUpon>RequirementsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
