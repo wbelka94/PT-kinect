@@ -339,6 +339,7 @@ namespace FB_Kinect_Painter {
             Loaded += OnLoaded;
             workSheet = new WorkSheet(INK);
             Settings.LoadSettings();
+            workSheet.setPath(Settings.path);
             User.SetJoints(Settings.primaryHeand);
             FB_Application.mw = this;
         }

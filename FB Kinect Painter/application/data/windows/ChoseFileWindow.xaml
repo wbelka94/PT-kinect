@@ -23,8 +23,9 @@
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition />
+                <RowDefinition />                
             </Grid.RowDefinitions>
+
         </Grid>
     </Grid>
 </Window>

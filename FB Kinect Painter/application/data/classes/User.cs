@@ -13,12 +13,12 @@ namespace FB_Kinect_Painter.application.data.classes {
         public static JointType secondElbow = JointType.ElbowLeft;
 
         public static void SetJoints(String firstHeand) {
-            if (firstHeand.Equals("right")) {
+            if (firstHeand.Equals("Prawa")) {
                 firstHand = JointType.HandRight;
                 secondHand = JointType.HandLeft;
                 secondElbow = JointType.ElbowLeft;
             }
-            else if (firstHeand.Equals("left")) {
+            else if (firstHeand.Equals("Lewa")) {
                 firstHand = JointType.HandLeft;
                 secondHand = JointType.HandRight;
                 secondElbow = JointType.ElbowRight;

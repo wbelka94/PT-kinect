@@ -105,5 +105,9 @@ namespace FB_Kinect_Painter.application.code.classes {
             INK.DefaultDrawingAttributes.Color = color;
         }
 
+        public void setPath(String path) {
+            this.path = path;
+        }
+
     }
 }
