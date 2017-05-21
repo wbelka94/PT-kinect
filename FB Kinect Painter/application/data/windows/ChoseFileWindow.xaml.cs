@@ -73,16 +73,26 @@ namespace FB_Kinect_Painter.application.code.windows {
                 KinectTileButton fb = new KinectTileButton();
                 StackPanel sp = new StackPanel();
                 string filebmp = file.Replace(".fbkp", "");
-                BitmapImage image = new BitmapImage(new Uri("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp));
-                Image img = new Image();
-
+                Boolean fileExists = System.IO.File.Exists("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp);
+                
                 sp.HorizontalAlignment = HorizontalAlignment.Center;
                 sp.VerticalAlignment = VerticalAlignment.Center;
-                sp.Children.Add(img);
 
-                img.Source = image;
-                img.Width = contentFileButtonSize[0] * 0.90;
-                img.Height = contentFileButtonSize[1] * 0.90;
+                if (fileExists == true) {
+                    BitmapImage image = new BitmapImage(new Uri("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp));
+                    Image img = new Image();
+                    sp.Children.Add(img);
+
+                    img.Source = image;
+                    img.Width = contentFileButtonSize[0] * 0.90;
+                    img.Height = contentFileButtonSize[1] * 0.90;
+                } else {
+                    TextBlock tb = new TextBlock();
+                    tb.Text = "Brak podglądu";
+                    tb.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./application/graphics/fonts/#Capture it");
+                    tb.Foreground = Brushes.White;
+                    sp.Children.Add(tb);
+                }
 
                 fb.Width = contentFileButtonSize[0];
                 fb.Height = contentFileButtonSize[1];
