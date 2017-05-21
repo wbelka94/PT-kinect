@@ -89,8 +89,8 @@ namespace FB_Kinect_Painter.application.code.windows {
                 } else {
                     TextBlock tb = new TextBlock();
                     tb.Text = "Brak podglądu";
-                    tb.FontFamily = new FontFamily(new Uri("pack://application:,,,/"), "./application/graphics/fonts/#Capture it");
-                    tb.Foreground = Brushes.White;
+                    tb.FontFamily = FB_Application.appFont;
+                    tb.Foreground = FB_Application.appFontColor;
                     sp.Children.Add(tb);
                 }
 
@@ -99,7 +99,6 @@ namespace FB_Kinect_Painter.application.code.windows {
                 fb.Content = sp;
                 fb.Click += eh;
                 fb.Click += OnClickFileButton;
-
                 content.Children.Add(fb);
             }
         }
