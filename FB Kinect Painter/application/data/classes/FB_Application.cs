@@ -25,10 +25,10 @@ namespace FB_Kinect_Painter.application.data.classes {
         public static FontFamily appFont = new FontFamily(new Uri("pack://application:,,,/"), "./application/graphics/fonts/#Capture it");
         public static SolidColorBrush appFontColor = Brushes.White;
         // Button
-        public static SolidColorBrush appButtonColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#52318F"));
+        public static SolidColorBrush appButtonColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
         // Windows
         public static MainWindow mw;
-
+    
         public static int GetScreenHeight() {
             return (int)System.Windows.SystemParameters.PrimaryScreenHeight;
         }

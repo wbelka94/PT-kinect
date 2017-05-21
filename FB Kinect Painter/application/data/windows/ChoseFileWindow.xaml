@@ -18,7 +18,7 @@
             </TextBlock>
         </Grid>
         <Grid Name="contentScroll">
-            <ScrollViewer Name="scroll" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="Auto">
+            <ScrollViewer Name="scroll" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" Width="Auto">
                 <ScrollViewer.Resources>
                     <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarHeightKey}">30</sys:Double>
                 </ScrollViewer.Resources>

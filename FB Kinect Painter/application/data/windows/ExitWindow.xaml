@@ -7,9 +7,8 @@
         xmlns:local="clr-namespace:FB_Kinect_Painter.application.code.windows"
         mc:Ignorable="d"
         Background="#510E78" Height="240" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid>
-        <k:KinectRegion Name="kinectRegion">
-            <Grid>
+    <Grid Background="#2D2D30">
+        <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -18,16 +17,24 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="180"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.ColumnSpan="2" Foreground="White" FontSize="35" FontWeight="Bold" FontFamily="Hedley New Bold" HorizontalAlignment="Center" VerticalAlignment="Center"> 
+                <Label Style="{StaticResource FBFont}" Grid.Row="0" Grid.ColumnSpan="2" Foreground="White" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center">
                     Czy na pewno chcesz wyjść?
+                    <Label.Effect>
+                        <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </Label.Effect>
                 </Label>
-                <k:KinectTileButton Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto" Margin="20" Foreground="White" FontSize="50" FontWeight="Bold" FontFamily="Hedley New Bold" Click="OnExitWindowYesButton">
-                    TAK   
+                <k:KinectTileButton Name="yesButton" Style="{StaticResource FBFont}" Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto" Margin="20" Foreground="White" FontSize="50" Click="OnExitWindowYesButton">
+                    TAK
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
                 </k:KinectTileButton>
-                <k:KinectTileButton Grid.Row="1" Grid.Column="1" Width="Auto" Height="Auto" Margin="20" Foreground="White" FontSize="50" FontWeight="Bold" FontFamily="Hedley New Bold" Click="OnExitWindowNoButton">
+                <k:KinectTileButton Name="noButton" Style="{StaticResource FBFont}" Grid.Row="1" Grid.Column="1" Width="Auto" Height="Auto" Margin="20" Foreground="White" FontSize="50" Click="OnExitWindowNoButton">
                     NIE
+                    <k:KinectTileButton.Effect>
+                        <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                    </k:KinectTileButton.Effect>
                 </k:KinectTileButton>
             </Grid>
-        </k:KinectRegion>
     </Grid>
 </Window>

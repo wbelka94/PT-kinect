@@ -81,11 +81,14 @@ namespace FB_Kinect_Painter.application.code.windows {
                 if (fileExists == true) {
                     BitmapImage image = new BitmapImage(new Uri("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp));
                     Image img = new Image();
-                    sp.Children.Add(img);
-
+                   
                     img.Source = image;
                     img.Width = contentFileButtonSize[0] * 0.90;
                     img.Height = contentFileButtonSize[1] * 0.90;
+                    img.HorizontalAlignment = HorizontalAlignment.Center;
+                    img.VerticalAlignment = VerticalAlignment.Top;
+
+                    sp.Children.Add(img);
                 } else {
                     TextBlock tb = new TextBlock();
                     tb.Text = "Brak podglądu";
@@ -96,6 +99,8 @@ namespace FB_Kinect_Painter.application.code.windows {
 
                 fb.Width = contentFileButtonSize[0];
                 fb.Height = contentFileButtonSize[1];
+                fb.Background = FB_Application.appButtonColor;
+                backButton.Background = FB_Application.appButtonColor;
                 fb.Content = sp;
                 fb.Click += eh;
                 fb.Click += OnClickFileButton;

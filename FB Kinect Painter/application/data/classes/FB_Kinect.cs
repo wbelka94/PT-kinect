@@ -38,7 +38,7 @@ namespace FB_Kinect_Painter.application.data.classes {
         /*****************************************************************************/
         /*                                    APP                                    */
         /*****************************************************************************/
-        public const String APP_NAME = "FB Kinect Painter 1.0 pre-alpha";
+        public const String APP_NAME = "FB Kinect Painter 1.0 BETA";
         /*****************************************************************************/
         public static KinectSensorChooser sensorChooser;
         public static Window mw; // główne okno aplikacji

@@ -11,6 +11,7 @@ using System.Windows.Controls;
 using System.Windows.Ink;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using FB_Kinect_Painter.application.data.windows;
 
 namespace FB_Kinect_Painter.application.code.classes {
     public class WorkSheet {
@@ -71,7 +72,8 @@ namespace FB_Kinect_Painter.application.code.classes {
                 INK.Strokes.Save(file);
             }
 
-            AutoClosingMessageBox.Show("Zapisano do pliku: " + fileName, "Caption", 2000);
+            //AutoClosingMessageBox.Show("Zapisano do pliku: " + fileName, "Caption", 2000);
+            SaveWindow sw = new SaveWindow();
         }
 
         public void ReadFormFile(object Sender, RoutedEventArgs routedEventArgs) {

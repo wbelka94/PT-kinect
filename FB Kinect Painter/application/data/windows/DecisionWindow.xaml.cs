@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FB_Kinect_Painter.application.data.classes;
 
 namespace FB_Kinect_Painter.application.code.windows {
     /// <summary>
@@ -22,6 +23,8 @@ namespace FB_Kinect_Painter.application.code.windows {
 
         public DecisionWindow(String q, RoutedEventHandler eh) {
             InitializeComponent();
+            this.YesButton.Background = FB_Application.appButtonColor;
+            this.NoButton.Background = FB_Application.appButtonColor;
             Question.Content = q;
             Topmost = true;
             YesButton.Click += eh;

@@ -26,6 +26,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Ink;
 using FB_Kinect_Painter.application.code.classes;
+using FB_Kinect_Painter.application.windows;
 
 namespace FB_Kinect_Painter {
     public partial class MainWindow : Window {
@@ -329,10 +330,6 @@ namespace FB_Kinect_Painter {
             thicknessValue.Text = workSheet.activePaintingTool.IncrementSize().ToString();
         }
         /*****************************************************************************/
-        
-
-
-
         public MainWindow() {
             InitializeComponent();
             VisualMainWindow();

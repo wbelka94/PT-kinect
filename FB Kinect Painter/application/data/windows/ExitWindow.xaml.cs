@@ -31,6 +31,8 @@ namespace FB_Kinect_Painter.application.code.windows {
         public ExitWindow() {
             Topmost = true;
             InitializeComponent();
+            yesButton.Background = FB_Application.appButtonColor;
+            noButton.Background = FB_Application.appButtonColor;
             //FB_Application.ChangeKinectRegionExit(this);
         }
         /*****************************************************************************/
