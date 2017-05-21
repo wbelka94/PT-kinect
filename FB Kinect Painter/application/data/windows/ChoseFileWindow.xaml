@@ -5,21 +5,24 @@
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FB_Kinect_Painter.application.code.windows"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Background="#510E78" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-
     <Grid Background="#2D2D30">
         <Grid Name="header" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TextBlock Name="headerText" Foreground="White" Style="{StaticResource FBFont}" HorizontalAlignment="Center" VerticalAlignment="Center">
-                Wybierz obraz
+                Wczytaj obraz
                 <TextBlock.Effect>
                     <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
                 </TextBlock.Effect>
             </TextBlock>
         </Grid>
         <Grid Name="contentScroll">
-            <ScrollViewer Name="scroll" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto">
-                <StackPanel Name="content" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto">
+            <ScrollViewer Name="scroll" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="Auto">
+                <ScrollViewer.Resources>
+                    <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarHeightKey}">30</sys:Double>
+                </ScrollViewer.Resources>
+                <StackPanel Name="content" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Margin="20 0 20 0">
                     
                 </StackPanel>
             </ScrollViewer>

@@ -72,31 +72,24 @@ namespace FB_Kinect_Painter.application.code.windows {
             foreach(string file in files) {
                 KinectTileButton fb = new KinectTileButton();
                 StackPanel sp = new StackPanel();
-                //sp.Width = contentFileButtonSize[1] * 0.90;
-                //sp.Height = contentFileButtonSize[0] * 0.90;
+                string filebmp = file.Replace(".fbkp", "");
+                BitmapImage image = new BitmapImage(new Uri("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp));
+                Image img = new Image();
+
                 sp.HorizontalAlignment = HorizontalAlignment.Center;
                 sp.VerticalAlignment = VerticalAlignment.Center;
+                sp.Children.Add(img);
 
-
-                string filebmp = file.Replace(".fbkp", "");
-
-                BitmapImage image = new BitmapImage(new Uri("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp));
-
-                
-
-                fb.Width = contentFileButtonSize[0];
-                fb.Height = contentFileButtonSize[1];
-
-                Image img = new Image();
                 img.Source = image;
                 img.Width = contentFileButtonSize[0] * 0.90;
                 img.Height = contentFileButtonSize[1] * 0.90;
 
-                sp.Children.Add(img);
-
+                fb.Width = contentFileButtonSize[0];
+                fb.Height = contentFileButtonSize[1];
                 fb.Content = sp;
                 fb.Click += eh;
                 fb.Click += OnClickFileButton;
+
                 content.Children.Add(fb);
             }
         }
