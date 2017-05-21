@@ -45,7 +45,12 @@
                     </k:KinectTileButton.Effect>
                     <StackPanel>
                         <Image Name="sprayButtonIcon" Source="/application/graphics/buttons/sprayIcon.png"/>
-                        <TextBlock Name="sprayButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Spray</TextBlock>
+                        <TextBlock Name="sprayButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">
+                            Spray
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
                 <k:KinectTileButton Name="pencilButton" Click="OnClickPencilButton" Grid.Row="1" Grid.Column="1" Foreground="White">
@@ -54,7 +59,12 @@
                     </k:KinectTileButton.Effect>
                     <StackPanel>
                         <Image Name="pencilButtonIcon" Source="/application/graphics/buttons/pencilIcon.png"/>
-                        <TextBlock Name="pencilButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Ołówek</TextBlock>
+                        <TextBlock Name="pencilButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">
+                            Ołówek
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
                 <k:KinectTileButton Name="eraserButton" Click="OnClickEraserButton" Grid.Row="2" Grid.Column="0" Foreground="White">
@@ -63,7 +73,12 @@
                     </k:KinectTileButton.Effect>
                     <StackPanel>
                         <Image Name="eraserButtonIcon" Source="/application/graphics/buttons/eraserIcon.png"/>
-                        <TextBlock Name="eraserButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Gumka</TextBlock>
+                        <TextBlock Name="eraserButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">
+                            Gumka
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
                 <k:KinectTileButton Name="brushButton" Click="OnClickBrushButton" Grid.Row="2" Grid.Column="1" Foreground="White">
@@ -72,7 +87,12 @@
                     </k:KinectTileButton.Effect>
                     <StackPanel>
                         <Image Name="brushButtonIcon" Style="{StaticResource FBFont}" Source="/application/graphics/buttons/brushIcon.png"/>
-                        <TextBlock Name="brushButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Pędzel</TextBlock>
+                        <TextBlock Name="brushButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">
+                            Pędzel
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
                 <k:KinectTileButton Name="selectButton" Click="OnClickSelectButton" Grid.Row="3" Grid.Column="0" Foreground="White">
@@ -81,7 +101,12 @@
                     </k:KinectTileButton.Effect>
                     <StackPanel>
                         <Image Name="selectButtonIcon" Source="/application/graphics/buttons/selectIcon.png"/>
-                        <TextBlock Name="selectButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Zaznacz</TextBlock>
+                        <TextBlock Name="selectButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">
+                            Zaznacz
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
             </Grid>
@@ -178,7 +203,12 @@
                     </k:KinectTileButton.Effect>
                     <StackPanel>
                         <Image Name="newButtonIcon" Source="/application/graphics/buttons/newIcon.png"/>
-                        <TextBlock Name="newButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Nowy</TextBlock>
+                        <TextBlock Name="newButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">
+                            Nowy
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
                 <k:KinectTileButton Name="saveButton" Click="OnClickSaveButton" Grid.Row="2" Grid.Column="0" Foreground="White">
@@ -187,7 +217,12 @@
                     </k:KinectTileButton.Effect>
                     <StackPanel>
                         <Image Name="saveButtonIcon" Source="/application/graphics/buttons/saveIcon.png"/>
-                        <TextBlock Name="saveButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Zapisz</TextBlock>
+                        <TextBlock Name="saveButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">
+                            Zapisz
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
                 <k:KinectTileButton Name="loadButton" Click="OnClickLoadButton" Grid.Row="3" Grid.Column="0" Foreground="White">
@@ -196,7 +231,12 @@
                     </k:KinectTileButton.Effect>
                     <StackPanel>
                         <Image Name="loadButtonIcon" Source="/application/graphics/buttons/loadIcon.png"/>
-                        <TextBlock Name="loadButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Wczytaj</TextBlock>
+                        <TextBlock Name="loadButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">
+                            Wczytaj
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
                 <k:KinectTileButton Name="quitButton" Click="OnClickQuitButton" Grid.Row="4" Grid.Column="0" Foreground="White">
@@ -205,7 +245,12 @@
                     </k:KinectTileButton.Effect>
                     <StackPanel>
                         <Image Name="quitButtonIcon" Source="/application/graphics/buttons/exitIcon.png"/>
-                        <TextBlock Name="quitButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">Wyjdź</TextBlock>
+                        <TextBlock Name="quitButtonText" Style="{StaticResource FBFont}" HorizontalAlignment="Center">
+                            Wyjdź
+                            <TextBlock.Effect>
+                                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
             </Grid>

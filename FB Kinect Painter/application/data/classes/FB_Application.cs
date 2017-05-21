@@ -25,7 +25,7 @@ namespace FB_Kinect_Painter.application.data.classes {
         public static FontFamily appFont = new FontFamily(new Uri("pack://application:,,,/"), "./application/graphics/fonts/#Capture it");
         public static SolidColorBrush appFontColor = Brushes.White;
         // Button
-        public static SolidColorBrush appButtonColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#000000"));
+        public static SolidColorBrush appButtonColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#52318F"));
         // Windows
         public static MainWindow mw;
     
