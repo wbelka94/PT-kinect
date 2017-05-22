@@ -198,6 +198,34 @@
   <ItemGroup>
     <Resource Include="application\graphics\fonts\license\license1.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="application\graphics\cursors\leftBrushCursor.cur" />
+    <Resource Include="application\graphics\cursors\leftEraserCursor.cur" />
+    <Resource Include="application\graphics\cursors\leftHandClick.cur" />
+    <Resource Include="application\graphics\cursors\leftHandCursor.cur" />
+    <Resource Include="application\graphics\cursors\leftPencilCursor.cur" />
+    <Resource Include="application\graphics\cursors\leftSprayCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightBrushCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightEraserCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightHandClick.cur" />
+    <Resource Include="application\graphics\cursors\rightHandCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightPencilCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightSprayCursor.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="application\graphics\cursors\cursorsPng\leftBrushCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftEraserCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftHandClick.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftHandCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftPencilCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftSprayCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightBrushCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightEraserCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightHandClick.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightHandCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightPencilCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightSprayCursor.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

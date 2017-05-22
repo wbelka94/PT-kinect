@@ -131,6 +131,8 @@ namespace FB_Kinect_Painter {
             this.INK.Margin = new Thickness(0.02 * FB_Application.screenHeight, 0.02 * FB_Application.screenHeight, 
                                                   0.02 * FB_Application.screenHeight, 0);
 
+            this.INK.UseCustomCursor = true;
+
             this.palleteColors.Width = palleteColorsSize[0];
             this.palleteColors.Height = palleteColorsSize[1];
             CustomizePalleteColors();

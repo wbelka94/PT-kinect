@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:FB_Kinect_Painter.application.data.windows"
         mc:Ignorable="d"
         Height="240" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
-    <Grid Background="#2D2D30">
+    <Grid Background="#2D2D30" Cursor="/application/graphics/cursors/rightHandCursor.cur">
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="180"/>

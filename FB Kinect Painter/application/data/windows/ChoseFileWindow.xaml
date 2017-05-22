@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:FB_Kinect_Painter.application.code.windows"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Background="#510E78" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        Background="#510E78" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Cursor="/application/graphics/cursors/rightHandCursor.cur">
     <Grid Background="#2D2D30">
         <Grid Name="header" HorizontalAlignment="Center" VerticalAlignment="Top">
             <TextBlock Name="headerText" Foreground="White" Style="{StaticResource FBFont}" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -23,11 +23,10 @@
                     <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarHeightKey}">30</sys:Double>
                 </ScrollViewer.Resources>
                 <StackPanel Name="content" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Margin="20 0 20 0">
-                    
+
                 </StackPanel>
             </ScrollViewer>
         </Grid>
-
         <Grid Name="footer" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <k:KinectTileButton Name="backButton" Style="{StaticResource FBFont}" Foreground="#FFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" Click="OnClickBackButton">
                 Powrót

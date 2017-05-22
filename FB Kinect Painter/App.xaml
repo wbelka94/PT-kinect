@@ -6,6 +6,6 @@
     <Application.Resources>
         <Style x:Key="FBFont">
             <Setter Property="TextElement.FontFamily" Value="pack://application:,,,/application/graphics/fonts/#Capture it"/>
-        </Style> 
+        </Style>
     </Application.Resources>
 </Application>
