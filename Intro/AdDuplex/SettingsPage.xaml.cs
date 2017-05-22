@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -24,19 +25,29 @@ namespace AdDuplex {
             this.InitializeComponent();
             var _enumval = Enum.GetValues(typeof(HandComboBoxValues)).Cast<HandComboBoxValues>();
             HandChooser.ItemsSource = _enumval.ToList();
-            HandChooser.SelectedIndex = 1;
+            loadFromFile();
+            
+        }
+
+        async public void loadFromFile() {
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile sampleFile = await storageFolder.GetFileAsync("settings.conf");
+            IList<string> line = await Windows.Storage.FileIO.ReadLinesAsync(sampleFile);
+            if (line.First() == "Prawa")
+                HandChooser.SelectedIndex = 1;
+            else {
+                HandChooser.SelectedIndex = 0;
+            }
+            tb.Text = line.Last();
         }
 
         void onClickBackButton(object sender, RoutedEventArgs e) {
             this.Frame.Navigate(typeof(MainPage), null);
         }
 
-        async void onClickSaveButton(object sender, RoutedEventArgs e) {
-            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            Windows.Storage.StorageFile sampleFile = await storageFolder.CreateFileAsync("settings.conf", Windows.Storage.CreationCollisionOption.OpenIfExists);
-            await Windows.Storage.FileIO.WriteTextAsync(sampleFile, HandChooser.SelectedValue.ToString()+"\n"
-                                                                    + tb.Text+"\n");
-            tb.Text = sampleFile.Path.ToString();
+        void onClickSaveButton(object sender, RoutedEventArgs e) {
+            Settings settings = new Settings(HandChooser.SelectedValue.ToString(), tb.Text);
+            settings.saveToFile();     
         }
 
         async void onClickBrowseButton(object sender, RoutedEventArgs e) {

@@ -9,7 +9,7 @@
     xmlns:adduplex="using:AdDuplex">
 
     <Grid>
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Height="600">
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="600" Height="600">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -18,20 +18,21 @@
             <Button Content="Powrót" Click="onClickBackButton" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0"/>
             <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
+                    <ColumnDefinition Width="250"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Główna ręka: " Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-                <ComboBox  Name="HandChooser" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center"></ComboBox>
-                <TextBlock Text="Katalog zapisu obrazów:" Margin="0 0 10 0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"></TextBlock>
-                <Button Content="Przeglądaj" Click="onClickBrowseButton"></Button>
-                <TextBox Name="tb" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Width="250"></TextBox>
+                <TextBlock Text="Główna ręka: " Grid.Row="0" Grid.Column="0" VerticalAlignment="Bottom"></TextBlock>
+                <ComboBox  Name="HandChooser" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom"></ComboBox>
+                <TextBlock Text="Katalog zapisu obrazów:" Margin="0 0 10 0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom"></TextBlock>                
+                <TextBox Name="tb" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Width="250"></TextBox>
+                <Button Content="Przeglądaj" Click="onClickBrowseButton" VerticalAlignment="Bottom" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="2"></Button>
             </Grid>            
-            <Button Content="Zapisz" Margin="10" Click="onClickSaveButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2"/>
+            <Button Content="Zapisz" Margin="0 75" Click="onClickSaveButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="2"/>
         </Grid>
         <Grid Background="Transparent" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <adduplex:AdControl Width="500" Height="500" AdUnitId="205883" AppKey="e5a449ba-ddc8-489a-9307-fa53c0b02d0b" />
