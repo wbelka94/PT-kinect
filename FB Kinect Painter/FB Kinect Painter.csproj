@@ -121,9 +121,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="application\data\windows\SaveWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="application\data\classes\AutoClosingMessageBox.cs" />
     <Compile Include="application\data\classes\FB_Application.cs" />
     <Compile Include="application\data\classes\FB_Kinect.cs" />
     <Compile Include="application\data\classes\Painting_Tool.cs" />
@@ -138,6 +141,9 @@
     <Compile Include="application\data\windows\ExitWindow.xaml.cs" />
     <Compile Include="application\data\windows\Intro.xaml.cs" />
     <Compile Include="application\data\windows\MainWindow.xaml.cs" />
+    <Compile Include="application\data\windows\SaveWindow.xaml.cs">
+      <DependentUpon>SaveWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -191,6 +197,34 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="application\graphics\fonts\license\license1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="application\graphics\cursors\leftBrushCursor.cur" />
+    <Resource Include="application\graphics\cursors\leftEraserCursor.cur" />
+    <Resource Include="application\graphics\cursors\leftHandClick.cur" />
+    <Resource Include="application\graphics\cursors\leftHandCursor.cur" />
+    <Resource Include="application\graphics\cursors\leftPencilCursor.cur" />
+    <Resource Include="application\graphics\cursors\leftSprayCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightBrushCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightEraserCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightHandClick.cur" />
+    <Resource Include="application\graphics\cursors\rightHandCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightPencilCursor.cur" />
+    <Resource Include="application\graphics\cursors\rightSprayCursor.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="application\graphics\cursors\cursorsPng\leftBrushCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftEraserCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftHandClick.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftHandCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftPencilCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\leftSprayCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightBrushCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightEraserCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightHandClick.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightHandCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightPencilCursor.png" />
+    <Resource Include="application\graphics\cursors\cursorsPng\rightSprayCursor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

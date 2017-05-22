@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.IO;
 
 namespace FB_Kinect_Painter.application.data.classes {
     public static class FB_Application {
@@ -12,9 +21,14 @@ namespace FB_Kinect_Painter.application.data.classes {
         // User Screen Resolution
         public static int screenHeight = GetScreenHeight();
         public static int screenWidth = GetScreenWidth();
-
+        // Font 
+        public static FontFamily appFont = new FontFamily(new Uri("pack://application:,,,/"), "./application/graphics/fonts/#Capture it");
+        public static SolidColorBrush appFontColor = Brushes.White;
+        // Button
+        public static SolidColorBrush appButtonColor = (SolidColorBrush)(new BrushConverter().ConvertFrom("#52318F"));
+        // Windows
         public static MainWindow mw;
-
+    
         public static int GetScreenHeight() {
             return (int)System.Windows.SystemParameters.PrimaryScreenHeight;
         }

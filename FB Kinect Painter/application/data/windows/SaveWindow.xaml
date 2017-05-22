@@ -1,0 +1,27 @@
+﻿<Window x:Class="FB_Kinect_Painter.application.data.windows.SaveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FB_Kinect_Painter.application.data.windows"
+        mc:Ignorable="d"
+        Height="240" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="#2D2D30" Cursor="/application/graphics/cursors/rightHandCursor.cur">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="180"/>
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource FBFont}" Grid.Row="0" Foreground="White" FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+            Obraz został zapisany
+            <Label.Effect>
+                <DropShadowEffect Color="#000000" Direction="201" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+            </Label.Effect>
+        </Label>
+        <k:KinectTileButton Name="closeButton" Content="Zamknij okno" Style="{StaticResource FBFont}" Grid.Row="1" Width="Auto" Height="Auto" Margin="20" Foreground="White" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Click="OnClickCloseButton">
+            <k:KinectTileButton.Effect>
+                <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+            </k:KinectTileButton.Effect>
+        </k:KinectTileButton>
+    </Grid>
+</Window>

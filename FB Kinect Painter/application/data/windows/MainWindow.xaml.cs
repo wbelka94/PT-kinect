@@ -26,6 +26,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Ink;
 using FB_Kinect_Painter.application.code.classes;
+using FB_Kinect_Painter.application.windows;
 
 namespace FB_Kinect_Painter {
     public partial class MainWindow : Window {
@@ -79,9 +80,6 @@ namespace FB_Kinect_Painter {
         private static double headerTextSize = headerSize[1];
         private static double footerTextSize = footerSize[1] * 0.40;
 
-        // Text Color
-        private static SolidColorBrush textColor = Brushes.White;
-
         public WorkSheet workSheet;
         /**********************************************************************************************************************/
         private void VisualMainWindow() {
@@ -133,6 +131,8 @@ namespace FB_Kinect_Painter {
             this.INK.Margin = new Thickness(0.02 * FB_Application.screenHeight, 0.02 * FB_Application.screenHeight, 
                                                   0.02 * FB_Application.screenHeight, 0);
 
+            this.INK.UseCustomCursor = true;
+
             this.palleteColors.Width = palleteColorsSize[0];
             this.palleteColors.Height = palleteColorsSize[1];
             CustomizePalleteColors();
@@ -140,12 +140,12 @@ namespace FB_Kinect_Painter {
 
         private void CustomizeHeader() {
             this.headerText.FontSize = headerTextSize;
-            this.headerText.Foreground = textColor;
+            this.headerText.Foreground = FB_Application.appFontColor;
         }
 
         private void CustomizeFooter() {
             this.footerText.FontSize = footerTextSize;
-            this.footerText.Foreground = textColor;
+            this.footerText.Foreground = FB_Application.appFontColor;
         }
 
         private void CustomizeLeftBar() {
@@ -154,7 +154,7 @@ namespace FB_Kinect_Painter {
             TextBlock[] leftBarButtonsText = { this.sprayButtonText, this.pencilButtonText, this.eraserButtonText, this.brushButtonText, this.selectButtonText };
 
             this.leftBarText.FontSize = leftBarTextSize;
-            this.leftBarText.Foreground = textColor;
+            this.leftBarText.Foreground = FB_Application.appFontColor;
 
             for (int i = 0; i < this.leftBar.RowDefinitions.Count; i++) {
                 if(i == 0) 
@@ -166,6 +166,7 @@ namespace FB_Kinect_Painter {
             for (int i = 0; i < leftBarButtons.Length; i++) {
                 leftBarButtons[i].Width = leftButtonSize;
                 leftBarButtons[i].Height = leftButtonSize;
+                leftBarButtons[i].Background = FB_Application.appButtonColor;
                 leftBarButtonsImage[i].Height = buttonImageSize;
                 leftBarButtonsImage[i].Width = buttonImageSize;
                 leftBarButtonsText[i].FontSize = buttonTextSize;
@@ -176,9 +177,9 @@ namespace FB_Kinect_Painter {
             KinectTileButton[] toolOptionButtons = { this.moreThicknessButton, this.lessThicknessButton };
 
             this.toolOptionText.FontSize = toolOptionTextSize;
-            this.toolOptionText.Foreground = textColor;
+            this.toolOptionText.Foreground = FB_Application.appFontColor;
             this.thicknessValue.FontSize = toolOptionTextSize * 2.5;
-            this.thicknessValue.Foreground = textColor;
+            this.thicknessValue.Foreground = FB_Application.appFontColor;
 
             for (int i = 0; i < this.toolOption.RowDefinitions.Count; i++) {
 
@@ -193,12 +194,13 @@ namespace FB_Kinect_Painter {
             for(int i = 0; i < toolOptionButtons.Length; i++) {
                 toolOptionButtons[i].Width = palleteButtonSize * 0.75;
                 toolOptionButtons[i].Height = palleteButtonSize * 0.75;
+                toolOptionButtons[i].Background = FB_Application.appButtonColor;
             }
         }
 
         private void CustomizeActiveTools() {
             this.activeToolsText.FontSize = toolOptionTextSize;
-            this.activeToolsText.Foreground = textColor;
+            this.activeToolsText.Foreground = FB_Application.appFontColor;
 
             this.activeTool.Width = palleteButtonSize * 0.75;
             this.activeTool.Height = palleteButtonSize * 0.75;
@@ -236,7 +238,7 @@ namespace FB_Kinect_Painter {
             TextBlock[] rightBarButtonsText = { this.newButtonText, this.saveButtonText, this.loadButtonText, this.quitButtonText };
 
             this.rightBarText.FontSize = leftBarTextSize;
-            this.rightBarText.Foreground = textColor;
+            this.rightBarText.Foreground = FB_Application.appFontColor;
 
             for (int i = 0; i < this.rightBar.RowDefinitions.Count; i++) {
                 if (i == 0)
@@ -248,6 +250,7 @@ namespace FB_Kinect_Painter {
             for (int i = 0; i < rightBarButtons.Length; i++) {
                 rightBarButtons[i].Width = rightButtonSize;
                 rightBarButtons[i].Height = rightButtonSize;
+                rightBarButtons[i].Background = FB_Application.appButtonColor;
                 rightBarButtonsImage[i].Width = buttonImageSize;
                 rightBarButtonsImage[i].Height = buttonImageSize;
                 rightBarButtonsText[i].FontSize = buttonTextSize;
@@ -256,7 +259,7 @@ namespace FB_Kinect_Painter {
 
         private void CustomizeCameraView() {
             this.cameraViewText.FontSize = toolOptionTextSize;
-            this.cameraViewText.Foreground = textColor;
+            this.cameraViewText.Foreground = FB_Application.appFontColor;
         }
 
         /*****************************************************************************/
@@ -329,10 +332,6 @@ namespace FB_Kinect_Painter {
             thicknessValue.Text = workSheet.activePaintingTool.IncrementSize().ToString();
         }
         /*****************************************************************************/
-        
-
-
-
         public MainWindow() {
             InitializeComponent();
             VisualMainWindow();
