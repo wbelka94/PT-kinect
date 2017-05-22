@@ -69,42 +69,53 @@ namespace FB_Kinect_Painter.application.code.windows {
         }
 
         private void DisplayFiles() {
-            foreach(string file in files) {
-                KinectTileButton fb = new KinectTileButton();
-                StackPanel sp = new StackPanel();
-                string filebmp = file.Replace(".fbkp", "");
-                Boolean fileExists = System.IO.File.Exists("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp);
+            if(files.Length > 0) { 
+                foreach(string file in files) {
+                    KinectTileButton fb = new KinectTileButton();
+                    StackPanel sp = new StackPanel();
+                    string filebmp = file.Replace(".fbkp", "");
+                    Boolean fileExists = System.IO.File.Exists("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp);
                 
-                sp.HorizontalAlignment = HorizontalAlignment.Center;
-                sp.VerticalAlignment = VerticalAlignment.Center;
+                    sp.HorizontalAlignment = HorizontalAlignment.Center;
+                    sp.VerticalAlignment = VerticalAlignment.Center;
 
-                if (fileExists == true) {
-                    BitmapImage image = new BitmapImage(new Uri("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp));
-                    Image img = new Image();
+                    if (fileExists == true) {
+                        BitmapImage image = new BitmapImage(new Uri("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp));
+                        Image img = new Image();
                    
-                    img.Source = image;
-                    img.Width = contentFileButtonSize[0] * 0.90;
-                    img.Height = contentFileButtonSize[1] * 0.90;
-                    img.HorizontalAlignment = HorizontalAlignment.Center;
-                    img.VerticalAlignment = VerticalAlignment.Top;
+                        img.Source = image;
+                        img.Width = contentFileButtonSize[0] * 0.90;
+                        img.Height = contentFileButtonSize[1] * 0.90;
+                        img.HorizontalAlignment = HorizontalAlignment.Center;
+                        img.VerticalAlignment = VerticalAlignment.Top;
 
-                    sp.Children.Add(img);
-                } else {
-                    TextBlock tb = new TextBlock();
-                    tb.Text = "Brak podglądu";
-                    tb.FontFamily = FB_Application.appFont;
-                    tb.Foreground = FB_Application.appFontColor;
-                    sp.Children.Add(tb);
+                        sp.Children.Add(img);
+                    } else {
+                        TextBlock tb = new TextBlock();
+                        tb.Text = "Brak podglądu";
+                        tb.FontFamily = FB_Application.appFont;
+                        tb.Foreground = FB_Application.appFontColor;
+                        sp.Children.Add(tb);
+                    }
+
+                    fb.Width = contentFileButtonSize[0];
+                    fb.Height = contentFileButtonSize[1];
+                    fb.Background = FB_Application.appButtonColor;
+                    backButton.Background = FB_Application.appButtonColor;
+                    fb.Content = sp;
+                    fb.Click += eh;
+                    fb.Click += OnClickFileButton;
+                    content.Children.Add(fb);
                 }
-
-                fb.Width = contentFileButtonSize[0];
-                fb.Height = contentFileButtonSize[1];
-                fb.Background = FB_Application.appButtonColor;
-                backButton.Background = FB_Application.appButtonColor;
-                fb.Content = sp;
-                fb.Click += eh;
-                fb.Click += OnClickFileButton;
-                content.Children.Add(fb);
+            } else {
+                TextBlock tb = new TextBlock();
+                tb.Text = "Brak obrazów do wczytania";
+                tb.FontSize = (headerSize[0] / headerSize[1]) * 10;
+                tb.FontFamily = FB_Application.appFont;
+                tb.Foreground = FB_Application.appFontColor;
+                tb.HorizontalAlignment = HorizontalAlignment.Center;
+                tb.VerticalAlignment = VerticalAlignment.Center;
+                content.Children.Add(tb);
             }
         }
 

@@ -22,7 +22,7 @@
                 <ScrollViewer.Resources>
                     <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarHeightKey}">30</sys:Double>
                 </ScrollViewer.Resources>
-                <StackPanel Name="content" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Width="Auto" Margin="20 0 20 0">
+                <StackPanel Name="content" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Margin="20 0 20 0">
                     
                 </StackPanel>
             </ScrollViewer>
