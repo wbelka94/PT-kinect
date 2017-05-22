@@ -37,12 +37,14 @@ namespace FB_Kinect_Painter.application.code.windows {
 
         /**********************************************************************************************************************/
         string[] files;
+        string path;
         RoutedEventHandler eh;
-        public ChoseFileWindow(/*string[] files,*/ RoutedEventHandler eh) {
+        public ChoseFileWindow(string path, RoutedEventHandler eh) {
             InitializeComponent();
             this.eh = eh;
+            this.path = path;
             try {
-                this.files = Directory.GetFiles("saved_pictures", "*.fbkp");
+                this.files = Directory.GetFiles(this.path, "*.fbkp");
             } catch (Exception e) {
                 //title.Content = e.ToString();
             }
@@ -74,13 +76,13 @@ namespace FB_Kinect_Painter.application.code.windows {
                     KinectTileButton fb = new KinectTileButton();
                     StackPanel sp = new StackPanel();
                     string filebmp = file.Replace(".fbkp", "");
-                    Boolean fileExists = System.IO.File.Exists("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp);
+                    Boolean fileExists = System.IO.File.Exists(filebmp);
                 
                     sp.HorizontalAlignment = HorizontalAlignment.Center;
                     sp.VerticalAlignment = VerticalAlignment.Center;
 
                     if (fileExists == true) {
-                        BitmapImage image = new BitmapImage(new Uri("C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\" + filebmp));
+                        BitmapImage image = new BitmapImage(new Uri(filebmp));
                         Image img = new Image();
                    
                         img.Source = image;

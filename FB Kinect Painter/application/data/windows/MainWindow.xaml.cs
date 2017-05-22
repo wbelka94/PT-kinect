@@ -278,7 +278,7 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         private void OnClickLoadButton(object sender, RoutedEventArgs routedEventArgs) {
-            Window w = new ChoseFileWindow(workSheet.ReadFormFile);
+            Window w = new ChoseFileWindow(Settings.path,workSheet.ReadFormFile);
             /*var fs = new FileStream("saved_pictures/FB_Kinect_Painter_6.bmp.fbkp", FileMode.Open, FileAccess.Read);
             StrokeCollection strokes = new StrokeCollection(fs);
             INK.Strokes = strokes;*/
