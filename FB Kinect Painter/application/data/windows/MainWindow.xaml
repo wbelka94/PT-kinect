@@ -164,12 +164,12 @@
                 </TextBlock>
                 
                 <k:KinectTileButton Name="activeTool" Grid.Row="1" Grid.Column="0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" IsEnabled="False">
-                    +
+                    <Image Name="activeToolImage" Source="/application/graphics/cursors/rightPencilCursor.cur"></Image>
                     <k:KinectTileButton.Effect>
                         <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
                     </k:KinectTileButton.Effect>
                 </k:KinectTileButton>
-                <k:KinectTileButton Name="activeColor" Background="Brown" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="False">
+                <k:KinectTileButton Name="activeColor" Background="Black" Grid.Row="2" Grid.Column="1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" IsEnabled="False">
                     <k:KinectTileButton.Effect>
                         <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
                     </k:KinectTileButton.Effect>

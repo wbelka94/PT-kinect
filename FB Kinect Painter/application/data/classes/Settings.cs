@@ -12,7 +12,8 @@ namespace FB_Kinect_Painter.application.data.classes {
             primaryHeand = "Prawa";
         public static void LoadSettings() {
             try {
-                using (StreamReader sr = new StreamReader("C:\\Users\\Wojtek\\AppData\\Local\\Packages\\122490a7-91ea-401c-8149-57d942987d02_5rymg8rs03t1m\\LocalState\\settings.conf")) {
+                string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\')[1];
+                using (StreamReader sr = new StreamReader("C:\\Users\\"+userName+"\\AppData\\Local\\Packages\\122490a7-91ea-401c-8149-57d942987d02_5rymg8rs03t1m\\LocalState\\settings.conf")) {
                     String tmp = sr.ReadLine();
                     if (tmp.Equals("Lewa"))
                         primaryHeand = tmp;

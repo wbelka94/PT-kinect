@@ -12,6 +12,7 @@ using System.Windows.Ink;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using FB_Kinect_Painter.application.data.windows;
+using FB_Kinect_Painter;
 
 namespace FB_Kinect_Painter.application.code.classes {
     public class WorkSheet {
@@ -29,11 +30,11 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             /*************************************init painting tools***********************************/
             tools = new Painting_Tool[5]
-                { new Painting_Tool(INK, InkCanvasEditingMode.Ink, "Brush", "Brush", 6),
-                    new Painting_Tool(INK, InkCanvasEditingMode.InkAndGesture, "Pencil", "Pencil", 1),
-                    new Painting_Tool(INK, InkCanvasEditingMode.EraseByPoint, "Eraser", "Eraser", 6),
-                    new Spray(INK, InkCanvasEditingMode.Ink, "Spray", "Spray", 20),
-                    new Painting_Tool(INK, InkCanvasEditingMode.Select, "Select", "Select", 20),
+                { new Painting_Tool(INK, InkCanvasEditingMode.Ink, "Brush", "/cursors/rightBrushCursor.cur", 6),
+                    new Painting_Tool(INK, InkCanvasEditingMode.InkAndGesture, "Pencil", "/cursors/rightPencilCursor.cur", 1),
+                    new Painting_Tool(INK, InkCanvasEditingMode.EraseByPoint, "Eraser", "/cursors/rightEraserCursor.cur", 6),
+                    new Spray(INK, InkCanvasEditingMode.Ink, "Spray", "/cursors/rightSprayCursor.cur", 20),
+                    new Painting_Tool(INK, InkCanvasEditingMode.Select, "Select", "/cursors/rightHandCursor.cur", 20),
                 };
 
             //default pencil

@@ -296,26 +296,31 @@ namespace FB_Kinect_Painter {
         private void OnClickEraserButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Eraser");
             thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
+            activeToolImage.Source = workSheet.activePaintingTool.GetImage();
         }
         /*****************************************************************************/
         private void OnClickPencilButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Pencil");
             thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
+            activeToolImage.Source = workSheet.activePaintingTool.GetImage();
         }
         /*****************************************************************************/
         private void OnClickSelectButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Select");
             thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
+            activeToolImage.Source = workSheet.activePaintingTool.GetImage();
         }
         /*****************************************************************************/
         private void OnClickBrushButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Brush");
             thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
+            activeToolImage.Source = workSheet.activePaintingTool.GetImage();
         }
         /*****************************************************************************/
         private void OnClickSprayButton(object sender, RoutedEventArgs routedEventArgs) {
             workSheet.SetPaintingTool("Spray");
             thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
+            activeToolImage.Source = workSheet.activePaintingTool.GetImage();
         }
         /*****************************************************************************/
         private void changeColor(object sender, RoutedEventArgs routedEventArgs) {

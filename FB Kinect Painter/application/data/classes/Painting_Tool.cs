@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using FB_Kinect_Painter;
+using System.Windows.Media.Imaging;
 
 namespace FB_Kinect_Painter.application.data.classes {
     public class Painting_Tool {
@@ -12,15 +14,17 @@ namespace FB_Kinect_Painter.application.data.classes {
         private InkCanvas INK;
         private InkCanvasEditingMode editingMode;
         private int Size;
-        public Painting_Tool(InkCanvas INK, InkCanvasEditingMode editingMode, String name, String cursor, int defaultSize) {
+        private string cursor;
+        public Painting_Tool(InkCanvas INK, InkCanvasEditingMode editingMode, String name, string cursor, int defaultSize) {
             this.name = name;
             this.INK = INK;
             this.editingMode = editingMode;
             this.Size = defaultSize;
+            this.cursor = cursor;
         }
 
         public void SetActive() {
-
+            this.INK.Cursor = new System.Windows.Input.Cursor(System.Windows.Forms.Application.StartupPath + cursor);
             this.INK.EditingMode = this.editingMode;
             if (name.Equals("Spray")) {
                 this.INK.DefaultDrawingAttributes.Width = 1;
@@ -60,6 +64,12 @@ namespace FB_Kinect_Painter.application.data.classes {
 
         public int GetSize() {
             return Size;
+        }
+
+        public BitmapImage GetImage() {
+            string cursor = this.cursor.Substring(0, this.cursor.Length - 3) + "bmp";
+            BitmapImage image = new BitmapImage(new Uri(System.Windows.Forms.Application.StartupPath+cursor));
+            return image;
         }
 
         public virtual void Paint(double x, double y) {
