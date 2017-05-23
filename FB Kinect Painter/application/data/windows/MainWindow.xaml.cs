@@ -345,6 +345,13 @@ namespace FB_Kinect_Painter {
             Settings.LoadSettings();
             workSheet.setPath(Settings.path);
             User.SetJoints(Settings.primaryHeand);
+
+            if(Settings.primaryHeand.Equals("Prawa")) {
+                mainWindow.Cursor = new System.Windows.Input.Cursor(System.Windows.Forms.Application.StartupPath + "/cursors/rightHandCursor.cur");
+            } else {
+                mainWindow.Cursor = new System.Windows.Input.Cursor(System.Windows.Forms.Application.StartupPath + "/cursors/leftHandCursor.cur");
+            }
+
             FB_Application.mw = this;
         }
     }

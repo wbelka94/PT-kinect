@@ -68,9 +68,11 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             using (FileStream file = File.Create(fileName)) {
                 encoder.Save(file);
+                file.Close();
             }
             using (FileStream file = File.Create(fileName + ".fbkp")) {
                 INK.Strokes.Save(file);
+                file.Close();
             }
 
             //AutoClosingMessageBox.Show("Zapisano do pliku: " + fileName, "Caption", 2000);
@@ -78,9 +80,10 @@ namespace FB_Kinect_Painter.application.code.classes {
         }
 
         public void ReadFormFile(object Sender, RoutedEventArgs routedEventArgs) {
-            fileName = ((KinectTileButton)Sender).Content.ToString();
+            fileName = ((KinectTileButton)Sender).Tag.ToString();
             var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StrokeCollection strokes = new StrokeCollection(fs);
+            fs.Close();
             INK.Strokes = strokes;
             fileName = fileName.Substring(0, fileName.Length - 5);
         }

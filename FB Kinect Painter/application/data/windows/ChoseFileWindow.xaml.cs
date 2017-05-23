@@ -74,14 +74,16 @@ namespace FB_Kinect_Painter.application.code.windows {
             if(files.Length > 0) { 
                 foreach(string file in files) {
                     KinectTileButton fb = new KinectTileButton();
+                    fb.Tag = file;
                     StackPanel sp = new StackPanel();
                     string filebmp = file.Replace(".fbkp", "");
-                    Boolean fileExists = System.IO.File.Exists(filebmp);
+                    //Boolean fileExists = System.IO.File.Exists(filebmp);
+
                 
                     sp.HorizontalAlignment = HorizontalAlignment.Center;
                     sp.VerticalAlignment = VerticalAlignment.Center;
 
-                    if (fileExists == true) {
+                    if (System.IO.File.Exists(filebmp)) {
                         BitmapImage image = new BitmapImage(new Uri(filebmp));
                         Image img = new Image();
                    
@@ -90,7 +92,6 @@ namespace FB_Kinect_Painter.application.code.windows {
                         img.Height = contentFileButtonSize[1] * 0.90;
                         img.HorizontalAlignment = HorizontalAlignment.Center;
                         img.VerticalAlignment = VerticalAlignment.Top;
-
                         sp.Children.Add(img);
                     } else {
                         TextBlock tb = new TextBlock();
