@@ -20,11 +20,16 @@ namespace FB_Kinect_Painter.application.data.classes {
             this.INK = INK;
             this.editingMode = editingMode;
             this.Size = defaultSize;
-            this.cursor = cursor;
+            if (Settings.primaryHeand.Equals("Prawa")) {
+                this.cursor = "right"+cursor;
+            } else {
+                this.cursor = "left"+cursor;
+            }
+            
         }
 
         public void SetActive() {
-            this.INK.Cursor = new System.Windows.Input.Cursor(System.Windows.Forms.Application.StartupPath + cursor);
+            this.INK.Cursor = new System.Windows.Input.Cursor(System.Windows.Forms.Application.StartupPath + "/cursors/" + cursor);
             this.INK.EditingMode = this.editingMode;
             if (name.Equals("Spray")) {
                 this.INK.DefaultDrawingAttributes.Width = 1;
@@ -68,7 +73,7 @@ namespace FB_Kinect_Painter.application.data.classes {
 
         public BitmapImage GetImage() {
             string cursor = this.cursor.Substring(0, this.cursor.Length - 3) + "bmp";
-            BitmapImage image = new BitmapImage(new Uri(System.Windows.Forms.Application.StartupPath+cursor));
+            BitmapImage image = new BitmapImage(new Uri(System.Windows.Forms.Application.StartupPath+"/cursors/"+cursor));
             return image;
         }
 

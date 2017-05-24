@@ -30,11 +30,11 @@ namespace FB_Kinect_Painter.application.code.classes {
 
             /*************************************init painting tools***********************************/
             tools = new Painting_Tool[5]
-                { new Painting_Tool(INK, InkCanvasEditingMode.Ink, "Brush", "/cursors/rightBrushCursor.cur", 6),
-                    new Painting_Tool(INK, InkCanvasEditingMode.InkAndGesture, "Pencil", "/cursors/rightPencilCursor.cur", 1),
-                    new Painting_Tool(INK, InkCanvasEditingMode.EraseByPoint, "Eraser", "/cursors/rightEraserCursor.cur", 6),
-                    new Spray(INK, InkCanvasEditingMode.Ink, "Spray", "/cursors/rightSprayCursor.cur", 20),
-                    new Painting_Tool(INK, InkCanvasEditingMode.Select, "Select", "/cursors/rightHandCursor.cur", 20),
+                { new Painting_Tool(INK, InkCanvasEditingMode.Ink, "Brush", "BrushCursor.cur", 6),
+                    new Painting_Tool(INK, InkCanvasEditingMode.InkAndGesture, "Pencil", "PencilCursor.cur", 1),
+                    new Painting_Tool(INK, InkCanvasEditingMode.EraseByPoint, "Eraser", "EraserCursor.cur", 6),
+                    new Spray(INK, InkCanvasEditingMode.Ink, "Spray", "SprayCursor.cur", 20),
+                    new Painting_Tool(INK, InkCanvasEditingMode.Select, "Select", "HandCursor.cur", 20),
                 };
 
             //default pencil

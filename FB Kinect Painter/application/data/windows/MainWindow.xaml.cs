@@ -338,11 +338,12 @@ namespace FB_Kinect_Painter {
         }
         /*****************************************************************************/
         public MainWindow() {
+            Settings.LoadSettings();
+
             InitializeComponent();
             VisualMainWindow();
             Loaded += OnLoaded;
-            workSheet = new WorkSheet(INK);
-            Settings.LoadSettings();
+            workSheet = new WorkSheet(INK);            
             workSheet.setPath(Settings.path);
             User.SetJoints(Settings.primaryHeand);
 
