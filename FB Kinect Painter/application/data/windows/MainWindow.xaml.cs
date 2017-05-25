@@ -293,7 +293,7 @@ namespace FB_Kinect_Painter {
             //workSheet.Clear();            
         }
         /*****************************************************************************/
-        private void OnClickEraserButton(object sender, RoutedEventArgs routedEventArgs) {
+        private void OnClickEraserButton(object sender, RoutedEventArgs routedEventArgs) {            
             workSheet.SetPaintingTool("Eraser");
             thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
             activeToolImage.Source = workSheet.activePaintingTool.GetImage();
@@ -321,6 +321,14 @@ namespace FB_Kinect_Painter {
             workSheet.SetPaintingTool("Spray");
             thicknessValue.Text = workSheet.activePaintingTool.GetSize().ToString();
             activeToolImage.Source = workSheet.activePaintingTool.GetImage();
+        }
+        /*****************************************************************************/
+        private void OnClickUndoButton(object sender, RoutedEventArgs routedEventArgs) {
+            workSheet.undoMove();
+        }
+        /*****************************************************************************/
+        private void OnClickRedoButton(object sender, RoutedEventArgs routedEventArgs) {
+            workSheet.redoMove();
         }
         /*****************************************************************************/
         private void changeColor(object sender, RoutedEventArgs routedEventArgs) {

@@ -22,12 +22,13 @@ namespace FB_Kinect_Painter.application.code.classes {
         private InkCanvas INK;
         private String path;
         private Color color;
+        private StrokeCollection urStrokes;
 
         public WorkSheet(InkCanvas INK) {
             this.INK = INK;
             path = "C:\\Users\\Florek\\Source\\Repos\\s\\PT-kinect\\FB Kinect Painter\\bin\\Debug\\saved_pictures";
             fileName = "";
-
+            urStrokes = new StrokeCollection();
             /*************************************init painting tools***********************************/
             tools = new Painting_Tool[5]
                 { new Painting_Tool(INK, InkCanvasEditingMode.Ink, "Brush", "BrushCursor.cur", 6),
@@ -113,6 +114,20 @@ namespace FB_Kinect_Painter.application.code.classes {
 
         public void setPath(String path) {
             this.path = path;
+        }
+
+        public void undoMove() {
+            if (INK.Strokes.Count > 0) {
+                urStrokes.Add(INK.Strokes.Last());
+                INK.Strokes.Remove(INK.Strokes.Last());
+            }
+        }
+
+        public void redoMove() {
+            if (urStrokes.Count > 0) {
+                INK.Strokes.Add(urStrokes.Last());
+                urStrokes.Remove(urStrokes.Last());
+            }
         }
 
     }

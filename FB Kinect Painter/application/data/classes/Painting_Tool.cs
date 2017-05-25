@@ -26,6 +26,8 @@ namespace FB_Kinect_Painter.application.data.classes {
                 this.cursor = "left"+cursor;
             }
             
+            
+            
         }
 
         public void SetActive() {
@@ -35,8 +37,8 @@ namespace FB_Kinect_Painter.application.data.classes {
                 this.INK.DefaultDrawingAttributes.Width = 1;
                 this.INK.DefaultDrawingAttributes.Height = 1;
             } else {
-                this.INK.DefaultDrawingAttributes.Width = this.Size;
-                this.INK.DefaultDrawingAttributes.Height = this.Size;
+                this.INK.DefaultDrawingAttributes.Width = this.Size * 3;
+                this.INK.DefaultDrawingAttributes.Height = this.Size * 3;
             }
         }
 
@@ -93,6 +95,8 @@ namespace FB_Kinect_Painter.application.data.classes {
             }
 
         }
+
+        
 
 
         public const int MOUSEEVENTF_LEFTDOWN = 0x02;

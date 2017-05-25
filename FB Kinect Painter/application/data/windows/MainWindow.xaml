@@ -108,6 +108,20 @@
                         </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
+                <Grid Grid.Row="3" Grid.Column="1" >
+                    <k:KinectTileButton Name="undoButton" Click="OnClickUndoButton"   Width="50" HorizontalAlignment="Left"   Content="undo" Foreground="White">
+                        <k:KinectTileButton.Effect>
+                            <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                        </k:KinectTileButton.Effect>
+                    
+                    </k:KinectTileButton>
+                    <k:KinectTileButton Name="redoButton" Click="OnClickRedoButton"  Width="50"  HorizontalAlignment="Right"   Content="redo" Foreground="White">
+                        <k:KinectTileButton.Effect>
+                            <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                        </k:KinectTileButton.Effect>
+
+                    </k:KinectTileButton>
+                </Grid>
             </Grid>
             <!--************************************************************************-->
             <Grid Name="toolOption">
