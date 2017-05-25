@@ -57,7 +57,7 @@ namespace FB_Kinect_Painter.application.data.classes {
         }
 
         public int IncrementSize() {
-            if (name.Equals("Pencil"))
+            if (name.Equals("Pencil") || Size == 20)
                 return Size;
             Size++;
             SetActive();
