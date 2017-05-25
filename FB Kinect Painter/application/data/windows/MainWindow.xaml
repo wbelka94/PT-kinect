@@ -108,6 +108,28 @@
                         </TextBlock>
                     </StackPanel>
                 </k:KinectTileButton>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <k:KinectTileButton Name="previousStep" Click="OnClickUndoButton" Grid.Row="0">
+                        <k:KinectTileButton.Effect>
+                            <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                        </k:KinectTileButton.Effect>
+                        <StackPanel>
+                            <Image Name="previousStepIcon" Source="/application/graphics/buttons/undoIcon.png"/>
+                        </StackPanel>
+                    </k:KinectTileButton>
+                    <k:KinectTileButton Name="nextStep" Grid.Row="1" Click="OnClickRedoButton">
+                        <k:KinectTileButton.Effect>
+                            <DropShadowEffect Color="#000000" Direction="300" Opacity="0.68" ShadowDepth="5" BlurRadius="6"/>
+                        </k:KinectTileButton.Effect>
+                        <StackPanel>
+                            <Image Name="nextStepIcon" Source="/application/graphics/buttons/redoIcon.png"/>
+                        </StackPanel>
+                    </k:KinectTileButton>
+                </Grid>
             </Grid>
             <!--************************************************************************-->
             <Grid Name="toolOption">
