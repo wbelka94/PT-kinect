@@ -226,6 +226,10 @@
     <Resource Include="application\graphics\cursors\cursorsPng\rightPencilCursor.png" />
     <Resource Include="application\graphics\cursors\cursorsPng\rightSprayCursor.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="application\graphics\buttons\redoIcon.png" />
+    <Resource Include="application\graphics\buttons\undoIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

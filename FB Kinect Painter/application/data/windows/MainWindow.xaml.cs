@@ -171,6 +171,20 @@ namespace FB_Kinect_Painter {
                 leftBarButtonsImage[i].Width = buttonImageSize;
                 leftBarButtonsText[i].FontSize = buttonTextSize;
             }
+
+            previousStep.Height = leftButtonSize / 2;
+            previousStep.Width = leftButtonSize;
+            previousStepIcon.Height = buttonImageSize / 2;
+            previousStepIcon.Width = buttonImageSize;
+            previousStep.FontSize = buttonTextSize;
+            previousStep.Background = FB_Application.appButtonColor;
+
+            nextStep.Height = leftButtonSize / 2;
+            nextStep.Width = leftButtonSize;
+            nextStepIcon.Height = buttonImageSize / 2;
+            nextStepIcon.Width = buttonImageSize;
+            nextStep.FontSize = buttonTextSize;
+            nextStep.Background = FB_Application.appButtonColor;
         }
 
         private void CustomizeToolOption() {
